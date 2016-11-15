@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
-s.version          = "0.0.0.5"
+s.version          = "0.0.0.6"
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
@@ -19,22 +19,6 @@ s.requires_arc = true
 
 #s.source_files = 'ZYKit/Class/*'
 s.source_files  = 'ZYKit/Class/*.{h,m}'
-
-s.subspec 'CacheManager' do |ss|
-ss.source_files = 'ZYKit/Class/CacheManager/*.{h,m}'
-end
-
-s.subspec 'Category' do |ss|
-ss.source_files = 'ZYKit/Class/Category/*.{h,m}'
-end
-
-s.subspec 'Theme' do |ss|
-ss.source_files = 'ZYKit/Class/Theme/*.{h,m}'
-end
-
-s.subspec 'WDAlertView' do |ss|
-ss.source_files = 'ZYKit/Class/WDAlertView/*.{h,m}'
-end
 
 
 # s.resources = 'Assets'
