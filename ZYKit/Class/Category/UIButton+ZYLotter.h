@@ -1,5 +1,5 @@
 //
-//  UIButton+ZYKit.h
+//  UIButton+ZYLotter.h
 //  ZYKit
 //
 //  Created by 何伟东 on 2016/11/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (ZYKit)
+@interface UIButton (ZYLotter)
 
 /**
  *  快捷创建btn
@@ -29,5 +29,6 @@
  *
  */
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
+
 
 @end

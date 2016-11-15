@@ -10,7 +10,7 @@
 #import <WDKit/WDKit.h>
 #import <objc/runtime.h>
 #import <Masonry/Masonry.h>
-#import "UIButton+ZYKit.h"
+#import "UIButton+ZYLotter.h"
 #import "ZYMainTheme.h"
 
 typedef void (^ActionBlock)();

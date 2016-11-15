@@ -1,15 +1,15 @@
 //
-//  UIButton+ZYKit.m
+//  UIButton+ZYLotter.m
 //  ZYKit
 //
 //  Created by 何伟东 on 2016/11/15.
 //  Copyright © 2016年 章鱼彩票. All rights reserved.
 //
 
-#import "UIButton+ZYKit.h"
+#import "UIButton+ZYLotter.h"
 #import <WDKit/WDKit.h>
 
-@implementation UIButton (ZYKit)
+@implementation UIButton (ZYLotter)
 
 + (UIButton *)zy_buttonWithNormalTitle:(NSString *)title selectedTitle:(NSString *)selectedtitle font:(UIFont *)font NormaltitleColor:(UIColor *)color selectedTitleColor:(UIColor *)selectedColor normalImage:(UIImage *)image selectedImage:(UIImage *)selectedImage withBlock:(void(^)(id sender))block{
     UIButton * btn = [[UIButton alloc]init];
@@ -75,7 +75,5 @@
     [self setBackgroundImage:[UIImage imageWithColor:backgroundColor] forState:state];
     
 }
-
-
 
 @end

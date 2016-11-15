@@ -13,7 +13,6 @@
 		B627817A1DD9C13300B3F901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62781781DD9C13300B3F901 /* Main.storyboard */; };
 		B627817C1DD9C13300B3F901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B627817B1DD9C13300B3F901 /* Assets.xcassets */; };
 		B627817F1DD9C13300B3F901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */; };
-		B69EACE81DDAE51800C863FF /* UIButton+ZYKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */; };
 		B69EACE91DDAE51800C863FF /* UIView+ZYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */; };
 		B69EACEA1DDAE51800C863FF /* ZYMainTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE01DDAE51800C863FF /* ZYMainTheme.m */; };
 		B69EACEB1DDAE51800C863FF /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE31DDAE51800C863FF /* WDAlertView.m */; };
@@ -24,6 +23,7 @@
 		B69EACF91DDAE99300C863FF /* UILabel+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACF81DDAE99300C863FF /* UILabel+ZYLotter.m */; };
 		B69EACFC1DDAE9CA00C863FF /* UIImageView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACFB1DDAE9CA00C863FF /* UIImageView+ZYLotter.m */; };
 		B69EACFF1DDAEAD300C863FF /* UIImage+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACFE1DDAEAD300C863FF /* UIImage+ZYLotter.m */; };
+		B69EADDA1DDB0F4D00C863FF /* UIButton+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADD91DDB0F4D00C863FF /* UIButton+ZYLotter.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +40,6 @@
 		B627817B1DD9C13300B3F901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B627817E1DD9C13300B3F901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B62781801DD9C13300B3F901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B69EACD91DDAE51800C863FF /* UIButton+ZYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZYKit.h"; sourceTree = "<group>"; };
-		B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZYKit.m"; sourceTree = "<group>"; };
 		B69EACDC1DDAE51800C863FF /* UIView+ZYEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYEmptyView.h"; sourceTree = "<group>"; };
 		B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYEmptyView.m"; sourceTree = "<group>"; };
 		B69EACDF1DDAE51800C863FF /* ZYMainTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMainTheme.h; sourceTree = "<group>"; };
@@ -63,6 +61,8 @@
 		B69EACFD1DDAEAD300C863FF /* UIImage+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZYLotter.h"; sourceTree = "<group>"; };
 		B69EACFE1DDAEAD300C863FF /* UIImage+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYLotter.m"; sourceTree = "<group>"; };
 		B69EAD001DDAF0E400C863FF /* ZYKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYKit.h; sourceTree = "<group>"; };
+		B69EADD81DDB0F4D00C863FF /* UIButton+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZYLotter.h"; sourceTree = "<group>"; };
+		B69EADD91DDB0F4D00C863FF /* UIButton+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZYLotter.m"; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,8 +169,8 @@
 				B69EACFB1DDAE9CA00C863FF /* UIImageView+ZYLotter.m */,
 				B69EACF41DDAE97F00C863FF /* UIScrollView+ZYLotter.h */,
 				B69EACF51DDAE97F00C863FF /* UIScrollView+ZYLotter.m */,
-				B69EACD91DDAE51800C863FF /* UIButton+ZYKit.h */,
-				B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */,
+				B69EADD81DDB0F4D00C863FF /* UIButton+ZYLotter.h */,
+				B69EADD91DDB0F4D00C863FF /* UIButton+ZYLotter.m */,
 				B69EACF71DDAE99300C863FF /* UILabel+ZYLotter.h */,
 				B69EACF81DDAE99300C863FF /* UILabel+ZYLotter.m */,
 			);
@@ -331,10 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69EACE81DDAE51800C863FF /* UIButton+ZYKit.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
 				B69EACF91DDAE99300C863FF /* UILabel+ZYLotter.m in Sources */,
+				B69EADDA1DDB0F4D00C863FF /* UIButton+ZYLotter.m in Sources */,
 				B69EACFF1DDAEAD300C863FF /* UIImage+ZYLotter.m in Sources */,
 				B69EACF21DDAE52600C863FF /* ZYCacheFileUtils.m in Sources */,
 				B69EACFC1DDAE9CA00C863FF /* UIImageView+ZYLotter.m in Sources */,
