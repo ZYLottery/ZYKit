@@ -13,7 +13,7 @@
 #import "UIImage+ZYLotter.h"
 #import "UIImageView+ZYLotter.h"
 #import "UIScrollView+ZYLotter.h"
-#import "UIButton+ZYKit.h"
+#import "UIButton+ZYLotter.h"
 #import "UILabel+ZYLotter.h"
 #import "UIView+ZYEmptyView.h"
 #import "ZYMainTheme.h"
