@@ -13,6 +13,7 @@
 		B627817A1DD9C13300B3F901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62781781DD9C13300B3F901 /* Main.storyboard */; };
 		B627817C1DD9C13300B3F901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B627817B1DD9C13300B3F901 /* Assets.xcassets */; };
 		B627817F1DD9C13300B3F901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */; };
+		B66F229D1DDB14FC00021305 /* UILabel+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F229C1DDB14FC00021305 /* UILabel+ZYLotter.m */; };
 		B69EACE91DDAE51800C863FF /* UIView+ZYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */; };
 		B69EACEA1DDAE51800C863FF /* ZYMainTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE01DDAE51800C863FF /* ZYMainTheme.m */; };
 		B69EACEB1DDAE51800C863FF /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE31DDAE51800C863FF /* WDAlertView.m */; };
@@ -22,7 +23,6 @@
 		B69EADE61DDB121E00C863FF /* UIButton+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADDD1DDB121E00C863FF /* UIButton+ZYLotter.m */; };
 		B69EADE71DDB121E00C863FF /* UIImage+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADDF1DDB121E00C863FF /* UIImage+ZYLotter.m */; };
 		B69EADE81DDB121E00C863FF /* UIImageView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADE11DDB121E00C863FF /* UIImageView+ZYLotter.m */; };
-		B69EADE91DDB121E00C863FF /* UILabel+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADE31DDB121E00C863FF /* UILabel+ZYLotter.m */; };
 		B69EADEA1DDB121E00C863FF /* UIScrollView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EADE51DDB121E00C863FF /* UIScrollView+ZYLotter.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
@@ -40,6 +40,8 @@
 		B627817B1DD9C13300B3F901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B627817E1DD9C13300B3F901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B62781801DD9C13300B3F901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B66F229B1DDB14FC00021305 /* UILabel+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZYLotter.h"; sourceTree = "<group>"; };
+		B66F229C1DDB14FC00021305 /* UILabel+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZYLotter.m"; sourceTree = "<group>"; };
 		B69EACDC1DDAE51800C863FF /* UIView+ZYEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYEmptyView.h"; sourceTree = "<group>"; };
 		B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYEmptyView.m"; sourceTree = "<group>"; };
 		B69EACDF1DDAE51800C863FF /* ZYMainTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMainTheme.h; sourceTree = "<group>"; };
@@ -59,8 +61,6 @@
 		B69EADDF1DDB121E00C863FF /* UIImage+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYLotter.m"; sourceTree = "<group>"; };
 		B69EADE01DDB121E00C863FF /* UIImageView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZYLotter.h"; sourceTree = "<group>"; };
 		B69EADE11DDB121E00C863FF /* UIImageView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZYLotter.m"; sourceTree = "<group>"; };
-		B69EADE21DDB121E00C863FF /* UILabel+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZYLotter.h"; sourceTree = "<group>"; };
-		B69EADE31DDB121E00C863FF /* UILabel+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZYLotter.m"; sourceTree = "<group>"; };
 		B69EADE41DDB121E00C863FF /* UIScrollView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZYLotter.h"; sourceTree = "<group>"; };
 		B69EADE51DDB121E00C863FF /* UIScrollView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZYLotter.m"; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,10 +200,10 @@
 				B69EADDF1DDB121E00C863FF /* UIImage+ZYLotter.m */,
 				B69EADE01DDB121E00C863FF /* UIImageView+ZYLotter.h */,
 				B69EADE11DDB121E00C863FF /* UIImageView+ZYLotter.m */,
-				B69EADE21DDB121E00C863FF /* UILabel+ZYLotter.h */,
-				B69EADE31DDB121E00C863FF /* UILabel+ZYLotter.m */,
 				B69EADE41DDB121E00C863FF /* UIScrollView+ZYLotter.h */,
 				B69EADE51DDB121E00C863FF /* UIScrollView+ZYLotter.m */,
+				B66F229B1DDB14FC00021305 /* UILabel+ZYLotter.h */,
+				B66F229C1DDB14FC00021305 /* UILabel+ZYLotter.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -331,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69EADE91DDB121E00C863FF /* UILabel+ZYLotter.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B69EADEA1DDB121E00C863FF /* UIScrollView+ZYLotter.m in Sources */,
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
@@ -339,6 +338,7 @@
 				B69EACEA1DDAE51800C863FF /* ZYMainTheme.m in Sources */,
 				B69EADE61DDB121E00C863FF /* UIButton+ZYLotter.m in Sources */,
 				B69EACED1DDAE51800C863FF /* ZYNoticeAlertView.m in Sources */,
+				B66F229D1DDB14FC00021305 /* UILabel+ZYLotter.m in Sources */,
 				B69EACEB1DDAE51800C863FF /* WDAlertView.m in Sources */,
 				B62781711DD9C13300B3F901 /* main.m in Sources */,
 				B69EACEC1DDAE51800C863FF /* ZYCustomAlertView.m in Sources */,
