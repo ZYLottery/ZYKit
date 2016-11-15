@@ -1,0 +1,30 @@
+PODS:
+  - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - SDWebImage (4.0.0-beta2):
+    - SDWebImage/Core (= 4.0.0-beta2)
+  - SDWebImage/Core (4.0.0-beta2)
+  - WDKit (1.0.2.7):
+    - WDKit/Category (= 1.0.2.7)
+    - WDKit/Extension (= 1.0.2.7)
+  - WDKit/Category (1.0.2.7)
+  - WDKit/Extension (1.0.2.7)
+
+DEPENDENCIES:
+  - Masonry (~> 0.6.4)
+  - MBProgressHUD (~> 0.9.2)
+  - MJRefresh (~> 3.1.12)
+  - SDWebImage (~> 4.0.0-beta2)
+  - WDKit (~> 1.0.2.7)
+
+SPEC CHECKSUMS:
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
+  WDKit: a883385301ca38ca83f75b59396b013095b9b6c7
+
+PODFILE CHECKSUM: d7eb5bd2870441a32be54963ced9a07cff8e0f31
+
+COCOAPODS: 1.1.1

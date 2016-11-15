@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B62781711DD9C13300B3F901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781701DD9C13300B3F901 /* main.m */; };
+		B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781731DD9C13300B3F901 /* AppDelegate.m */; };
+		B62781771DD9C13300B3F901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781761DD9C13300B3F901 /* ViewController.m */; };
+		B627817A1DD9C13300B3F901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62781781DD9C13300B3F901 /* Main.storyboard */; };
+		B627817C1DD9C13300B3F901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B627817B1DD9C13300B3F901 /* Assets.xcassets */; };
+		B627817F1DD9C13300B3F901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */; };
+		B69EACE81DDAE51800C863FF /* UIButton+ZYKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */; };
+		B69EACE91DDAE51800C863FF /* UIView+ZYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */; };
+		B69EACEA1DDAE51800C863FF /* ZYMainTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE01DDAE51800C863FF /* ZYMainTheme.m */; };
+		B69EACEB1DDAE51800C863FF /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE31DDAE51800C863FF /* WDAlertView.m */; };
+		B69EACEC1DDAE51800C863FF /* ZYCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE51DDAE51800C863FF /* ZYCustomAlertView.m */; };
+		B69EACED1DDAE51800C863FF /* ZYNoticeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACE71DDAE51800C863FF /* ZYNoticeAlertView.m */; };
+		B69EACF21DDAE52600C863FF /* ZYCacheFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACEF1DDAE52600C863FF /* ZYCacheFileUtils.m */; };
+		B69EACF61DDAE97F00C863FF /* UIScrollView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACF51DDAE97F00C863FF /* UIScrollView+ZYLotter.m */; };
+		B69EACF91DDAE99300C863FF /* UILabel+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACF81DDAE99300C863FF /* UILabel+ZYLotter.m */; };
+		B69EACFC1DDAE9CA00C863FF /* UIImageView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACFB1DDAE9CA00C863FF /* UIImageView+ZYLotter.m */; };
+		B69EACFF1DDAEAD300C863FF /* UIImage+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69EACFE1DDAEAD300C863FF /* UIImage+ZYLotter.m */; };
+		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A13A36B8F49B0719C0B74A30 /* Pods-ZYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.release.xcconfig"; sourceTree = "<group>"; };
+		A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZYKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B627816C1DD9C13300B3F901 /* ZYKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B62781701DD9C13300B3F901 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B62781721DD9C13300B3F901 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B62781731DD9C13300B3F901 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B62781751DD9C13300B3F901 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B62781761DD9C13300B3F901 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B62781791DD9C13300B3F901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B627817B1DD9C13300B3F901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B627817E1DD9C13300B3F901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B62781801DD9C13300B3F901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B69EACD91DDAE51800C863FF /* UIButton+ZYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZYKit.h"; sourceTree = "<group>"; };
+		B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZYKit.m"; sourceTree = "<group>"; };
+		B69EACDC1DDAE51800C863FF /* UIView+ZYEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYEmptyView.h"; sourceTree = "<group>"; };
+		B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYEmptyView.m"; sourceTree = "<group>"; };
+		B69EACDF1DDAE51800C863FF /* ZYMainTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMainTheme.h; sourceTree = "<group>"; };
+		B69EACE01DDAE51800C863FF /* ZYMainTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMainTheme.m; sourceTree = "<group>"; };
+		B69EACE21DDAE51800C863FF /* WDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDAlertView.h; sourceTree = "<group>"; };
+		B69EACE31DDAE51800C863FF /* WDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDAlertView.m; sourceTree = "<group>"; };
+		B69EACE41DDAE51800C863FF /* ZYCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCustomAlertView.h; sourceTree = "<group>"; };
+		B69EACE51DDAE51800C863FF /* ZYCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCustomAlertView.m; sourceTree = "<group>"; };
+		B69EACE61DDAE51800C863FF /* ZYNoticeAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNoticeAlertView.h; sourceTree = "<group>"; };
+		B69EACE71DDAE51800C863FF /* ZYNoticeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNoticeAlertView.m; sourceTree = "<group>"; };
+		B69EACEE1DDAE52600C863FF /* ZYCacheFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCacheFileUtils.h; sourceTree = "<group>"; };
+		B69EACEF1DDAE52600C863FF /* ZYCacheFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCacheFileUtils.m; sourceTree = "<group>"; };
+		B69EACF41DDAE97F00C863FF /* UIScrollView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZYLotter.h"; sourceTree = "<group>"; };
+		B69EACF51DDAE97F00C863FF /* UIScrollView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZYLotter.m"; sourceTree = "<group>"; };
+		B69EACF71DDAE99300C863FF /* UILabel+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZYLotter.h"; sourceTree = "<group>"; };
+		B69EACF81DDAE99300C863FF /* UILabel+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZYLotter.m"; sourceTree = "<group>"; };
+		B69EACFA1DDAE9CA00C863FF /* UIImageView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZYLotter.h"; sourceTree = "<group>"; };
+		B69EACFB1DDAE9CA00C863FF /* UIImageView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZYLotter.m"; sourceTree = "<group>"; };
+		B69EACFD1DDAEAD300C863FF /* UIImage+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZYLotter.h"; sourceTree = "<group>"; };
+		B69EACFE1DDAEAD300C863FF /* UIImage+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYLotter.m"; sourceTree = "<group>"; };
+		B69EAD001DDAF0E400C863FF /* ZYKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYKit.h; sourceTree = "<group>"; };
+		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B62781691DD9C13300B3F901 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F174DE558C7F83DA1AAF601 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC79CF660D5503A672AD5F0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */,
+				A13A36B8F49B0719C0B74A30 /* Pods-ZYKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B62781631DD9C13300B3F901 = {
+			isa = PBXGroup;
+			children = (
+				B627816E1DD9C13300B3F901 /* ZYKit */,
+				B627816D1DD9C13300B3F901 /* Products */,
+				AC79CF660D5503A672AD5F0A /* Pods */,
+				5F174DE558C7F83DA1AAF601 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B627816D1DD9C13300B3F901 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B627816C1DD9C13300B3F901 /* ZYKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B627816E1DD9C13300B3F901 /* ZYKit */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACD61DDAE51800C863FF /* Class */,
+				B62781721DD9C13300B3F901 /* AppDelegate.h */,
+				B62781731DD9C13300B3F901 /* AppDelegate.m */,
+				B62781751DD9C13300B3F901 /* ViewController.h */,
+				B62781761DD9C13300B3F901 /* ViewController.m */,
+				B62781781DD9C13300B3F901 /* Main.storyboard */,
+				B627817B1DD9C13300B3F901 /* Assets.xcassets */,
+				B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */,
+				B62781801DD9C13300B3F901 /* Info.plist */,
+				B627816F1DD9C13300B3F901 /* Supporting Files */,
+			);
+			path = ZYKit;
+			sourceTree = "<group>";
+		};
+		B627816F1DD9C13300B3F901 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B62781701DD9C13300B3F901 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B69EACD61DDAE51800C863FF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACD71DDAE51800C863FF /* CacheManager */,
+				B69EACD81DDAE51800C863FF /* Category */,
+				B69EACDB1DDAE51800C863FF /* EmptyView */,
+				B69EACDE1DDAE51800C863FF /* Theme */,
+				B69EACE11DDAE51800C863FF /* WDAlertView */,
+				B69EAD001DDAF0E400C863FF /* ZYKit.h */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		B69EACD71DDAE51800C863FF /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACEE1DDAE52600C863FF /* ZYCacheFileUtils.h */,
+				B69EACEF1DDAE52600C863FF /* ZYCacheFileUtils.m */,
+			);
+			path = CacheManager;
+			sourceTree = "<group>";
+		};
+		B69EACD81DDAE51800C863FF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACFD1DDAEAD300C863FF /* UIImage+ZYLotter.h */,
+				B69EACFE1DDAEAD300C863FF /* UIImage+ZYLotter.m */,
+				B69EACFA1DDAE9CA00C863FF /* UIImageView+ZYLotter.h */,
+				B69EACFB1DDAE9CA00C863FF /* UIImageView+ZYLotter.m */,
+				B69EACF41DDAE97F00C863FF /* UIScrollView+ZYLotter.h */,
+				B69EACF51DDAE97F00C863FF /* UIScrollView+ZYLotter.m */,
+				B69EACD91DDAE51800C863FF /* UIButton+ZYKit.h */,
+				B69EACDA1DDAE51800C863FF /* UIButton+ZYKit.m */,
+				B69EACF71DDAE99300C863FF /* UILabel+ZYLotter.h */,
+				B69EACF81DDAE99300C863FF /* UILabel+ZYLotter.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B69EACDB1DDAE51800C863FF /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACDC1DDAE51800C863FF /* UIView+ZYEmptyView.h */,
+				B69EACDD1DDAE51800C863FF /* UIView+ZYEmptyView.m */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		B69EACDE1DDAE51800C863FF /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACDF1DDAE51800C863FF /* ZYMainTheme.h */,
+				B69EACE01DDAE51800C863FF /* ZYMainTheme.m */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B69EACE11DDAE51800C863FF /* WDAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				B69EACE21DDAE51800C863FF /* WDAlertView.h */,
+				B69EACE31DDAE51800C863FF /* WDAlertView.m */,
+				B69EACE41DDAE51800C863FF /* ZYCustomAlertView.h */,
+				B69EACE51DDAE51800C863FF /* ZYCustomAlertView.m */,
+				B69EACE61DDAE51800C863FF /* ZYNoticeAlertView.h */,
+				B69EACE71DDAE51800C863FF /* ZYNoticeAlertView.m */,
+			);
+			path = WDAlertView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B627816B1DD9C13300B3F901 /* ZYKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B62781831DD9C13300B3F901 /* Build configuration list for PBXNativeTarget "ZYKit" */;
+			buildPhases = (
+				BBC36FB50DAC236B84A89F43 /* [CP] Check Pods Manifest.lock */,
+				B62781681DD9C13300B3F901 /* Sources */,
+				B62781691DD9C13300B3F901 /* Frameworks */,
+				B627816A1DD9C13300B3F901 /* Resources */,
+				DFB422558D31862CC9A52A4B /* [CP] Embed Pods Frameworks */,
+				ABB28A8630294C0329845136 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZYKit;
+			productName = ZYKit;
+			productReference = B627816C1DD9C13300B3F901 /* ZYKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B62781641DD9C13300B3F901 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "章鱼彩票";
+				TargetAttributes = {
+					B627816B1DD9C13300B3F901 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = T67824ALDN;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B62781671DD9C13300B3F901 /* Build configuration list for PBXProject "ZYKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B62781631DD9C13300B3F901;
+			productRefGroup = B627816D1DD9C13300B3F901 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B627816B1DD9C13300B3F901 /* ZYKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B627816A1DD9C13300B3F901 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B627817F1DD9C13300B3F901 /* LaunchScreen.storyboard in Resources */,
+				B627817C1DD9C13300B3F901 /* Assets.xcassets in Resources */,
+				B627817A1DD9C13300B3F901 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ABB28A8630294C0329845136 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBC36FB50DAC236B84A89F43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFB422558D31862CC9A52A4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B62781681DD9C13300B3F901 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B69EACE81DDAE51800C863FF /* UIButton+ZYKit.m in Sources */,
+				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
+				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
+				B69EACF91DDAE99300C863FF /* UILabel+ZYLotter.m in Sources */,
+				B69EACFF1DDAEAD300C863FF /* UIImage+ZYLotter.m in Sources */,
+				B69EACF21DDAE52600C863FF /* ZYCacheFileUtils.m in Sources */,
+				B69EACFC1DDAE9CA00C863FF /* UIImageView+ZYLotter.m in Sources */,
+				B69EACEA1DDAE51800C863FF /* ZYMainTheme.m in Sources */,
+				B69EACED1DDAE51800C863FF /* ZYNoticeAlertView.m in Sources */,
+				B69EACEB1DDAE51800C863FF /* WDAlertView.m in Sources */,
+				B62781711DD9C13300B3F901 /* main.m in Sources */,
+				B69EACEC1DDAE51800C863FF /* ZYCustomAlertView.m in Sources */,
+				B69EACF61DDAE97F00C863FF /* UIScrollView+ZYLotter.m in Sources */,
+				B69EACE91DDAE51800C863FF /* UIView+ZYEmptyView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B62781781DD9C13300B3F901 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B62781791DD9C13300B3F901 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B627817E1DD9C13300B3F901 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B62781811DD9C13300B3F901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B62781821DD9C13300B3F901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B62781841DD9C13300B3F901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T67824ALDN;
+				INFOPLIST_FILE = ZYKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.heweidong.ZYKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B62781851DD9C13300B3F901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A13A36B8F49B0719C0B74A30 /* Pods-ZYKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T67824ALDN;
+				INFOPLIST_FILE = ZYKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.heweidong.ZYKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B62781671DD9C13300B3F901 /* Build configuration list for PBXProject "ZYKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B62781811DD9C13300B3F901 /* Debug */,
+				B62781821DD9C13300B3F901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B62781831DD9C13300B3F901 /* Build configuration list for PBXNativeTarget "ZYKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B62781841DD9C13300B3F901 /* Debug */,
+				B62781851DD9C13300B3F901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B62781641DD9C13300B3F901 /* Project object */;
+}
