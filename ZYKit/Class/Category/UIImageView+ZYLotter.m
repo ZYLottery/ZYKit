@@ -7,7 +7,7 @@
 //
 
 #import "UIImageView+ZYLotter.h"
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/SDImageCache.h>
 #import "UIImage+ZYLotter.h"
 
@@ -37,9 +37,7 @@ static BOOL noPic = NO;//是否省流量 不加载图片  暂放  以后有需�
                 if (!error) {
                     UIImage *radiusImage = [UIImage createRoundedRectImage:image size:tempSelf.frame.size radius:radius];
                     tempSelf.image = radiusImage;
-                    [[SDImageCache sharedImageCache] storeImage:radiusImage forKey:cacheurlStr completion:^{
-                        
-                    }];
+                    [[SDImageCache sharedImageCache] storeImage:radiusImage forKey:cacheurlStr];
                     //清除原有非圆角图片缓存
                     [[SDImageCache sharedImageCache] removeImageForKey:urlStr withCompletion:^{
                         
@@ -86,9 +84,7 @@ static BOOL noPic = NO;//是否省流量 不加载图片  暂放  以后有需�
                 if (!error) {
                     UIImage *radiusImage = [UIImage createRoundedRectImage:image size:tempSelf.frame.size radius:radius];
                     tempSelf.image = radiusImage;
-                    [[SDImageCache sharedImageCache] storeImage:radiusImage forKey:cacheurlStr completion:^{
-                        
-                    }];
+                    [[SDImageCache sharedImageCache] storeImage:radiusImage forKey:cacheurlStr];
                     [[SDImageCache sharedImageCache] removeImageForKey:urlStr withCompletion:^{
                         
                     }];
