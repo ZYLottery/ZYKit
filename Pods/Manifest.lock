@@ -1,10 +1,12 @@
 PODS:
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SensorsAnalyticsSDK (1.6.24)
   - WDKit (1.0.2.7):
     - WDKit/Category (= 1.0.2.7)
     - WDKit/Extension (= 1.0.2.7)
@@ -14,17 +16,21 @@ PODS:
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
   - MBProgressHUD (~> 1.0.0)
+  - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.1.12)
   - SDWebImage (~> 3.8.2)
+  - SensorsAnalyticsSDK (~> 1.6.24)
   - WDKit (~> 1.0.2.7)
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SensorsAnalyticsSDK: eb37729237f7874881f4caadb51f8da4e358ece5
   WDKit: a883385301ca38ca83f75b59396b013095b9b6c7
 
-PODFILE CHECKSUM: eb59af94b4015feb7ada4bebba4436fb14e25ba5
+PODFILE CHECKSUM: 653333e7cadb3225bfa6b681a9ad615d7c490986
 
 COCOAPODS: 1.1.1
