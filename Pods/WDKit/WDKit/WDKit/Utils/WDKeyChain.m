@@ -1,15 +1,16 @@
 //
-//  ZYCHKeychain.m
-//  ZYLottery
+//  WDKeyChain.m
+//  WDKit
 //
-//  Created by wangyu on 16/4/28.
-//  Copyright © 2016年 BangYing. All rights reserved.
+//  Created by 何伟东 on 2016/11/17.
+//  Copyright © 2016年 何伟东. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "ZYServiceCHKeychain.h"
+#import "WDKeyChain.h"
 
-@implementation ZYServiceCHKeychain
+@implementation WDKeyChain
+
+
 + (NSMutableDictionary *)getKeychainQuery:(NSString *)service {
     return [NSMutableDictionary dictionaryWithObjectsAndKeys:
             (id)kSecClassGenericPassword,(id)kSecClass,
@@ -19,9 +20,15 @@
             nil];
 }
 
-+ (void)save:(NSString *)service data:(id)data {
+/**
+ <#Description#>
+ 
+ @param key 保存东西到钥匙串
+ @param data <#data description#>
+ */
++ (void)saveWithKey:(NSString *)key data:(id)data{
     //Get search dictionary
-    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:key];
     //Delete old item before add new item
     SecItemDelete((CFDictionaryRef)keychainQuery);
     //Add new object to search dictionary(Attention:the data format)
@@ -30,9 +37,15 @@
     SecItemAdd((CFDictionaryRef)keychainQuery, NULL);
 }
 
-+ (id)load:(NSString *)service {
+/**
+ 加载钥匙串里的内容
+ 
+ @param key <#key description#>
+ @return <#return value description#>
+ */
++ (id)loadWithKey:(NSString *)key{
     id ret = nil;
-    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:key];
     //Configure the search setting
     //Since in our simple case we are expecting only a single attribute to be returned (the password) we can set the attribute kSecReturnData to kCFBooleanTrue
     [keychainQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
@@ -50,8 +63,14 @@
     return ret;
 }
 
-+ (void)delete:(NSString *)service {
-    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+/**
+ 删除钥匙串内容
+ 
+ @param key <#key description#>
+ */
++ (void)deleteWithKey:(NSString *)key{
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:key];
     SecItemDelete((CFDictionaryRef)keychainQuery);
 }
+
 @end

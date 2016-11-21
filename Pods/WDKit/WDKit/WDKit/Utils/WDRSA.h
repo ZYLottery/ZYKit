@@ -1,13 +1,15 @@
-
-
-/*
- @author: ideawu
- @link: https://github.com/ideawu/Objective-C-RSA
- */
+//
+//  WDRSA.h
+//  WDKit
+//
+//  Created by 何伟东 on 2016/11/17.
+//  Copyright © 2016年 何伟东. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
-@interface ZYServiceRSA : NSObject
+@interface WDRSA : NSObject
+
 
 // return base64 encoded string
 + (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey;
@@ -48,13 +50,13 @@
  *  @return <#return value description#>
  */
 + (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey;
+
 /**
- *  私钥解密 NSData
- *
- *  @param str     待解密Data
- *  @param privKey 私钥
- *
- *  @return <#return value description#>
+ 私钥解密 NSData
+
+ @param data 待解密Data
+ @param privKey 私钥
+ @return <#return value description#>
  */
 + (NSData *)decryptData:(NSData *)data privateKey:(NSString *)privKey;
 

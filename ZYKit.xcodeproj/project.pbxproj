@@ -27,8 +27,6 @@
 		B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EEF1DDD5A60003D8C3C /* ZYAnalytics.m */; };
 		B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */; };
 		B6B86EFE1DDD944B003D8C3C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */; };
-		B6B86F031DDD947D003D8C3C /* ZYServiceCHKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86F001DDD947D003D8C3C /* ZYServiceCHKeychain.m */; };
-		B6B86F041DDD947D003D8C3C /* ZYServiceRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86F021DDD947D003D8C3C /* ZYServiceRSA.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
 
@@ -73,10 +71,6 @@
 		B6B86EFA1DDD936A003D8C3C /* ZYClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYClientInfo.h; sourceTree = "<group>"; };
 		B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYClientInfo.m; sourceTree = "<group>"; };
 		B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		B6B86EFF1DDD947D003D8C3C /* ZYServiceCHKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYServiceCHKeychain.h; sourceTree = "<group>"; };
-		B6B86F001DDD947D003D8C3C /* ZYServiceCHKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYServiceCHKeychain.m; sourceTree = "<group>"; };
-		B6B86F011DDD947D003D8C3C /* ZYServiceRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYServiceRSA.h; sourceTree = "<group>"; };
-		B6B86F021DDD947D003D8C3C /* ZYServiceRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYServiceRSA.m; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,10 +224,6 @@
 		B6B86EF61DDD9331003D8C3C /* Coomon */ = {
 			isa = PBXGroup;
 			children = (
-				B6B86EFF1DDD947D003D8C3C /* ZYServiceCHKeychain.h */,
-				B6B86F001DDD947D003D8C3C /* ZYServiceCHKeychain.m */,
-				B6B86F011DDD947D003D8C3C /* ZYServiceRSA.h */,
-				B6B86F021DDD947D003D8C3C /* ZYServiceRSA.m */,
 				B6B86EFA1DDD936A003D8C3C /* ZYClientInfo.h */,
 				B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */,
 			);
@@ -364,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B66F22CD1DDB19ED00021305 /* WDAlertView.m in Sources */,
-				B6B86F031DDD947D003D8C3C /* ZYServiceCHKeychain.m in Sources */,
 				B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */,
 				B66F22C41DDB193B00021305 /* UILabel+ZYLotter.m in Sources */,
 				B66F22C11DDB193B00021305 /* UIButton+ZYLotter.m in Sources */,
@@ -373,7 +362,6 @@
 				B66F22C71DDB193B00021305 /* ZYCacheFileUtils.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
-				B6B86F041DDD947D003D8C3C /* ZYServiceRSA.m in Sources */,
 				B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */,
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
 				B66F22C91DDB193B00021305 /* ZYMainTheme.m in Sources */,

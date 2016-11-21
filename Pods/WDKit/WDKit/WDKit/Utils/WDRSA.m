@@ -1,22 +1,16 @@
-/*
- @author: ideawu
- @link: https://github.com/ideawu/Objective-C-RSA
- */
+//
+//  WDRSA.m
+//  WDKit
+//
+//  Created by 何伟东 on 2016/11/17.
+//  Copyright © 2016年 何伟东. All rights reserved.
+//
 
-#import "ZYServiceRSA.h"
+#import "WDRSA.h"
 #import <Security/Security.h>
 
-@implementation ZYServiceRSA
+@implementation WDRSA
 
-/*
- static NSString *base64_encode(NSString *str){
-	NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
-	if(!data){
- return nil;
-	}
-	return base64_encode_data(data);
- }
- */
 
 static NSString *base64_encode_data(NSData *data){
     data = [data base64EncodedDataWithOptions:0];
@@ -118,7 +112,7 @@ static NSData *base64_decode(NSString *str){
     
     // This will be base64 encoded, decode it.
     NSData *data = base64_decode(key);
-    data = [ZYServiceRSA stripPublicKeyHeader:data];
+    data = [WDRSA stripPublicKeyHeader:data];
     if(!data){
         return nil;
     }
@@ -187,7 +181,7 @@ static NSData *base64_decode(NSString *str){
     
     // This will be base64 encoded, decode it.
     NSData *data = base64_decode(key);
-    data = [ZYServiceRSA stripPrivateKeyHeader:data];
+    data = [WDRSA stripPrivateKeyHeader:data];
     if(!data){
         return nil;
     }
@@ -273,7 +267,7 @@ static NSData *base64_decode(NSString *str){
 }
 
 + (NSString *)encryptString:(NSString *)str privateKey:(NSString *)privKey{
-    NSData *data = [ZYServiceRSA encryptData:[str dataUsingEncoding:NSUTF8StringEncoding] privateKey:privKey];
+    NSData *data = [WDRSA encryptData:[str dataUsingEncoding:NSUTF8StringEncoding] privateKey:privKey];
     NSString *ret = base64_encode_data(data);
     return ret;
 }
@@ -282,11 +276,11 @@ static NSData *base64_decode(NSString *str){
     if(!data || !privKey){
         return nil;
     }
-    SecKeyRef keyRef = [ZYServiceRSA addPrivateKey:privKey];
+    SecKeyRef keyRef = [WDRSA addPrivateKey:privKey];
     if(!keyRef){
         return nil;
     }
-    return [ZYServiceRSA encryptData:data withKeyRef:keyRef];
+    return [WDRSA encryptData:data withKeyRef:keyRef];
 }
 
 + (NSData *)decryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef{
@@ -343,7 +337,7 @@ static NSData *base64_decode(NSString *str){
 
 + (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey{
     NSData *data = [[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    data = [ZYServiceRSA decryptData:data privateKey:privKey];
+    data = [WDRSA decryptData:data privateKey:privKey];
     NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     return ret;
 }
@@ -352,11 +346,11 @@ static NSData *base64_decode(NSString *str){
     if(!data || !privKey){
         return nil;
     }
-    SecKeyRef keyRef = [ZYServiceRSA addPrivateKey:privKey];
+    SecKeyRef keyRef = [WDRSA addPrivateKey:privKey];
     if(!keyRef){
         return nil;
     }
-    return [ZYServiceRSA decryptData:data withKeyRef:keyRef];
+    return [WDRSA decryptData:data withKeyRef:keyRef];
 }
 
 /* END: Encryption & Decryption with RSA private key */
@@ -364,7 +358,7 @@ static NSData *base64_decode(NSString *str){
 /* START: Encryption & Decryption with RSA public key */
 
 + (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey{
-    NSData *data = [ZYServiceRSA encryptData:[str dataUsingEncoding:NSUTF8StringEncoding] publicKey:pubKey];
+    NSData *data = [WDRSA encryptData:[str dataUsingEncoding:NSUTF8StringEncoding] publicKey:pubKey];
     NSString *ret = base64_encode_data(data);
     return ret;
 }
@@ -373,16 +367,16 @@ static NSData *base64_decode(NSString *str){
     if(!data || !pubKey){
         return nil;
     }
-    SecKeyRef keyRef = [ZYServiceRSA addPublicKey:pubKey];
+    SecKeyRef keyRef = [WDRSA addPublicKey:pubKey];
     if(!keyRef){
         return nil;
     }
-    return [ZYServiceRSA encryptData:data withKeyRef:keyRef];
+    return [WDRSA encryptData:data withKeyRef:keyRef];
 }
 
 + (NSString *)decryptString:(NSString *)str publicKey:(NSString *)pubKey{
     NSData *data = [[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    data = [ZYServiceRSA decryptData:data publicKey:pubKey];
+    data = [WDRSA decryptData:data publicKey:pubKey];
     NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     return ret;
 }
@@ -391,13 +385,11 @@ static NSData *base64_decode(NSString *str){
     if(!data || !pubKey){
         return nil;
     }
-    SecKeyRef keyRef = [ZYServiceRSA addPublicKey:pubKey];
+    SecKeyRef keyRef = [WDRSA addPublicKey:pubKey];
     if(!keyRef){
         return nil;
     }
-    return [ZYServiceRSA decryptData:data withKeyRef:keyRef];
+    return [WDRSA decryptData:data withKeyRef:keyRef];
 }
-
-/* END: Encryption & Decryption with RSA public key */
 
 @end
