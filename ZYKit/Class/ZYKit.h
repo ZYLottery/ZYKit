@@ -25,5 +25,6 @@
 #import "UIView+ZYLotter.h"
 #import "UIViewController+ZYLotter.h"
 #import "NSString+ZYLotter.h"
+#import "ZYCircularProgressView.h"
 
 #endif /* ZYKit_h */
