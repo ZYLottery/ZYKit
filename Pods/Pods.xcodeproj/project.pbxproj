@@ -310,7 +310,7 @@
 		12983C3A069C83DA27C5AF4D8CFAE81B /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		12990E83E3D43CE7C1CF54846EBEE4B9 /* MJExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJExtension-dummy.m"; sourceTree = "<group>"; };
 		14359631ECF07FEF2E0CD10379B1FAA0 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
-		143CF80EDC3FEA0EB7BA259753F245B9 /* libSensorsAnalyticsSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensorsAnalyticsSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		143CF80EDC3FEA0EB7BA259753F245B9 /* libSensorsAnalyticsSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSensorsAnalyticsSDK.a; path = libSensorsAnalyticsSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		156C8BAE6C5DB4AD562568E92B784E0F /* NSData+WDKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+WDKit.m"; path = "WDKit/WDKit/Category/NSData+WDKit.m"; sourceTree = "<group>"; };
 		15BCD5BB286679F82DCE7059E53772D9 /* SensorsAnalyticsSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SensorsAnalyticsSDK-prefix.pch"; sourceTree = "<group>"; };
 		1631AA09E05516FF459F37B9D1B09A0F /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		2585E0728D9BB725AB54D53AFAA3F34B /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
 		2761B3C747EEA146B53C5298B7A3F1D2 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		27D4C88997CE14915DE8C0A0B4312AC2 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		27FAD65CB9B3B757B76354690DAEF816 /* libPods-ZYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZYKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27FAD65CB9B3B757B76354690DAEF816 /* libPods-ZYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ZYKit.a"; path = "libPods-ZYKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2831D5BDAE89CA3D74D68D4EA2682907 /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 		285D12C85CD8D864DDD95790E102E638 /* Pods-ZYKit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZYKit-frameworks.sh"; sourceTree = "<group>"; };
 		29C56717D7B2B50B7929DC73F611195B /* NSData+SABase64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SABase64.m"; path = "SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSData+SABase64.m"; sourceTree = "<group>"; };
@@ -346,7 +346,7 @@
 		33430B474071438B23E1D8AE01F74FFB /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		33A304E0E9905B0C7477AB0529A7BD3C /* SADesignerMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SADesignerMessage.h; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SADesignerMessage.h; sourceTree = "<group>"; };
 		3432282B2E68BFEE771ECADDB3321335 /* MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJExtension.h; path = MJExtension/MJExtension.h; sourceTree = "<group>"; };
-		34A5A358EE2C817E498A2A1A699A95FF /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A5A358EE2C817E498A2A1A699A95FF /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		353446E705EA63FD703537B7FB2A005D /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		364A82FE5AA004DABDA4088050584CEE /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		3773A3D722084BC776A0379386DE9A71 /* WDRSA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WDRSA.h; path = WDKit/WDKit/Utils/WDRSA.h; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 		64CB68B5F0DFF5A25028E8827101B951 /* SAObjectIdentityProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAObjectIdentityProvider.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectIdentityProvider.m; sourceTree = "<group>"; };
 		68879A419DA240594E4BDE1390D62138 /* SensorsAnalyticsSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SensorsAnalyticsSDK-dummy.m"; sourceTree = "<group>"; };
 		68A4AC506E4779662B2408BDCEB3296F /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
-		6C75325CD5D142EA780D644C4A612D69 /* libWDKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWDKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C75325CD5D142EA780D644C4A612D69 /* libWDKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWDKit.a; path = libWDKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7CD32696FDAA5A86A7170F805B1EA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		6CD37EAF40BB7903F69B2D46997B4A56 /* WDKeyChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WDKeyChain.m; path = WDKit/WDKit/Utils/WDKeyChain.m; sourceTree = "<group>"; };
 		6D8ABB4716294DDF0D347D8EBD119A76 /* SAReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAReachability.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAReachability.m; sourceTree = "<group>"; };
@@ -412,12 +412,12 @@
 		7958546D8629B55A276D7AAD8D1CBA88 /* MJExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-prefix.pch"; sourceTree = "<group>"; };
 		7AA7CDDD67DA4D98FAA54E798B961CE8 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
 		7B50C92CCE4AAA9F6E434A98D4300710 /* JSONUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONUtil.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/JSONUtil.m; sourceTree = "<group>"; };
-		7DC4BDF6C995DD94110FF93F2E7A0481 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DC4BDF6C995DD94110FF93F2E7A0481 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF3415BB98AD8DCF863BC6DF1ACAC4D /* NSObject+MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJProperty.m"; path = "MJExtension/NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		7EF46E1855CD4DA8AA6907A743221FF4 /* SAValueTransformers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAValueTransformers.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAValueTransformers.m; sourceTree = "<group>"; };
 		8082FF7EB211BF84BDDD61119613DA07 /* WDKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WDKit.xcconfig; sourceTree = "<group>"; };
 		82746221CD9ED0DDEC05031A9E228077 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
-		8317A5690019D8178910C0848AF87C15 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8317A5690019D8178910C0848AF87C15 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJRefresh.a; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FFD5C514DF0AC4BE881ACDA33D8862 /* WDKeyChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WDKeyChain.h; path = WDKit/WDKit/Utils/WDKeyChain.h; sourceTree = "<group>"; };
 		874B62322C02F95EB548B8D92B9D5A4A /* NSInvocation+SAHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+SAHelpers.h"; path = "SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSInvocation+SAHelpers.h"; sourceTree = "<group>"; };
 		87E43C05CCD8EE659912E2D2DD05F868 /* NSString+WDKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+WDKit.h"; path = "WDKit/WDKit/Category/NSString+WDKit.h"; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		92CA1255C1D3695964A4C0E665F051E5 /* UIView+WDKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WDKit.m"; path = "WDKit/WDKit/Category/UIView+WDKit.m"; sourceTree = "<group>"; };
 		93076C2E1576DA0A9669C16720A456E3 /* SAClassDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAClassDescription.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAClassDescription.m; sourceTree = "<group>"; };
 		939286E642F5C07B1ED8EAEA3EC556A7 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95652F7C887693A989CB012143F2ADF6 /* MessageQueueBySqlite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MessageQueueBySqlite.m; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/MessageQueueBySqlite.m; sourceTree = "<group>"; };
 		989A348FD92E0A533EC881E0D9DCC8F0 /* SAAbstractDesignerMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAAbstractDesignerMessage.h; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAAbstractDesignerMessage.h; sourceTree = "<group>"; };
 		99CE65A6EB78997A2722E67A78423F8E /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 		D46A3A73A2F4A48EEA8BC1EA658C163A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D4DA46F56166BF10264A211126DDD13A /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		D4EE19DA3A4866237308828E4E86D3BE /* NSInvocation+SAHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+SAHelpers.m"; path = "SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSInvocation+SAHelpers.m"; sourceTree = "<group>"; };
-		D527350F58B0E09A9A7A657F0B2E460C /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D527350F58B0E09A9A7A657F0B2E460C /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJExtension.a; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E5EB27D7E67B9A62C094C042733198 /* UIImage+WDKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+WDKit.h"; path = "WDKit/WDKit/Category/UIImage+WDKit.h"; sourceTree = "<group>"; };
 		D67E8CCD1BE790A39FEB9B3F46A10558 /* SAPropertyDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAPropertyDescription.h; path = SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAPropertyDescription.h; sourceTree = "<group>"; };
 		D8385DCC30DB6B8505B15FFA7E78BCBB /* UIFont+WDKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+WDKit.m"; path = "WDKit/WDKit/Category/UIFont+WDKit.m"; sourceTree = "<group>"; };
@@ -532,7 +532,7 @@
 		F7EA41CA22A8FAD677E17571D23ADA3B /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
 		F7EC7CAEB65B3137E5000C4FA1DE5526 /* NSObject+MJClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJClass.m"; path = "MJExtension/NSObject+MJClass.m"; sourceTree = "<group>"; };
 		F8DF5D43E22BED815334DB1FAE070E13 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		F92C8C0D4C1A3F8D303EF7A5175897B5 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92C8C0D4C1A3F8D303EF7A5175897B5 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1DB5ED25E9FCB6806513EE89C6717A /* Pods-ZYKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZYKit-resources.sh"; sourceTree = "<group>"; };
 		FD30D65E08ED8CE6F1275FE4768FDBA2 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		FE88F2E9DE2DAC9A2A8CB91620CC1A43 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
@@ -637,6 +637,7 @@
 				6D1EA7A1917A4C28E32AD1E428D83D5D /* Support Files */,
 				8AF51D16D28726C21D70674947A56508 /* Utils */,
 			);
+			name = WDKit;
 			path = WDKit;
 			sourceTree = "<group>";
 		};
@@ -670,6 +671,7 @@
 				EA7439D092CF6DA712B1CF9C7CFAC8A7 /* ViewController+MASAdditions.m */,
 				5B6670C357C03580EA695847C2356E24 /* Support Files */,
 			);
+			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -741,6 +743,7 @@
 				50271D2699D7ED1A0DBFDBC9DCD6682D /* UIView+SAHelpers.m */,
 				4EDB2FB47CFED19AB54E80B47EC4EF03 /* Support Files */,
 			);
+			name = SensorsAnalyticsSDK;
 			path = SensorsAnalyticsSDK;
 			sourceTree = "<group>";
 		};
@@ -894,6 +897,7 @@
 				2CDBB47FEF51CCDD2142B96449906DC6 /* Resources */,
 				5CC1BA29509AF85FA323FF8E89D5DA4B /* Support Files */,
 			);
+			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -950,6 +954,7 @@
 				B447A91631583BE731272D7018FA8EDF /* Core */,
 				18B8D3946C6BE3A7BCD835AC68E61C57 /* Support Files */,
 			);
+			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1009,6 +1014,7 @@
 				C37FFB21D2700D55E13DEBDD3BAB65BD /* NSString+MJExtension.m */,
 				42406DD05E0985FECF206D2E6B954C2A /* Support Files */,
 			);
+			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -1078,6 +1084,7 @@
 				DBB57F9AE766C43CF2CCD67B01DD677B /* MBProgressHUD.m */,
 				396E46C5F892A511DD0AA326C3E02CFD /* Support Files */,
 			);
+			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};

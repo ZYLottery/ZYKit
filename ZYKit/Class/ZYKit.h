@@ -22,5 +22,7 @@
 #import "WDAlertView.h"
 #import "ZYCustomAlertView.h"
 #import "ZYNoticeAlertView.h"
+#import "UIView+ZYLotter.h"
+#import "UIViewController+ZYLotter.h"
 
 #endif /* ZYKit_h */
