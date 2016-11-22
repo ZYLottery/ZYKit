@@ -7,7 +7,9 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SensorsAnalyticsSDK (1.6.24)
+  - SensorsAnalyticsSDK (1.6.29):
+    - SensorsAnalyticsSDK/core (= 1.6.29)
+  - SensorsAnalyticsSDK/core (1.6.29)
   - WDKit (1.0.2.9):
     - WDKit/Category (= 1.0.2.9)
     - WDKit/Extension (= 1.0.2.9)
@@ -33,7 +35,7 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NSDate+Helper: 78f517ac1c67914096433466fa7d20b812b9d86c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SensorsAnalyticsSDK: eb37729237f7874881f4caadb51f8da4e358ece5
+  SensorsAnalyticsSDK: 31e385c0c0e33fe3f7d6310777cc74a5e0672b32
   WDKit: a2d7093943aff9cda7ff32ca0800d545ba0f5536
 
 PODFILE CHECKSUM: 4d19e56f5501db266165967a6d79cc23d9670497

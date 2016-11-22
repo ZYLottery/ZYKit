@@ -11,7 +11,7 @@ target "ZYKit" do
     pod 'Masonry', '~> 1.0.2'
     pod 'SDWebImage', '~> 3.8.2'
     pod 'MJRefresh', '~> 3.1.12'
-    pod 'SensorsAnalyticsSDK', '~> 1.6.24'
+    pod 'SensorsAnalyticsSDK', '~> 1.6.29'
     pod 'MJExtension', '~> 3.0.13'
     pod 'NSDate+Helper', '~> 1.0.4'
 
