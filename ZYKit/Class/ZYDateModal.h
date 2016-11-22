@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MJExtension/MJExtension.h>
+#import <NSDate+Helper/NSDate+Helper.h>
 
 @interface ZYDateModal : NSObject
 @property(nonatomic,copy) NSString * weekDayString1;

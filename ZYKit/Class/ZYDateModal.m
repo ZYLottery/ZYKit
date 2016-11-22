@@ -7,7 +7,6 @@
 //
 
 #import "ZYDateModal.h"
-#import <NSDate+Helper/NSDate+Helper.h>
 #import "NSDate+ZYLotter.h"
 
 @implementation ZYDateModal
