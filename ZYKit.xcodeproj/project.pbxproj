@@ -30,6 +30,8 @@
 		B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */; };
 		B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */; };
 		B6BE0A021DE428B40046DE6B /* NSDate+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE0A011DE428B40046DE6B /* NSDate+ZYLotter.m */; };
+		B6BE0A061DE42A250046DE6B /* ZYDateModal.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE0A051DE42A250046DE6B /* ZYDateModal.m */; };
+		B6BE0A091DE42A680046DE6B /* ZYCalender_Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE0A081DE42A680046DE6B /* ZYCalender_Modal.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,10 @@
 		B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYLotter.m"; sourceTree = "<group>"; };
 		B6BE0A001DE428B40046DE6B /* NSDate+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ZYLotter.h"; sourceTree = "<group>"; };
 		B6BE0A011DE428B40046DE6B /* NSDate+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ZYLotter.m"; sourceTree = "<group>"; };
+		B6BE0A041DE42A250046DE6B /* ZYDateModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDateModal.h; sourceTree = "<group>"; };
+		B6BE0A051DE42A250046DE6B /* ZYDateModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDateModal.m; sourceTree = "<group>"; };
+		B6BE0A071DE42A680046DE6B /* ZYCalender_Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCalender_Modal.h; sourceTree = "<group>"; };
+		B6BE0A081DE42A680046DE6B /* ZYCalender_Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCalender_Modal.m; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +166,7 @@
 		B69EACD61DDAE51800C863FF /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B6BE0A031DE42A1A0046DE6B /* Model */,
 				B6B86EF61DDD9331003D8C3C /* Coomon */,
 				B6B86EF51DDD931E003D8C3C /* Analytics */,
 				B6B86EF41DDD92FC003D8C3C /* Theme */,
@@ -243,6 +250,17 @@
 				B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */,
 			);
 			name = Coomon;
+			sourceTree = "<group>";
+		};
+		B6BE0A031DE42A1A0046DE6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6BE0A041DE42A250046DE6B /* ZYDateModal.h */,
+				B6BE0A051DE42A250046DE6B /* ZYDateModal.m */,
+				B6BE0A071DE42A680046DE6B /* ZYCalender_Modal.h */,
+				B6BE0A081DE42A680046DE6B /* ZYCalender_Modal.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +392,12 @@
 				B66F22C11DDB193B00021305 /* UIButton+ZYLotter.m in Sources */,
 				B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */,
 				B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */,
+				B6BE0A061DE42A250046DE6B /* ZYDateModal.m in Sources */,
 				B66F22C51DDB193B00021305 /* UIScrollView+ZYLotter.m in Sources */,
 				B66F22C71DDB193B00021305 /* ZYCacheFileUtils.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
+				B6BE0A091DE42A680046DE6B /* ZYCalender_Modal.m in Sources */,
 				B6BE0A021DE428B40046DE6B /* NSDate+ZYLotter.m in Sources */,
 				B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */,
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
