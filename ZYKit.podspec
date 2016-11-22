@@ -34,6 +34,5 @@ s.dependency 'MJRefresh', '~> 3.1.12'
 s.dependency 'MBProgressHUD', '~> 1.0.0'
 s.dependency 'SensorsAnalyticsSDK', '~> 1.6.24'
 s.dependency 'MJExtension', '~> 3.0.13'
-s.dependency 'NSDate+Helper', '~> 1.0.4'
 
 end

@@ -13,6 +13,5 @@ target "ZYKit" do
     pod 'MJRefresh', '~> 3.1.12'
     pod 'SensorsAnalyticsSDK', '~> 1.6.29'
     pod 'MJExtension', '~> 3.0.13'
-    pod 'NSDate+Helper', '~> 1.0.4'
 
 end
