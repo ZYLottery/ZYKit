@@ -24,5 +24,6 @@
 #import "ZYNoticeAlertView.h"
 #import "UIView+ZYLotter.h"
 #import "UIViewController+ZYLotter.h"
+#import "NSString+ZYLotter.h"
 
 #endif /* ZYKit_h */
