@@ -25,6 +25,7 @@
 		B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22C01DDB193B00021305 /* ZYNoticeAlertView.m */; };
 		B66F22CD1DDB19ED00021305 /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22CC1DDB19ED00021305 /* WDAlertView.m */; };
 		B6B5E5B71DE43A0C00523889 /* NSString+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B5E5B61DE43A0C00523889 /* NSString+ZYLotter.m */; };
+		B6B5E5BC1DE449DC00523889 /* ZYCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B5E5BB1DE449DC00523889 /* ZYCircularProgressView.m */; };
 		B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EEF1DDD5A60003D8C3C /* ZYAnalytics.m */; };
 		B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */; };
 		B6B86EFE1DDD944B003D8C3C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */; };
@@ -71,6 +72,8 @@
 		B69EAD001DDAF0E400C863FF /* ZYKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYKit.h; sourceTree = "<group>"; };
 		B6B5E5B51DE43A0C00523889 /* NSString+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZYLotter.h"; sourceTree = "<group>"; };
 		B6B5E5B61DE43A0C00523889 /* NSString+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZYLotter.m"; sourceTree = "<group>"; };
+		B6B5E5BA1DE449DC00523889 /* ZYCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCircularProgressView.h; sourceTree = "<group>"; };
+		B6B5E5BB1DE449DC00523889 /* ZYCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCircularProgressView.m; sourceTree = "<group>"; };
 		B6B86EEE1DDD5A60003D8C3C /* ZYAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYAnalytics.h; sourceTree = "<group>"; };
 		B6B86EEF1DDD5A60003D8C3C /* ZYAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYAnalytics.m; sourceTree = "<group>"; };
 		B6B86EFA1DDD936A003D8C3C /* ZYClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYClientInfo.h; sourceTree = "<group>"; };
@@ -160,15 +163,33 @@
 		B69EACD61DDAE51800C863FF /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B6B5E5B81DE4498D00523889 /* PluginView */,
 				B6B86EF61DDD9331003D8C3C /* Coomon */,
 				B6B86EF51DDD931E003D8C3C /* Analytics */,
 				B6B86EF41DDD92FC003D8C3C /* Theme */,
 				B6B86EF31DDD92DE003D8C3C /* CacheUtils */,
 				B6B86EF21DDD92CB003D8C3C /* Category */,
-				B6B86EF11DDD92C0003D8C3C /* AlertView */,
 				B69EAD001DDAF0E400C863FF /* ZYKit.h */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		B6B5E5B81DE4498D00523889 /* PluginView */ = {
+			isa = PBXGroup;
+			children = (
+				B6B5E5B91DE449A600523889 /* ZYCircularProgressView */,
+				B6B86EF11DDD92C0003D8C3C /* AlertView */,
+			);
+			name = PluginView;
+			sourceTree = "<group>";
+		};
+		B6B5E5B91DE449A600523889 /* ZYCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				B6B5E5BA1DE449DC00523889 /* ZYCircularProgressView.h */,
+				B6B5E5BB1DE449DC00523889 /* ZYCircularProgressView.m */,
+			);
+			name = ZYCircularProgressView;
 			sourceTree = "<group>";
 		};
 		B6B86EF11DDD92C0003D8C3C /* AlertView */ = {
@@ -371,6 +392,7 @@
 				B66F22CD1DDB19ED00021305 /* WDAlertView.m in Sources */,
 				B6B5E5B71DE43A0C00523889 /* NSString+ZYLotter.m in Sources */,
 				B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */,
+				B6B5E5BC1DE449DC00523889 /* ZYCircularProgressView.m in Sources */,
 				B66F22C41DDB193B00021305 /* UILabel+ZYLotter.m in Sources */,
 				B66F22C11DDB193B00021305 /* UIButton+ZYLotter.m in Sources */,
 				B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */,
