@@ -9,7 +9,7 @@
 #import "ZYClientInfo.h"
 #import "sys/utsname.h"
 #import <UIKit/UIKit.h>
-#import "ZYServiceCHKeychain.h"
+#import <WDKit/WDKeyChain.h>
 #import <AdSupport/AdSupport.h>
 
 @implementation ZYClientInfo
@@ -28,7 +28,7 @@
     NSString *keyName = [[NSString stringWithFormat:@"%@.adfa.name",identifier]init];
     NSString *keyValue = [[NSString stringWithFormat:@"%@.adfa.value",identifier]init];
     
-    NSMutableDictionary *KeyNameValue = (NSMutableDictionary *)[ZYServiceCHKeychain load:keyName];
+    NSMutableDictionary *KeyNameValue = (NSMutableDictionary *)[WDKeyChain loadWithKey:keyName];
     NSString *ValueADFA= [KeyNameValue objectForKey:keyValue];
     
     if(ValueADFA){
@@ -40,7 +40,7 @@
         strRet =adId;
         NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
         [usernamepasswordKVPairs setObject:adId forKey:keyValue];
-        [ZYServiceCHKeychain save:keyName data:usernamepasswordKVPairs];
+        [WDKeyChain saveWithKey:keyName data:usernamepasswordKVPairs];
     }
     
     return strRet;

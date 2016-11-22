@@ -27,6 +27,8 @@
 		B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EEF1DDD5A60003D8C3C /* ZYAnalytics.m */; };
 		B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */; };
 		B6B86EFE1DDD944B003D8C3C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */; };
+		B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */; };
+		B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,10 @@
 		B6B86EFA1DDD936A003D8C3C /* ZYClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYClientInfo.h; sourceTree = "<group>"; };
 		B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYClientInfo.m; sourceTree = "<group>"; };
 		B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		B6BE09FA1DE415D40046DE6B /* UIViewController+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZYLotter.h"; sourceTree = "<group>"; };
+		B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZYLotter.m"; sourceTree = "<group>"; };
+		B6BE09FD1DE4167C0046DE6B /* UIView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYLotter.h"; sourceTree = "<group>"; };
+		B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYLotter.m"; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +184,8 @@
 		B6B86EF21DDD92CB003D8C3C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				B6BE09FD1DE4167C0046DE6B /* UIView+ZYLotter.h */,
+				B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */,
 				B66F22AD1DDB193B00021305 /* UIButton+ZYLotter.h */,
 				B66F22AE1DDB193B00021305 /* UIButton+ZYLotter.m */,
 				B66F22AF1DDB193B00021305 /* UIImage+ZYLotter.h */,
@@ -190,6 +198,8 @@
 				B66F22B61DDB193B00021305 /* UIScrollView+ZYLotter.m */,
 				B66F22B71DDB193B00021305 /* UIView+ZYEmptyView.h */,
 				B66F22B81DDB193B00021305 /* UIView+ZYEmptyView.m */,
+				B6BE09FA1DE415D40046DE6B /* UIViewController+ZYLotter.h */,
+				B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -358,12 +368,14 @@
 				B66F22C41DDB193B00021305 /* UILabel+ZYLotter.m in Sources */,
 				B66F22C11DDB193B00021305 /* UIButton+ZYLotter.m in Sources */,
 				B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */,
+				B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */,
 				B66F22C51DDB193B00021305 /* UIScrollView+ZYLotter.m in Sources */,
 				B66F22C71DDB193B00021305 /* ZYCacheFileUtils.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
 				B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */,
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
+				B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */,
 				B66F22C91DDB193B00021305 /* ZYMainTheme.m in Sources */,
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
 				B66F22C81DDB193B00021305 /* ZYCustomAlertView.m in Sources */,
