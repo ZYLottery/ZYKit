@@ -31,6 +31,7 @@
 		B6B86EFE1DDD944B003D8C3C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */; };
 		B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */; };
 		B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */; };
+		B6EEDE5A1DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EEDE591DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZYLotter.m"; sourceTree = "<group>"; };
 		B6BE09FD1DE4167C0046DE6B /* UIView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYLotter.h"; sourceTree = "<group>"; };
 		B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYLotter.m"; sourceTree = "<group>"; };
+		B6EEDE581DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+ZYLotter.h"; sourceTree = "<group>"; };
+		B6EEDE591DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+ZYLotter.m"; sourceTree = "<group>"; };
 		FB8189AF25B39F7E187527BF /* Pods-ZYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +211,8 @@
 		B6B86EF21DDD92CB003D8C3C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				B6EEDE581DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.h */,
+				B6EEDE591DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m */,
 				B6BE09FD1DE4167C0046DE6B /* UIView+ZYLotter.h */,
 				B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */,
 				B66F22AD1DDB193B00021305 /* UIButton+ZYLotter.h */,
@@ -403,6 +408,7 @@
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
 				B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */,
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
+				B6EEDE5A1DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m in Sources */,
 				B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */,
 				B66F22C91DDB193B00021305 /* ZYMainTheme.m in Sources */,
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
