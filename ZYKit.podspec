@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
-s.version          = "0.0.1.9"
+s.version          = "0.0.2.0"
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
@@ -27,7 +27,7 @@ s.source_files  = 'ZYKit/Class/*.{h,m}'
 # s.osx.exclude_files = 'Classes/ios'
 # s.public_header_files = 'Classes/**/*.h'
 s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit', 'AdSupport'
-s.dependency 'WDKit', '~> 1.0.2.7'
+s.dependency 'WDKit'
 s.dependency 'Masonry', '~> 1.0.2'
 s.dependency 'SDWebImage', '~> 3.8.2'
 s.dependency 'MJRefresh', '~> 3.1.12'
