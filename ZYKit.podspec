@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
-s.version          = "0.0.2.0"
+s.version          = "0.0.2.1"
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
@@ -18,7 +18,7 @@ s.platform     = :ios, '7.0'
 s.requires_arc = true
 
 #s.source_files = 'ZYKit/Class/*'
-s.source_files  = 'ZYKit/Class/*.{h,m}'
+s.source_files  = 'ZYKit/Class/**/*.{h,m}'
 
 
 # s.resources = 'Assets'

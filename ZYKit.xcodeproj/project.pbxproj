@@ -13,6 +13,7 @@
 		B627817A1DD9C13300B3F901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62781781DD9C13300B3F901 /* Main.storyboard */; };
 		B627817C1DD9C13300B3F901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B627817B1DD9C13300B3F901 /* Assets.xcassets */; };
 		B627817F1DD9C13300B3F901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B627817D1DD9C13300B3F901 /* LaunchScreen.storyboard */; };
+		B66C72231DE6885000771CF1 /* ZYCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66C72221DE6885000771CF1 /* ZYCircleView.m */; };
 		B66F22C11DDB193B00021305 /* UIButton+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22AE1DDB193B00021305 /* UIButton+ZYLotter.m */; };
 		B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22B01DDB193B00021305 /* UIImage+ZYLotter.m */; };
 		B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22B21DDB193B00021305 /* UIImageView+ZYLotter.m */; };
@@ -48,6 +49,8 @@
 		B627817B1DD9C13300B3F901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B627817E1DD9C13300B3F901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B62781801DD9C13300B3F901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B66C72211DE6885000771CF1 /* ZYCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCircleView.h; sourceTree = "<group>"; };
+		B66C72221DE6885000771CF1 /* ZYCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCircleView.m; sourceTree = "<group>"; };
 		B66F22AD1DDB193B00021305 /* UIButton+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZYLotter.h"; sourceTree = "<group>"; };
 		B66F22AE1DDB193B00021305 /* UIButton+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZYLotter.m"; sourceTree = "<group>"; };
 		B66F22AF1DDB193B00021305 /* UIImage+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZYLotter.h"; sourceTree = "<group>"; };
@@ -163,6 +166,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B66C72201DE6884900771CF1 /* ZYCircleView */ = {
+			isa = PBXGroup;
+			children = (
+				B66C72211DE6885000771CF1 /* ZYCircleView.h */,
+				B66C72221DE6885000771CF1 /* ZYCircleView.m */,
+			);
+			name = ZYCircleView;
+			sourceTree = "<group>";
+		};
 		B69EACD61DDAE51800C863FF /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +192,7 @@
 		B6B5E5B81DE4498D00523889 /* PluginView */ = {
 			isa = PBXGroup;
 			children = (
+				B66C72201DE6884900771CF1 /* ZYCircleView */,
 				B6B5E5B91DE449A600523889 /* ZYCircularProgressView */,
 				B6B86EF11DDD92C0003D8C3C /* AlertView */,
 			);
@@ -403,6 +416,7 @@
 				B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */,
 				B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */,
 				B66F22C51DDB193B00021305 /* UIScrollView+ZYLotter.m in Sources */,
+				B66C72231DE6885000771CF1 /* ZYCircleView.m in Sources */,
 				B66F22C71DDB193B00021305 /* ZYCacheFileUtils.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
