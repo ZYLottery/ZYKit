@@ -214,4 +214,62 @@
     
     return outputImage;
 }
+
+
+/**
+ 图片合成
+ 
+ @param topImage 上边图片
+ @param bottomImage 上边图片
+ @param margin 两者间隔
+ @return <#return value description#>
+ */
++ (UIImage *) combineWithTopImg:(UIImage*)topImage
+                      bottomImg:(UIImage*)bottomImage
+                     withMargin:(NSInteger)margin{
+    if (topImage == nil) {
+        return topImage;
+    }
+    CGFloat height = topImage.size.height + bottomImage.size.height + margin;
+    CGFloat width= topImage.size.width;
+    CGSize offScreenSize = CGSizeMake(width, height);
+    
+    // UIGraphicsBeginImageContext(offScreenSize);用这个重绘图片会模糊
+    UIGraphicsBeginImageContextWithOptions(offScreenSize, NO, [UIScreen mainScreen].scale);
+    
+    CGRect rectT = CGRectMake(0, 0, width, topImage.size.height);
+    [topImage drawInRect:rectT];
+    
+    CGRect rectB = CGRectMake(0, rectT.origin.y + topImage.size.height + margin, width, bottomImage.size.height);
+    [bottomImage drawInRect:rectB];
+    
+    UIImage* imagez = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return imagez;
+}
+
+/**
+ 截取屏幕某一部分图片
+ 
+ @param frame <#frame description#>
+ @return <#return value description#>
+ */
++(UIImage *)fullScreenshots:(CGSize)frame{
+    
+    UIWindow *screenWindow = [[UIApplication sharedApplication] keyWindow];
+    
+    UIGraphicsBeginImageContextWithOptions(frame, YES, [[UIScreen mainScreen] scale]);
+    
+    [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    // UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    return viewImage;
+}
+
+
 @end

@@ -8,6 +8,8 @@
 
 #import "UIScrollView+ZYLotter.h"
 #import <MJRefresh/MJRefresh.h>
+#import <WDKit/WDKit.h>
+
 @implementation UIScrollView (ZYLotter)
 /**
  *  添加上下滑刷新   样式只是暂定   随时更换
@@ -100,4 +102,28 @@
         [self.mj_footer endRefreshing];
     }
 }
+
+
+/**
+ *  根据视图尺寸获取视图截屏（一屏无法显示完整）,适用于UIScrollView UITableviewView UICollectionView UIWebView
+ *
+ *  @return UIImage 截取的图片
+ */
+- (UIImage *)scrollViewCutter{
+    //保存
+    CGPoint savedContentOffset = self.contentOffset;
+    CGRect savedFrame = self.frame;
+    
+    self.contentOffset = CGPointZero;
+    self.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
+    
+    UIImage *image = [self convertToImage];
+    
+    //还原数据
+    self.contentOffset = savedContentOffset;
+    self.frame = savedFrame;
+    return image;
+}
+
+
 @end

@@ -34,4 +34,27 @@
 - (UIImage *)applyTintEffectWithColor:(UIColor *)tintColor;
 
 - (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
+
+
+/**
+ 图片合成
+ 
+ @param topImage 上边图片
+ @param bottomImage 上边图片
+ @param margin 两者间隔
+ @return <#return value description#>
+ */
++ (UIImage *) combineWithTopImg:(UIImage*)topImage
+                      bottomImg:(UIImage*)bottomImage
+                     withMargin:(NSInteger)margin;
+
+/**
+ 截取屏幕某一部分图片
+ 
+ @param frame <#frame description#>
+ @return <#return value description#>
+ */
++(UIImage *)fullScreenshots:(CGSize)frame;
+
+
 @end
