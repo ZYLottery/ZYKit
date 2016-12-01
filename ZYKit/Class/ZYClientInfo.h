@@ -87,15 +87,17 @@
  */
 + (NSString*)getIDFA;
 
+
 /**
  默认clientInfo
-
+ 
  @param productId 外部变量
  @param channelId 外部变量
  @return <#return value description#>
  */
 +(ZYClientInfo*)clentInfoWithpProductId:(NSString*)productId
-                          channelId:(NSString*)channelId;
+                              channelId:(NSString*)channelId
+                                 userId:(NSString*)userId;
 
 
 @end
