@@ -7,20 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
 #import "ZYClientInfo.h"
 
 @interface ZYAnalytics : NSObject
 
 + (ZYAnalytics *)sharedInstance;
 
-
-
 /**
- 初始化客户端信息
+ 初始化神策
  
- @param clientInfo <#clientInfo description#>
+ @param serverUrl 服务器url
+ @param configureUrl 配置url
+ @param debugMode debg模式
+ @param clientInfo 客户端信息
  */
-+(void)initWithClientInfo:(ZYClientInfo*)clientInfo;
++(void)initSensorsAnalyticsWithServerUrl:(NSString*)serverUrl
+                            configureUrl:(NSString*)configureUrl
+                               debugMode:(SensorsAnalyticsDebugMode)debugMode
+                              clientInfo:(ZYClientInfo*)clientInfo;
 
 
 /**
