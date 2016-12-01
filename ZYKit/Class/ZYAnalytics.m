@@ -9,6 +9,7 @@
 #import "ZYAnalytics.h"
 #import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
 #import <MJExtension/MJExtension.h>
+#import <WDKit/WDKit.h>
 
 @interface ZYAnalytics(){
     
@@ -136,15 +137,15 @@ static id sharedInstance = NULL;
             frontPageName:(NSString*)frontPageName
              nextPageName:(NSString*)nextPagename{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
-    NSMutableDictionary *common_params = [NSMutableDictionary dictionary];
-    [common_params setValue:matchId forKey:@"match_id"];
-    [common_params setValue:frontPageName forKey:@"src_page"];
-    [common_params setValue:nextPagename forKey:@"dst_page"];
-    [prop setObject:common_params forKey:@"common_params"];
-    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10006"
-                                 withProperties:prop];
-    
+    if ([matchId length] && [frontPageName length] && [nextPagename length]) {
+        NSMutableDictionary *prop = [[NSMutableDictionary alloc]initWithDictionary:_clientInfo.mj_keyValues];
+        NSArray *extends = @[@{@"name":@"match_id",@"value":matchId},@{@"name":@"src_page",@"value":frontPageName},@{@"name":@"dst_page",@"value":nextPagename}];
+        [prop setObject:extends.mj_JSONString forKey:@"common_params"];
+        
+        [[SensorsAnalyticsSDK sharedInstance] track:@"sa10006" withProperties:prop];
+    }else{
+        DLog(@"sensors analytics params not all");
+    }
 }
 
 @end
