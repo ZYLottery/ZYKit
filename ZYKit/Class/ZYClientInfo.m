@@ -53,8 +53,9 @@
  @param channelId 外部变量
  @return <#return value description#>
  */
-+(ZYClientInfo*)clentInfoWithExtend:(NSString*)productId
-                          channelId:(NSString*)channelId{
++(ZYClientInfo*)clentInfoWithpProductId:(NSString*)productId
+                          channelId:(NSString*)channelId
+                                 userId:(NSString*)userId{
     ZYClientInfo *clientInfo = [[ZYClientInfo alloc] init];
     [clientInfo setImei:@""];
     
@@ -76,7 +77,9 @@
     [clientInfo setIdfa:[ZYClientInfo getIDFA]];
     [clientInfo setScreenWidth:[NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width*[UIScreen mainScreen].scale]];
     [clientInfo setScreenHeight:[NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.height*[UIScreen mainScreen].scale]];
-    
+    [clientInfo setProduct:productId];
+    [clientInfo setChannel:productId];
+    [clientInfo setUserOpenId:userId];
     return clientInfo;
 }
 @end

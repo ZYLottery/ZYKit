@@ -75,6 +75,12 @@
 @property(nonatomic,strong) NSString *cookieData;
 
 /**
+ 用户id
+ */
+@property(nonatomic,strong) NSString *userOpenId;
+
+
+/**
  *  获取idfa
  *
  *  @return <#return value description#>
@@ -88,7 +94,7 @@
  @param channelId 外部变量
  @return <#return value description#>
  */
-+(ZYClientInfo*)clentInfoWithExtend:(NSString*)productId
++(ZYClientInfo*)clentInfoWithpProductId:(NSString*)productId
                           channelId:(NSString*)channelId;
 
 

@@ -44,6 +44,17 @@ static id sharedInstance = NULL;
                                      andConfigureURL:configureUrl
                                         andDebugMode:debugMode];
     [[ZYAnalytics sharedInstance] setClientInfo:clientInfo];
+    
+    // 追踪 "App 启动" 事件
+    [[SensorsAnalyticsSDK sharedInstance] track:@"AppStart" withProperties:clientInfo.mj_keyValues];
+    // 记录软件安装后首次打开事件
+    BOOL isInstalled = [[NSUserDefaults standardUserDefaults] objectForKey:@"analytics_install"];
+    if (!isInstalled) {
+        [[SensorsAnalyticsSDK sharedInstance] track:@"AppInstall" withProperties:clientInfo.mj_keyValues];
+        [[SensorsAnalyticsSDK sharedInstance] flush];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"analytics_install"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 /**
