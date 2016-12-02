@@ -87,7 +87,6 @@
  */
 + (NSString*)getIDFA;
 
-
 /**
  默认clientInfo
  

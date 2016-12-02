@@ -167,4 +167,64 @@ static id sharedInstance = NULL;
     }
 }
 
+
+#define PAGE_CODE_CONVERT @{@"ZYIndexViewController":@"首页",\
+                        @"ZYNewBaoLiaoVC":@"爆料首页",\
+                        @"ZYAnalystsRecommendViewController":@"分析师推荐",\
+                        @"ZYRechargesViewController":@"充值",\
+                        @"ZYCashViewController":@"提款",\
+                        @"ZYFeedbackViewController":@"意见反馈",\
+                        @"ZYUserMessViewController":@"账户信息",\
+                        @"ZYBuyLotteryAllPlayViewController":@"购彩大厅-全部玩法"\
+                    }
+
+
+/**
+ 页面访问退出事件
+
+ @param pageMarker 页面类名如IndexViewController
+ @param tureName 页面真实名如 首页
+ @param type 进入还是离开
+ */
+-(void)defaultEnterWithPageMarker:(NSString*)pageMarker
+                         tureName:(NSString*)tureName
+                             type:(PageEventType)type{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    
+    NSString *(^eventEqualTrue)(NSMutableDictionary*,NSString*,NSString*) = ^(NSMutableDictionary *prop,NSString *pageMarker,NSString *trueName){
+        __block NSString *name = @"";
+        [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if ([pageMarker length]) {
+                if ([key isEqualToString:pageMarker]) {
+                    name = [[obj stringByAppendingString:@"-"] stringByAppendingString:key];
+                    *stop = YES;
+                }
+            }else if ([trueName length]){
+                if ([obj isEqualToString:trueName]) {
+                
+                }
+                name = [[obj stringByAppendingString:@"-"] stringByAppendingString:key];
+                *stop = YES;
+            }
+        }];
+        return name;
+    };
+    NSMutableDictionary *parameter = _clientInfo.mj_keyValues;
+    if ([pageMarker length] && [tureName length]) {
+        NSString *name = eventEqualTrue(PAGE_CODE_CONVERT,pageMarker,tureName);
+        [parameter setValue:name forKey:@"access_page"];
+    }else{
+        NSString *name = [[tureName stringByAppendingString:@"-"] stringByAppendingString:pageMarker];
+        [parameter setValue:name forKey:@"access_page"];
+    }
+    NSString *envent = @"";
+    if (type == PageEnterEvent) {
+        envent = @"sa10004";
+    }else if (type == PageLeaveEvent){
+        envent = @"sa10005";
+    }
+    [[SensorsAnalyticsSDK sharedInstance] track:envent
+                                 withProperties:parameter];
+}
+
 @end

@@ -10,6 +10,11 @@
 #import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
 #import "ZYClientInfo.h"
 
+typedef enum : NSUInteger {
+    PageEnterEvent,
+    PageLeaveEvent,
+} PageEventType;
+
 @interface ZYAnalytics : NSObject
 
 + (ZYAnalytics *)sharedInstance;
@@ -87,5 +92,18 @@
 -(void)enterPageFromEvent:(NSString*)matchId
             frontPageName:(NSString*)frontPageName
              nextPageName:(NSString*)nextPagename;
+
+
+
+/**
+ 页面访问退出事件
+ 
+ @param pageMarker 页面类名如IndexViewController
+ @param tureName 页面真实名如 首页
+ @param type 进入还是离开
+ */
+-(void)defaultEnterWithPageMarker:(NSString*)pageMarker
+                         tureName:(NSString*)tureName
+                             type:(PageEventType)type;
 
 @end
