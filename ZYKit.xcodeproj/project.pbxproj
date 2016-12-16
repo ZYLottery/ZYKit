@@ -183,7 +183,6 @@
 				B6B86EF51DDD931E003D8C3C /* Analytics */,
 				B6B86EF41DDD92FC003D8C3C /* Theme */,
 				B6B86EF31DDD92DE003D8C3C /* CacheUtils */,
-				B6B86EF21DDD92CB003D8C3C /* Category */,
 				B69EAD001DDAF0E400C863FF /* ZYKit.h */,
 			);
 			path = Class;
@@ -251,6 +250,7 @@
 		B6B86EF31DDD92DE003D8C3C /* CacheUtils */ = {
 			isa = PBXGroup;
 			children = (
+				B6B86EF21DDD92CB003D8C3C /* Category */,
 				B66F22B91DDB193B00021305 /* ZYCacheFileUtils.h */,
 				B66F22BA1DDB193B00021305 /* ZYCacheFileUtils.m */,
 			);

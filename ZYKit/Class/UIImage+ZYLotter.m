@@ -9,6 +9,8 @@
 #import "UIImage+ZYLotter.h"
 #import <Accelerate/Accelerate.h>
 #import <float.h>
+#import <WDKit/WDKit.h>
+
 @implementation UIImage (ZYLotter)
 
 /**
@@ -226,18 +228,20 @@
  */
 + (UIImage *) combineWithTopImg:(UIImage*)topImage
                       bottomImg:(UIImage*)bottomImage
-                     withMargin:(NSInteger)margin{
+                     withMargin:(NSInteger)margin
+                          scale:(CGFloat)scale{
     if (topImage == nil) {
         return topImage;
     }
-    CGFloat height = topImage.size.height + bottomImage.size.height + margin;
     CGFloat width= topImage.size.width;
+    CGFloat height = topImage.size.height + bottomImage.size.height + margin;
+  
     CGSize offScreenSize = CGSizeMake(width, height);
     
     // UIGraphicsBeginImageContext(offScreenSize);用这个重绘图片会模糊
-    UIGraphicsBeginImageContextWithOptions(offScreenSize, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(offScreenSize, NO, scale);
     
-    CGRect rectT = CGRectMake(0, 0, width, topImage.size.height);
+    CGRect rectT = CGRectMake(0, 0, width,topImage.size.height);
     [topImage drawInRect:rectT];
     
     CGRect rectB = CGRectMake(0, rectT.origin.y + topImage.size.height + margin, width, bottomImage.size.height);
@@ -248,7 +252,40 @@
     UIGraphicsEndImageContext();
     return imagez;
 }
-
+/**
+ 图片合成
+ 
+ @param topImage 上边图片
+ @param bottomImage 上边图片
+ @param margin 两者间隔
+ @return <#return value description#>
+ */
++ (UIImage *) combineWithTopImg:(UIImage*)topImage
+                      bottomImg:(UIImage*)bottomImage
+                       ImageWidth:(float)imageWidth
+                          scale:(CGFloat)scale{
+    if (topImage == nil) {
+        return topImage;
+    }
+    CGFloat width= imageWidth;
+    CGFloat height = imageWidth*topImage.size.height/topImage.size.width + imageWidth*bottomImage.size.height/bottomImage.size.width;
+    
+    CGSize offScreenSize = CGSizeMake(width, height);
+    
+    // UIGraphicsBeginImageContext(offScreenSize);用这个重绘图片会模糊
+    UIGraphicsBeginImageContextWithOptions(offScreenSize, NO, scale);
+    
+    CGRect rectT = CGRectMake(0, 0, width,imageWidth*topImage.size.height/topImage.size.width );
+    [topImage drawInRect:rectT];
+    
+    CGRect rectB = CGRectMake(0, rectT.origin.y + imageWidth*topImage.size.height/topImage.size.width, width, imageWidth*bottomImage.size.height/bottomImage.size.width);
+    [bottomImage drawInRect:rectB];
+    
+    UIImage* imagez = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return imagez;
+}
 /**
  截取屏幕某一部分图片
  

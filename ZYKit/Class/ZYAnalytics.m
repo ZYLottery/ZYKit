@@ -191,7 +191,7 @@ static id sharedInstance = NULL;
                              type:(PageEventType)type{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
     
-    NSString *(^eventEqualTrue)(NSMutableDictionary*,NSString*,NSString*) = ^(NSMutableDictionary *prop,NSString *pageMarker,NSString *trueName){
+    NSString *(^eventEqualTrue)(NSDictionary*,NSString*,NSString*) = ^(NSDictionary *prop,NSString *pageMarker,NSString *trueName){
         __block NSString *name = @"";
         [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if ([pageMarker length]) {

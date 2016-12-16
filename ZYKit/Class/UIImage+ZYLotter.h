@@ -46,8 +46,23 @@
  */
 + (UIImage *) combineWithTopImg:(UIImage*)topImage
                       bottomImg:(UIImage*)bottomImage
-                     withMargin:(NSInteger)margin;
+                     withMargin:(NSInteger)margin
+                          scale:(CGFloat)scale;
 
+/**
+ <#Description#>
+
+ @param topImage    <#topImage description#>
+ @param bottomImage <#bottomImage description#>
+ @param ImageWidth    图片的宽
+ @param scale       <#scale description#>
+
+ @return <#return value description#>
+ */
++ (UIImage *) combineWithTopImg:(UIImage*)topImage
+                      bottomImg:(UIImage*)bottomImage
+                       ImageWidth:(float)imageWidth
+                          scale:(CGFloat)scale;
 /**
  截取屏幕某一部分图片
  

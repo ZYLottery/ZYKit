@@ -58,6 +58,6 @@
  *
  *  @return UIImage 截取的图片
  */
-- (UIImage *)scrollViewCutter;
+- (UIImage *)scrollViewCutterWithScale:(CGFloat)sacale;
 
 @end

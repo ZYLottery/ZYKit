@@ -109,7 +109,7 @@
  *
  *  @return UIImage 截取的图片
  */
-- (UIImage *)scrollViewCutter{
+- (UIImage *)scrollViewCutterWithScale:(CGFloat)sacale{
     //保存
     CGPoint savedContentOffset = self.contentOffset;
     CGRect savedFrame = self.frame;
@@ -117,7 +117,7 @@
     self.contentOffset = CGPointZero;
     self.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
     
-    UIImage *image = [self convertToImage];
+    UIImage *image = [self convertToImageWithScale:sacale];
     
     //还原数据
     self.contentOffset = savedContentOffset;
