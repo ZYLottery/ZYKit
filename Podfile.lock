@@ -9,13 +9,7 @@ PODS:
   - SensorsAnalyticsSDK (1.6.31):
     - SensorsAnalyticsSDK/core (= 1.6.31)
   - SensorsAnalyticsSDK/core (1.6.31)
-  - WDKit (1.0.2.9):
-    - WDKit/Category (= 1.0.2.9)
-    - WDKit/Extension (= 1.0.2.9)
-    - WDKit/Utils (= 1.0.2.9)
-  - WDKit/Category (1.0.2.9)
-  - WDKit/Extension (1.0.2.9)
-  - WDKit/Utils (1.0.2.9)
+  - WDKit (1.0.3.8)
 
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
@@ -24,7 +18,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.12)
   - SDWebImage (~> 3.8.2)
   - SensorsAnalyticsSDK (~> 1.6.29)
-  - WDKit (~> 1.0.2.9)
+  - WDKit
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -33,8 +27,8 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SensorsAnalyticsSDK: 029c4bbf7df399d2be079194a59f754aa2378cde
-  WDKit: a2d7093943aff9cda7ff32ca0800d545ba0f5536
+  WDKit: a35661056825cae915abe3c126cb9a8596f38f3f
 
-PODFILE CHECKSUM: 1bcd35cfc3483c065befe39688b66447f9330831
+PODFILE CHECKSUM: 34191d7f3516f12b0b61e16b6cc044658e89decd
 
 COCOAPODS: 1.1.1
