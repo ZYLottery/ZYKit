@@ -35,7 +35,7 @@
 #import <WebKit/WebKit.h>
 #endif
 
-#define VERSION @"1.6.29"
+#define VERSION @"1.6.31"
 
 #define PROPERTY_LENGTH_LIMITATION 8191
 
@@ -787,6 +787,7 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
     
     [libProperties setValue:@"code" forKey:@"$lib_method"];
     
+#ifndef SENSORS_ANALYTICS_DISABLE_CALL_STACK
     NSArray *syms = [NSThread callStackSymbols];
     
     if ([syms count] > 2) {
@@ -804,6 +805,7 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
             [libProperties setValue:detail forKey:@"$lib_detail"];
         }
     }
+#endif
 
     dispatch_async(self.serialQueue, ^{
         NSMutableDictionary *p = [NSMutableDictionary dictionary];
@@ -990,7 +992,13 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
         // 追踪渠道是特殊功能，需要同时发送 track 和 profile_set_once
 
         NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
-        [properties setValue:@"" forKey:@"$ios_install_source"];
+        NSString *idfa = [self getIDFA];
+        if (idfa != nil) {
+            [properties setValue:[NSString stringWithFormat:@"idfa=%@", idfa] forKey:@"$ios_install_source"];
+        } else {
+            [properties setValue:@"" forKey:@"$ios_install_source"];
+        }
+
         if (propertyDict != nil) {
             [properties addEntriesFromDictionary:propertyDict];
         }
@@ -1015,13 +1023,42 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
         // 追踪渠道是特殊功能，需要同时发送 track 和 profile_set_once
     
         // 通过 '$ios_install_source' 属性标记渠道追踪请求
-        NSDictionary *properties = @{@"$ios_install_source" : @""};
-    
+        NSString *idfa = [self getIDFA];
+        NSDictionary *properties = nil;
+        if (idfa != nil) {
+            properties = @{@"$ios_install_source" : [NSString stringWithFormat:@"idfa=%@", idfa]};
+        } else {
+            properties = @{@"$ios_install_source" : @""};
+        }
         // 先发送 track
         [self track:event withProperties:properties withType:@"track"];
     
         // 再发送 profile_set_once
         [self track:nil withProperties:properties withType:@"profile_set_once"];
+    }
+}
+
+- (NSString  *)getIDFA {
+    NSString *idfa = nil;
+    @try {
+#if defined(SENSORS_ANALYTICS_IDFA)
+        Class ASIdentifierManagerClass = NSClassFromString(@"ASIdentifierManager");
+        if (ASIdentifierManagerClass) {
+            SEL sharedManagerSelector = NSSelectorFromString(@"sharedManager");
+            id sharedManager = ((id (*)(id, SEL))[ASIdentifierManagerClass methodForSelector:sharedManagerSelector])(ASIdentifierManagerClass, sharedManagerSelector);
+            SEL advertisingIdentifierSelector = NSSelectorFromString(@"advertisingIdentifier");
+            NSUUID *uuid = ((NSUUID* (*)(id, SEL))[sharedManager methodForSelector:advertisingIdentifierSelector])(sharedManager, advertisingIdentifierSelector);
+            NSString *temp = [uuid UUIDString];
+            // 在 iOS 10.0 以后，当用户开启限制广告跟踪，advertisingIdentifier 的值将是全零
+            // 00000000-0000-0000-0000-000000000000
+            if (temp && ![temp hasPrefix:@"00000000"]) {
+                idfa = temp;
+            }
+        }
+        #endif
+        return idfa;
+    } @catch (NSException *exception) {
+        return idfa;
     }
 }
 
@@ -1563,6 +1600,15 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
             NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
             [properties setValue:NSStringFromClass(klass) forKey:SCREEN_NAME_PROPERTY];
 
+            @try {
+                NSString *controllerTitle = controller.navigationItem.title;
+                if (controllerTitle != nil) {
+                    [properties setValue:controllerTitle forKey:@"$title"];
+                }
+            } @catch (NSException *exception) {
+
+            }
+
             if ([controller conformsToProtocol:@protocol(SAAutoTracker)]) {
                 UIViewController<SAAutoTracker> *autoTrackerController = (UIViewController<SAAutoTracker> *)controller;
                 [properties addEntriesFromDictionary:[autoTrackerController getTrackProperties]];
@@ -1927,14 +1973,6 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
 
 #pragma mark - People analytics
 
-NSString * const SensorsAnalyticsAppPushProfilePrefix[] = {
-    [SensorsAnalyticsAppPushBaidu] = @"IOS_Baidu_",
-    [SensorsAnalyticsAppPushJiguang] = @"IOS_Jiguang_",
-    [SensorsAnalyticsAppPushQQ] = @"IOS_QQ_",
-    [SensorsAnalyticsAppPushGetui] = @"IOS_Getui_",
-    [SensorsAnalyticsAppPushXiaomi] = @"IOS_Xiaomi_",
-};
-
 @implementation SensorsAnalyticsPeople {
     SensorsAnalyticsSDK *_sdk;
 }
@@ -1981,19 +2019,6 @@ NSString * const SensorsAnalyticsAppPushProfilePrefix[] = {
 
 - (void)deleteUser {
     [_sdk track:nil withProperties:@{} withType:@"profile_delete"];
-}
-
-- (void)registerAppPushService:(SensorsAnalyticsAppPushService) appPushService
-                    withAppKey:(NSString *) appKey
-                 andRegisterId:(NSString*) registerId {
-    // 过滤 AppKey 中非 [a-zA-Z0-9] 字符
-    NSCharacterSet *alphaSet = [[ NSCharacterSet alphanumericCharacterSet ] invertedSet ];
-    NSString *filteredAppKey = [[appKey componentsSeparatedByCharactersInSet:alphaSet] componentsJoinedByString:@""];
-    
-    NSString *profileKey = [NSString stringWithFormat:@"%@_%@", @"$app_push_key", filteredAppKey];
-    NSString *profileValue = [SensorsAnalyticsAppPushProfilePrefix[appPushService] stringByAppendingString:registerId];
-    
-    [_sdk track:nil withProperties:@{profileKey : profileValue} withType:@"profile_set"];
 }
 
 @end

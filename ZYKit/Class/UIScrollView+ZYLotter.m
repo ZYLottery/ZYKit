@@ -115,7 +115,7 @@
     CGRect savedFrame = self.frame;
     
     self.contentOffset = CGPointZero;
-    self.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
+    self.frame = CGRectMake(0, 0, self.contentSize.width, self.comntentSize.height);
     
     UIImage *image = [self convertToImageWithScale:sacale];
     

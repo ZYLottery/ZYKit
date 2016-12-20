@@ -3,13 +3,12 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
-  - NSDate+Helper (1.0.4)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SensorsAnalyticsSDK (1.6.29):
-    - SensorsAnalyticsSDK/core (= 1.6.29)
-  - SensorsAnalyticsSDK/core (1.6.29)
+  - SensorsAnalyticsSDK (1.6.31):
+    - SensorsAnalyticsSDK/core (= 1.6.31)
+  - SensorsAnalyticsSDK/core (1.6.31)
   - WDKit (1.0.2.9):
     - WDKit/Category (= 1.0.2.9)
     - WDKit/Extension (= 1.0.2.9)
@@ -23,9 +22,8 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.0.0)
   - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.1.12)
-  - NSDate+Helper (~> 1.0.4)
   - SDWebImage (~> 3.8.2)
-  - SensorsAnalyticsSDK (~> 1.6.24)
+  - SensorsAnalyticsSDK (~> 1.6.29)
   - WDKit (~> 1.0.2.9)
 
 SPEC CHECKSUMS:
@@ -33,11 +31,10 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  NSDate+Helper: 78f517ac1c67914096433466fa7d20b812b9d86c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SensorsAnalyticsSDK: 31e385c0c0e33fe3f7d6310777cc74a5e0672b32
+  SensorsAnalyticsSDK: 029c4bbf7df399d2be079194a59f754aa2378cde
   WDKit: a2d7093943aff9cda7ff32ca0800d545ba0f5536
 
-PODFILE CHECKSUM: 4d19e56f5501db266165967a6d79cc23d9670497
+PODFILE CHECKSUM: 1bcd35cfc3483c065befe39688b66447f9330831
 
 COCOAPODS: 1.1.1

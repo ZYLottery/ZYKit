@@ -1,15 +1,15 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
-s.version          = "0.0.2.9"
+s.version          = "0.0.3.0"
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
 DESC
-s.homepage         = "https://github.com/CoderWD/ZYKit"
+s.homepage         = "https://github.com/ZYLottery/ZYKit"
 # s.screenshots      = ""
 s.license          = 'MIT'
-s.author           = { "何伟东" => "654500619@.com" }
-s.source           = { :git => "https://github.com/CoderWD/ZYKit.git", :tag => s.version.to_s }
+s.author           = { "章鱼彩票" => "appdeveloper@8win.com" }
+s.source           = { :git => "https://github.com/ZYLottery/ZYKit.git", :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/NAME'
 
 s.platform     = :ios, '7.0'
