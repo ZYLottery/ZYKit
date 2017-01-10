@@ -82,7 +82,7 @@
     [clientInfo setScreenWidth:[NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width*[UIScreen mainScreen].scale]];
     [clientInfo setScreenHeight:[NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.height*[UIScreen mainScreen].scale]];
     [clientInfo setProduct:productId];
-    [clientInfo setChannel:productId];
+    [clientInfo setChannel:channelId];
     [clientInfo setUserOpenId:userId];
     return clientInfo;
 }
