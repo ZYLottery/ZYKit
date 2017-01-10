@@ -13,5 +13,6 @@ target "ZYKit" do
     pod 'MJRefresh', '~> 3.1.12'
     pod 'SensorsAnalyticsSDK', '~> 1.6.29'
     pod 'MJExtension', '~> 3.0.13'
+    pod 'SimulateIDFA', '~> 0.0.1'
 
 end

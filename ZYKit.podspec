@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
-s.version          = "0.0.3.0"
+s.version          = "0.0.3.1"
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
@@ -34,5 +34,6 @@ s.dependency 'MJRefresh', '~> 3.1.12'
 s.dependency 'MBProgressHUD', '~> 1.0.0'
 s.dependency 'SensorsAnalyticsSDK', '~> 1.6.24'
 s.dependency 'MJExtension', '~> 3.0.13'
+s.dependency 'SimulateIDFA', '~> 0.0.1'
 
 end

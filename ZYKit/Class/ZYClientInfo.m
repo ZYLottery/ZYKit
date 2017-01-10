@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <WDKit/WDKeyChain.h>
 #import <AdSupport/AdSupport.h>
+#import <SimulateIDFA/SimulateIDFA.h>
 
 @implementation ZYClientInfo
 
@@ -33,16 +34,19 @@
     
     if(ValueADFA){
         strRet = ValueADFA;
-        // strRet = [[ValueADFA uppercaseString] UTF8String];
     }else{
         NSString *adId =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-        // strRet = [[adId uppercaseString] UTF8String];
+        //未获取到系统idfa
+        if (adId == nil ||
+            [[[adId stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+            //用第三方类库去取idfa
+            adId = [SimulateIDFA createSimulateIDFA];
+        }
         strRet =adId;
         NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
         [usernamepasswordKVPairs setObject:adId forKey:keyValue];
         [WDKeyChain saveWithKey:keyName data:usernamepasswordKVPairs];
     }
-    
     return strRet;
 }
 
