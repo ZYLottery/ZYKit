@@ -201,7 +201,7 @@ static id sharedInstance = NULL;
                 }
             }else if ([trueName length]){
                 if ([obj isEqualToString:trueName]) {
-                
+                    
                 }
                 name = [[obj stringByAppendingString:@"-"] stringByAppendingString:key];
                 *stop = YES;
@@ -209,13 +209,25 @@ static id sharedInstance = NULL;
         }];
         return name;
     };
-    NSMutableDictionary *parameter = _clientInfo.mj_keyValues;
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
     if ([pageMarker length] && [tureName length]) {
         NSString *name = eventEqualTrue(PAGE_CODE_CONVERT,pageMarker,tureName);
-        [parameter setValue:name forKey:@"access_page"];
+        if ([name length]) {
+            [parameter setObject:name forKey:@"access_page"];
+        }else{
+            if ([pageMarker length]) {
+                [parameter setObject:pageMarker forKey:@"access_page"];
+            }
+        }
     }else{
         NSString *name = [[tureName stringByAppendingString:@"-"] stringByAppendingString:pageMarker];
-        [parameter setValue:name forKey:@"access_page"];
+        if ([name length]) {
+            [parameter setObject:name forKey:@"access_page"];
+        }else{
+            if ([pageMarker length]) {
+                [parameter setObject:pageMarker forKey:@"access_page"];
+            }
+        }
     }
     NSString *envent = @"";
     if (type == PageEnterEvent) {
@@ -223,6 +235,7 @@ static id sharedInstance = NULL;
     }else if (type == PageLeaveEvent){
         envent = @"sa10005";
     }
+    NSLog(@"access_page:%@",parameter[@"access_page"]);
     [[SensorsAnalyticsSDK sharedInstance] track:envent
                                  withProperties:parameter];
 }
