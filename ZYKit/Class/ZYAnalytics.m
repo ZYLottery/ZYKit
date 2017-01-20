@@ -167,18 +167,6 @@ static id sharedInstance = NULL;
     }
 }
 
-
-#define PAGE_CODE_CONVERT @{@"ZYIndexViewController":@"首页",\
-                        @"ZYNewBaoLiaoVC":@"爆料首页",\
-                        @"ZYAnalystsRecommendViewController":@"分析师推荐",\
-                        @"ZYRechargesViewController":@"充值",\
-                        @"ZYCashViewController":@"提款",\
-                        @"ZYFeedbackViewController":@"意见反馈",\
-                        @"ZYUserMessViewController":@"账户信息",\
-                        @"ZYBuyLotteryAllPlayViewController":@"购彩大厅-全部玩法"\
-                    }
-
-
 /**
  页面访问退出事件
 
@@ -211,7 +199,11 @@ static id sharedInstance = NULL;
     };
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
     if ([pageMarker length] && [tureName length]) {
-        NSString *name = eventEqualTrue(PAGE_CODE_CONVERT,pageMarker,tureName);
+        NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
+        if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
+            trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
+        }
+        NSString *name = eventEqualTrue(trueNameKeyValues,pageMarker,tureName);
         if ([name length]) {
             [parameter setObject:name forKey:@"access_page"];
         }else{

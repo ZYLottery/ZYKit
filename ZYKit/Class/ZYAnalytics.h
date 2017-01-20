@@ -15,8 +15,15 @@ typedef enum : NSUInteger {
     PageLeaveEvent,
 } PageEventType;
 
+
+@protocol ZYAnalyticsDelegate <NSObject>
+@required;
+-(NSDictionary*)controllerTrueNameKeyValues;
+
+@end
 @interface ZYAnalytics : NSObject
 
+@property(nonatomic,assign) id<ZYAnalyticsDelegate> delegate;
 + (ZYAnalytics *)sharedInstance;
 
 /**
