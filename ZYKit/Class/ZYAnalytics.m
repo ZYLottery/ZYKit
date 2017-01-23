@@ -184,7 +184,7 @@ static id sharedInstance = NULL;
         [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if (pageMarker&&[pageMarker length]) {
                 if ([key isEqualToString:pageMarker]) {
-                    name = [NSString stringWithFormat:@"%@%@-%@",obj,trueName?[NSString stringWithFormat:@"(%@)",trueName]:@"",key];
+                    name = [NSString stringWithFormat:@"%@%@",obj,trueName?[NSString stringWithFormat:@"(%@)",trueName]:@""];
                     *stop = YES;
                 }
             }
