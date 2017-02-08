@@ -182,45 +182,32 @@ static id sharedInstance = NULL;
     NSString *(^eventEqualTrue)(NSDictionary*,NSString*,NSString*) = ^(NSDictionary *prop,NSString *pageMarker,NSString *trueName){
         __block NSString *name = @"";
         [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            if ([pageMarker length]) {
+            if (pageMarker&&[pageMarker length]) {
                 if ([key isEqualToString:pageMarker]) {
-                    name = [[obj stringByAppendingString:@"-"] stringByAppendingString:key];
+                    name = [NSString stringWithFormat:@"%@%@",obj,trueName?[NSString stringWithFormat:@"(%@)",trueName]:@""];
                     *stop = YES;
                 }
-            }else if ([trueName length]){
-                if ([obj isEqualToString:trueName]) {
-                    
-                }
-                name = [[obj stringByAppendingString:@"-"] stringByAppendingString:key];
-                *stop = YES;
             }
         }];
         return name;
     };
+    //暂时的返回字符创规则为
+    // 1.如果plist有对应key(类名)  并且传入trueName     格式为 : plist对应值(trueName) - 类名  ps: 比赛直播(足球)-zylivingvc
+    // 2.如果plist有对应key(类名)  没有传入trueName     格式为 : plist对应值 - 类名  ps: 比赛直播-zylivingvc
+    // 3.如果plist没有对应key(类名)  就是  trueName - 类名
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
-    if ([pageMarker length] && [tureName length]) {
-        NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
-        if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
-            trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
-        }
-        NSString *name = eventEqualTrue(trueNameKeyValues,pageMarker,tureName);
-        if ([name length]) {
-            [parameter setObject:name forKey:@"access_page"];
-        }else{
-            if ([pageMarker length]) {
-                [parameter setObject:pageMarker forKey:@"access_page"];
-            }
-        }
-    }else{
-        NSString *name = [[tureName stringByAppendingString:@"-"] stringByAppendingString:pageMarker];
-        if ([name length]) {
-            [parameter setObject:name forKey:@"access_page"];
-        }else{
-            if ([pageMarker length]) {
-                [parameter setObject:pageMarker forKey:@"access_page"];
-            }
-        }
+    
+    NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
+    if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
+        trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
     }
+    NSString *name = eventEqualTrue(trueNameKeyValues,pageMarker,tureName);
+    if ([name length]) {
+        [parameter setObject:name forKey:@"access_page"];
+    }else{
+        [parameter setObject:[NSString stringWithFormat:@"%@-%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
+    }
+
     NSString *envent = @"";
     if (type == PageEnterEvent) {
         envent = @"sa10004";
