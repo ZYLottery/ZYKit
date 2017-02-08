@@ -232,4 +232,23 @@ static id sharedInstance = NULL;
                                  withProperties:parameter];
 }
 
+
+
+/**
+ 10002-普通点击事件埋点
+ 
+ @param name 事件名称
+ @param userOpenId <#userOpenId description#>
+ */
+-(void)clickEvent:(NSString*)name
+             userOpenId:(NSString*)userOpenId {
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:name forKey:@"button_name"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10002"
+                                 withProperties:prop];
+}
+
+
 @end
