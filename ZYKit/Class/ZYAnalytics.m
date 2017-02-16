@@ -185,7 +185,7 @@ static id sharedInstance = NULL;
             if (pageMarker&&[pageMarker length]) {
                 if ([key isEqualToString:pageMarker]) {
                     NSString * pageNameText = obj;
-                    NSRange range = [pageNameText rangeOfString:@"[.*?]" options:NSRegularExpressionSearch];
+                    NSRange range = [pageNameText rangeOfString:@"\\[.*?\\]" options:NSRegularExpressionSearch];
                     if (range.location != NSNotFound) {
                         if (trueName&&trueName.length>0) {
                             name = [name stringByReplacingOccurrencesOfString:[pageNameText substringWithRange:range] withString:trueName];
