@@ -213,6 +213,8 @@ static id sharedInstance = NULL;
     }else{
         [parameter setObject:[NSString stringWithFormat:@"%@-%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
     }
+    name = [name stringByReplacingOccurrencesOfString:@"[" withString:@""];
+    name = [name stringByReplacingOccurrencesOfString:@"]" withString:@""];
     NSString *envent = @"";
     if (type == PageEnterEvent) {
         envent = @"sa10004";
