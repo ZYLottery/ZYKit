@@ -113,4 +113,13 @@ typedef enum : NSUInteger {
                          tureName:(NSString*)tureName
                              type:(PageEventType)type;
 
+/**
+ 10002-普通点击事件埋点
+ 
+ @param name 事件名称
+ @param userOpenId <#userOpenId description#>
+ */
+-(void)clickEvent:(NSString*)name
+       userOpenId:(NSString*)userOpenId;
+
 @end
