@@ -184,11 +184,11 @@ static id sharedInstance = NULL;
         [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if (pageMarker&&[pageMarker length]) {
                 if ([key isEqualToString:pageMarker]) {
-                    NSString * pageNameText = obj;
-                    NSRange range = [pageNameText rangeOfString:@"\\[.*?\\]" options:NSRegularExpressionSearch];
+                    name = obj;
+                    NSRange range = [name rangeOfString:@"\\[.*?\\]" options:NSRegularExpressionSearch];
                     if (range.location != NSNotFound) {
                         if (trueName&&trueName.length>0) {
-                            name = [name stringByReplacingOccurrencesOfString:[pageNameText substringWithRange:range] withString:trueName];
+                            name = [name stringByReplacingOccurrencesOfString:[name substringWithRange:range] withString:trueName];
                         }
                     }
                     *stop = YES;
