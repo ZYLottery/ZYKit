@@ -184,7 +184,13 @@ static id sharedInstance = NULL;
         [prop enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if (pageMarker&&[pageMarker length]) {
                 if ([key isEqualToString:pageMarker]) {
-                    name = [NSString stringWithFormat:@"%@%@",obj,trueName?[NSString stringWithFormat:@"(%@)",trueName]:@""];
+                    name = obj;
+                    NSRange range = [name rangeOfString:@"\\[.*?\\]" options:NSRegularExpressionSearch];
+                    if (range.location != NSNotFound) {
+                        if (trueName&&trueName.length>0) {
+                            name = [name stringByReplacingOccurrencesOfString:[name substringWithRange:range] withString:trueName];
+                        }
+                    }
                     *stop = YES;
                 }
             }
@@ -192,11 +198,11 @@ static id sharedInstance = NULL;
         return name;
     };
     //暂时的返回字符创规则为
-    // 1.如果plist有对应key(类名)  并且传入trueName     格式为 : plist对应值(trueName) - 类名  ps: 比赛直播(足球)-zylivingvc
-    // 2.如果plist有对应key(类名)  没有传入trueName     格式为 : plist对应值 - 类名  ps: 比赛直播-zylivingvc
-    // 3.如果plist没有对应key(类名)  就是  trueName - 类名
+    // 1.如果plist有对应key(类名)  并且对应值中有[*****]可选字符串  并且传入trueName  将trueName将可选字符串替换 ps 资讯模块-章鱼爆料-[足球&&篮球]  trueName为足球  最后为:资讯模块-章鱼爆料-足球
+    // 2.如果plist有对应key(类名)  并且对应值中有[*****]可选字符串  没有传入trueName     格式为 : plist对应值 去除"[]"  ps: 资讯模块-章鱼爆料-[足球&&篮球]  trueName为足球  最后为:资讯模块-章鱼爆料-足球&&篮球
+    // 3.如果plist有对应key(类名)  并且对应值没有[*****]可选字符串  格式为 : plist对应值 去除"[]" ps 资讯模块-章鱼爆料-[足球&&篮球]  最后为:资讯模块-章鱼爆料-足球
+    // 4.如果plist没有对应key(类名)  就是  trueName - 类名
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
-    
     NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
     if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
         trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
@@ -207,7 +213,8 @@ static id sharedInstance = NULL;
     }else{
         [parameter setObject:[NSString stringWithFormat:@"%@-%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
     }
-
+    name = [name stringByReplacingOccurrencesOfString:@"[" withString:@""];
+    name = [name stringByReplacingOccurrencesOfString:@"]" withString:@""];
     NSString *envent = @"";
     if (type == PageEnterEvent) {
         envent = @"sa10004";
