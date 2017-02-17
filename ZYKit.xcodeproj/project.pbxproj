@@ -25,6 +25,7 @@
 		B66F22C91DDB193B00021305 /* ZYMainTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22BE1DDB193B00021305 /* ZYMainTheme.m */; };
 		B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22C01DDB193B00021305 /* ZYNoticeAlertView.m */; };
 		B66F22CD1DDB19ED00021305 /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F22CC1DDB19ED00021305 /* WDAlertView.m */; };
+		B67F11E31E5695A20021181A /* ZYUtiles.m in Sources */ = {isa = PBXBuildFile; fileRef = B67F11E21E5695A20021181A /* ZYUtiles.m */; };
 		B6B5E5B71DE43A0C00523889 /* NSString+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B5E5B61DE43A0C00523889 /* NSString+ZYLotter.m */; };
 		B6B5E5BC1DE449DC00523889 /* ZYCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B5E5BB1DE449DC00523889 /* ZYCircularProgressView.m */; };
 		B6B86EF01DDD5A60003D8C3C /* ZYAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B86EEF1DDD5A60003D8C3C /* ZYAnalytics.m */; };
@@ -73,6 +74,8 @@
 		B66F22C01DDB193B00021305 /* ZYNoticeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNoticeAlertView.m; sourceTree = "<group>"; };
 		B66F22CB1DDB19ED00021305 /* WDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDAlertView.h; sourceTree = "<group>"; };
 		B66F22CC1DDB19ED00021305 /* WDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDAlertView.m; sourceTree = "<group>"; };
+		B67F11E11E5695A20021181A /* ZYUtiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUtiles.h; sourceTree = "<group>"; };
+		B67F11E21E5695A20021181A /* ZYUtiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUtiles.m; sourceTree = "<group>"; };
 		B69EAD001DDAF0E400C863FF /* ZYKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYKit.h; sourceTree = "<group>"; };
 		B6B5E5B51DE43A0C00523889 /* NSString+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZYLotter.h"; sourceTree = "<group>"; };
 		B6B5E5B61DE43A0C00523889 /* NSString+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZYLotter.m"; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 			children = (
 				B6B86EFA1DDD936A003D8C3C /* ZYClientInfo.h */,
 				B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */,
+				B67F11E11E5695A20021181A /* ZYUtiles.h */,
+				B67F11E21E5695A20021181A /* ZYUtiles.m */,
 			);
 			name = Coomon;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
 				B66F22C81DDB193B00021305 /* ZYCustomAlertView.m in Sources */,
 				B62781711DD9C13300B3F901 /* main.m in Sources */,
+				B67F11E31E5695A20021181A /* ZYUtiles.m in Sources */,
 				B66F22C61DDB193B00021305 /* UIView+ZYEmptyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
