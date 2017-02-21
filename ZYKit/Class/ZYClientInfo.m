@@ -12,7 +12,7 @@
 #import <WDKit/WDKeyChain.h>
 #import <AdSupport/AdSupport.h>
 #import <SimulateIDFA/SimulateIDFA.h>
-
+#import <MJExtension/MJExtension.h>
 @implementation ZYClientInfo
 
 /**
@@ -85,5 +85,29 @@
     [clientInfo setChannel:channelId];
     [clientInfo setUserOpenId:userId];
     return clientInfo;
+}
+//下划线格式的keyvalues
+- (NSDictionary *)keyValuesForInsertNameKey{
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+    [self.mj_keyValues enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [dict setObject:obj forKey:[self translateToInsertName:key]];
+    }];
+    return dict;
+}
+//驼峰名字转下划线名字
+-(NSString *)translateToInsertName:(NSString *)name
+{
+    NSMutableString *insertName = [name mutableCopy];
+    
+    for(int i = 0; i < name.length; i++)
+    {
+        char c = [insertName characterAtIndex:i];
+        if(c>64 && c<91)
+        {
+            NSRange range = NSMakeRange(i, 1);
+            [insertName replaceCharactersInRange:range withString:[NSString stringWithFormat:@"_%@", [[NSString stringWithFormat:@"%c",c] lowercaseString]]];
+        }
+    }
+    return insertName;
 }
 @end

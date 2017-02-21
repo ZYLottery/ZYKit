@@ -46,11 +46,11 @@ static id sharedInstance = NULL;
     [[ZYAnalytics sharedInstance] setClientInfo:clientInfo];
     
     // 追踪 "App 启动" 事件
-    [[SensorsAnalyticsSDK sharedInstance] track:@"AppStart" withProperties:clientInfo.mj_keyValues];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"AppStart" withProperties:[clientInfo keyValuesForInsertNameKey]];
     // 记录软件安装后首次打开事件
     BOOL isInstalled = [[NSUserDefaults standardUserDefaults] objectForKey:@"analytics_install"];
     if (!isInstalled) {
-        [[SensorsAnalyticsSDK sharedInstance] track:@"AppInstall" withProperties:clientInfo.mj_keyValues];
+        [[SensorsAnalyticsSDK sharedInstance] track:@"AppInstall" withProperties:[clientInfo keyValuesForInsertNameKey]];
         [[SensorsAnalyticsSDK sharedInstance] flush];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"analytics_install"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -68,7 +68,7 @@ static id sharedInstance = NULL;
              bannerUrl:(NSString*)url
             userOpenId:(NSString*)userOpenId {
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:bunnerId forKey:@"banner_id"];
     [prop setValue:url forKey:@"banner_url"];
@@ -87,7 +87,7 @@ static id sharedInstance = NULL;
              bannerUrl:(NSString*)url
             userOpenId:(NSString*)userOpenId {
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:bunnerId forKey:@"banner_id"];
     [prop setValue:url forKey:@"banner_url"];
@@ -105,7 +105,7 @@ static id sharedInstance = NULL;
 -(void)brokeNewsEvent:(NSString*)userOpenId
               matchId:(NSString*)matchId{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:matchId forKey:@"match_id"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10003"
@@ -121,7 +121,7 @@ static id sharedInstance = NULL;
 -(void)pageViewEvent:(NSString*)userOpenId
             pageName:(NSString*)pageName{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:pageName forKey:@"access_page"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10004"
@@ -138,7 +138,7 @@ static id sharedInstance = NULL;
 -(void)pageQuitEvent:(NSString*)userOpenId
             pageName:(NSString*)pageName{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:pageName forKey:@"access_page"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10005"
@@ -157,7 +157,7 @@ static id sharedInstance = NULL;
              nextPageName:(NSString*)nextPagename{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
     if ([matchId length] && [frontPageName length] && [nextPagename length]) {
-        NSMutableDictionary *prop = [[NSMutableDictionary alloc]initWithDictionary:_clientInfo.mj_keyValues];
+        NSMutableDictionary *prop = [[NSMutableDictionary alloc]initWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
         NSArray *extends = @[@{@"name":@"match_id",@"value":matchId},@{@"name":@"src_page",@"value":frontPageName},@{@"name":@"dst_page",@"value":nextPagename}];
         [prop setObject:extends.mj_JSONString forKey:@"common_params"];
         
@@ -202,7 +202,7 @@ static id sharedInstance = NULL;
     // 2.如果plist有对应key(类名)  并且对应值中有[*****]可选字符串  没有传入trueName     格式为 : plist对应值 去除"[]"  ps: 资讯模块-章鱼爆料-[足球&&篮球]  trueName为足球  最后为:资讯模块-章鱼爆料-足球&&篮球
     // 3.如果plist有对应key(类名)  并且对应值没有[*****]可选字符串  格式为 : plist对应值 去除"[]" ps 资讯模块-章鱼爆料-[足球&&篮球]  最后为:资讯模块-章鱼爆料-足球
     // 4.如果plist没有对应key(类名)  就是  trueName - 类名
-    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
     if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
         trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
@@ -211,7 +211,7 @@ static id sharedInstance = NULL;
     if ([name length]) {
         [parameter setObject:name forKey:@"access_page"];
     }else{
-        [parameter setObject:[NSString stringWithFormat:@"%@-%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
+        [parameter setObject:[NSString stringWithFormat:@"%@%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
     }
     name = [name stringByReplacingOccurrencesOfString:@"[" withString:@""];
     name = [name stringByReplacingOccurrencesOfString:@"]" withString:@""];
@@ -237,7 +237,7 @@ static id sharedInstance = NULL;
 -(void)clickEvent:(NSString*)name
              userOpenId:(NSString*)userOpenId {
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
-    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo.mj_keyValues];
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:name forKey:@"button_name"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10002"
