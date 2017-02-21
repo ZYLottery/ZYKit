@@ -221,7 +221,7 @@ static id sharedInstance = NULL;
     }else if (type == PageLeaveEvent){
         envent = @"sa10005";
     }
-    NSLog(@"access_page:%@",parameter[@"access_page"]);
+    NSLog(@"access_page:%@",parameter);
     [[SensorsAnalyticsSDK sharedInstance] track:envent
                                  withProperties:parameter];
 }
