@@ -57,9 +57,7 @@
 +(void)loadImageWithUrl:(NSString *)picUrl finishBlock:(ZYGetSDWebCacheWithFinishedBlock)finishBlock{
     if ([[SDWebImageManager sharedManager] diskImageExistsForURL:[NSURL URLWithString:picUrl]]) {
         UIImage * image =  [[SDWebImageManager sharedManager].imageCache imageFromDiskCacheForKey:[[SDWebImageManager sharedManager] cacheKeyForURL:[NSURL URLWithString:picUrl]]];
-        if (image) {
-            finishBlock(image);
-        }
+        finishBlock(image);
         
     }else{
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:picUrl] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -68,11 +66,11 @@
            
             if (finished&&image) {
                 [[SDWebImageManager sharedManager] saveImageToCache:image forURL:imageURL];
-                finishBlock(image);
+               
             }
+            finishBlock(image);
             
         }];
-        
     }
 }
 @end
