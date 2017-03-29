@@ -60,6 +60,7 @@
         finishBlock(image);
         
     }else{
+        
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:picUrl] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {

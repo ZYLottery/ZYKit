@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BF5EEF41E8B683C003E8E75 /* ZYAlertHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5EEF31E8B683C003E8E75 /* ZYAlertHub.m */; };
+		3BF5EEF71E8B6955003E8E75 /* ZYAlertMessageDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5EEF61E8B6955003E8E75 /* ZYAlertMessageDataModel.m */; };
 		B62781711DD9C13300B3F901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781701DD9C13300B3F901 /* main.m */; };
 		B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781731DD9C13300B3F901 /* AppDelegate.m */; };
 		B62781771DD9C13300B3F901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62781761DD9C13300B3F901 /* ViewController.m */; };
@@ -38,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BF5EEF21E8B683C003E8E75 /* ZYAlertHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYAlertHub.h; sourceTree = "<group>"; };
+		3BF5EEF31E8B683C003E8E75 /* ZYAlertHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYAlertHub.m; sourceTree = "<group>"; };
+		3BF5EEF51E8B6955003E8E75 /* ZYAlertMessageDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYAlertMessageDataModel.h; sourceTree = "<group>"; };
+		3BF5EEF61E8B6955003E8E75 /* ZYAlertMessageDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYAlertMessageDataModel.m; sourceTree = "<group>"; };
 		A13A36B8F49B0719C0B74A30 /* Pods-ZYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZYKit/Pods-ZYKit.release.xcconfig"; sourceTree = "<group>"; };
 		A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZYKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B627816C1DD9C13300B3F901 /* ZYKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BF5EEF11E8B67D0003E8E75 /* ZYALertHub */ = {
+			isa = PBXGroup;
+			children = (
+				3BF5EEF21E8B683C003E8E75 /* ZYAlertHub.h */,
+				3BF5EEF31E8B683C003E8E75 /* ZYAlertHub.m */,
+				3BF5EEF51E8B6955003E8E75 /* ZYAlertMessageDataModel.h */,
+				3BF5EEF61E8B6955003E8E75 /* ZYAlertMessageDataModel.m */,
+			);
+			name = ZYALertHub;
+			sourceTree = "<group>";
+		};
 		5F174DE558C7F83DA1AAF601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +211,7 @@
 		B6B5E5B81DE4498D00523889 /* PluginView */ = {
 			isa = PBXGroup;
 			children = (
+				3BF5EEF11E8B67D0003E8E75 /* ZYALertHub */,
 				B66C72201DE6884900771CF1 /* ZYCircleView */,
 				B6B5E5B91DE449A600523889 /* ZYCircularProgressView */,
 				B6B86EF11DDD92C0003D8C3C /* AlertView */,
@@ -421,6 +439,7 @@
 				B66F22CA1DDB193B00021305 /* ZYNoticeAlertView.m in Sources */,
 				B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */,
 				B66F22C51DDB193B00021305 /* UIScrollView+ZYLotter.m in Sources */,
+				3BF5EEF71E8B6955003E8E75 /* ZYAlertMessageDataModel.m in Sources */,
 				B66C72231DE6885000771CF1 /* ZYCircleView.m in Sources */,
 				B66F22C71DDB193B00021305 /* ZYCacheFileUtils.m in Sources */,
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
@@ -429,6 +448,7 @@
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
 				B6EEDE5A1DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m in Sources */,
 				B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */,
+				3BF5EEF41E8B683C003E8E75 /* ZYAlertHub.m in Sources */,
 				B66F22C91DDB193B00021305 /* ZYMainTheme.m in Sources */,
 				B62781741DD9C13300B3F901 /* AppDelegate.m in Sources */,
 				B66F22C81DDB193B00021305 /* ZYCustomAlertView.m in Sources */,

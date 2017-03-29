@@ -28,5 +28,5 @@
 #import "ZYCircularProgressView.h"
 #import "UINavigationBar+ZYLotter.h"
 #import "ZYUtiles.h"
-
+#import "ZYAlertHub.h"
 #endif /* ZYKit_h */
