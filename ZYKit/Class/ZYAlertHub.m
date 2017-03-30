@@ -31,7 +31,7 @@ static  const float toastWidthWithicon = 130;//带icon的test是固定的
 static const float toastIconWidth = 45;//toast上图片的宽度
 #define  toastTextColor  [UIColor colorWithHex:0xffffff]   //toast字体颜色
 #define  toastTextFont  [UIFont systemFontOfSize:16] //toast字体大小
-#define  alertBtnTextFont  [UIFont systemFontOfSize:16] //alert 按钮字体大小
+#define  alertBtnTextFont  [UIFont systemFontOfSize:SCREEN_WIDTH>320?(SCREEN_WIDTH>375?16:14):12] //alert 按钮字体大小
 #define  alertBtnTextColor  [UIColor colorWithHex:0x333333]   //alert 按钮字体颜色
 #define  alertTitleFont  [UIFont systemFontOfSize:18] //alert title字体大小
 #define  alertTitleTextColor  [UIColor colorWithHex:0x333333] //alert title字体颜色
