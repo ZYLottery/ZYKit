@@ -233,10 +233,10 @@
     if (topImage == nil) {
         return topImage;
     }
-    CGFloat width= topImage.size.width;
-    CGFloat height = topImage.size.height + bottomImage.size.height + margin;
-  
-    CGSize offScreenSize = CGSizeMake(width, height);
+    
+    CGFloat width = topImage.size.width;
+    CGFloat scaleHeight = bottomImage.size.height*topImage.size.width/bottomImage.size.width;
+    CGSize offScreenSize = CGSizeMake(width, topImage.size.height+scaleHeight);
     
     // UIGraphicsBeginImageContext(offScreenSize);用这个重绘图片会模糊
     UIGraphicsBeginImageContextWithOptions(offScreenSize, NO, scale);
@@ -244,7 +244,7 @@
     CGRect rectT = CGRectMake(0, 0, width,topImage.size.height);
     [topImage drawInRect:rectT];
     
-    CGRect rectB = CGRectMake(0, rectT.origin.y + topImage.size.height + margin, width, bottomImage.size.height);
+    CGRect rectB = CGRectMake(0, rectT.origin.y + topImage.size.height + margin, width, scaleHeight);
     [bottomImage drawInRect:rectB];
     
     UIImage* imagez = UIGraphicsGetImageFromCurrentImageContext();
