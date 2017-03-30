@@ -483,7 +483,7 @@ static  const CGFloat animationTime =0.3f;
                 [tempSelf alertShowOrHiddenWithIsShow:NO];
                 tempSelf.alertClickBlock(tempSelf,i);
             }];
-            float spacing = 40;
+            float spacing = SCREEN_WIDTH == 320?20:40;
             float width = ( self.alertView.width -  3 * spacing ) / 2;
             btn.frame = CGRectMake((width + spacing) * i + spacing,alertViewHeight + btnTopMargin, width, alertBtnHeight);
             [btn setCornerRadius:4];
