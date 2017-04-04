@@ -23,7 +23,6 @@
 + (NSString*)getIDFA{
     
     NSString *strRet;
-    
     // 使用钥匙链读写idfa
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
     NSString *keyName = [[NSString stringWithFormat:@"%@.adfa.name",identifier]init];
@@ -35,16 +34,22 @@
     if(ValueADFA){
         strRet = ValueADFA;
     }else{
-        NSString *adId =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+        NSString *idfa =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
         //未获取到系统idfa
-        if (adId == nil ||
-            [[[adId stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+        if (![idfa length]||
+            [[[idfa stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+            
             //用第三方类库去取idfa
-            adId = [SimulateIDFA createSimulateIDFA];
+            NSString *simulateIDFA = [SimulateIDFA createSimulateIDFA];
+            if (![simulateIDFA length] || [[[simulateIDFA stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+                idfa = [[NSUUID UUID] UUIDString];
+            }else{
+                idfa = simulateIDFA;
+            }
         }
-        strRet =adId;
+        strRet = idfa;
         NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
-        [usernamepasswordKVPairs setObject:adId forKey:keyValue];
+        [usernamepasswordKVPairs setObject:strRet forKey:keyValue];
         [WDKeyChain saveWithKey:keyName data:usernamepasswordKVPairs];
     }
     return strRet;
