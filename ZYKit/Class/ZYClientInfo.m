@@ -15,12 +15,20 @@
 #import <MJExtension/MJExtension.h>
 @implementation ZYClientInfo
 
+
 /**
  *  获取idfa
  *
  *  @return <#return value description#>
  */
 + (NSString*)getIDFA{
+    BOOL(^volidateIdfa)(NSString *idfa) = ^(NSString *idfa){
+        if (![idfa length]||
+            [[[idfa stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+            return NO;
+        }
+        return YES;
+    };
     
     NSString *strRet;
     // 使用钥匙链读写idfa
@@ -31,29 +39,29 @@
     NSMutableDictionary *KeyNameValue = (NSMutableDictionary *)[WDKeyChain loadWithKey:keyName];
     NSString *ValueADFA= [KeyNameValue objectForKey:keyValue];
     
-    if(ValueADFA){
+    if (volidateIdfa(ValueADFA)) {
         strRet = ValueADFA;
     }else{
         NSString *idfa =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
         //未获取到系统idfa
-        if (![idfa length]||
-            [[[idfa stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
-            
+        if (!volidateIdfa(idfa)) {
             //用第三方类库去取idfa
             NSString *simulateIDFA = [SimulateIDFA createSimulateIDFA];
-            if (![simulateIDFA length] || [[[simulateIDFA stringByReplacingOccurrencesOfString:@"0" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] length] == 0) {
+            if (!volidateIdfa(simulateIDFA)) {
                 idfa = [[NSUUID UUID] UUIDString];
             }else{
                 idfa = simulateIDFA;
             }
+        }else{
+            strRet = idfa;
         }
-        strRet = idfa;
         NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
         [usernamepasswordKVPairs setObject:strRet forKey:keyValue];
         [WDKeyChain saveWithKey:keyName data:usernamepasswordKVPairs];
     }
     return strRet;
 }
+
 
 /**
  默认clientInfo

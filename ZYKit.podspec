@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name             = "ZYKit"
 
-s.version          = "0.0.4.9"
+s.version          = "0.0.5.1"
 
 s.summary          = "A marquee view used on iOS."
 s.description      = <<-DESC
