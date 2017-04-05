@@ -310,7 +310,7 @@ static  const CGFloat animationTime =0.3f;
 }
 - (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles bigPic:(NSString *)bigPic bigPicProportion:(float)bigPicProportion hasCloseBtn:(BOOL)hasClossBtn handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block{
     
-    [self showAlertViewWithTitle:title message:message cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles bigPic:bigPic bigPicProportion:0 smallPic:nil hasCloseBtn:hasClossBtn handler:block];
+    [self showAlertViewWithTitle:title message:message cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles bigPic:bigPic bigPicProportion:bigPicProportion smallPic:nil hasCloseBtn:hasClossBtn handler:block];
 }
 
 - (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles smallPic:(NSString *)smallPic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block{
