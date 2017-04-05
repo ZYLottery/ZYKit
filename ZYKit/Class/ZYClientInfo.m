@@ -48,9 +48,9 @@
             //用第三方类库去取idfa
             NSString *simulateIDFA = [SimulateIDFA createSimulateIDFA];
             if (!volidateIdfa(simulateIDFA)) {
-                idfa = [[NSUUID UUID] UUIDString];
+                strRet = [[NSUUID UUID] UUIDString];
             }else{
-                idfa = simulateIDFA;
+                strRet = simulateIDFA;
             }
         }else{
             strRet = idfa;
