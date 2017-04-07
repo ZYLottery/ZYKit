@@ -375,7 +375,7 @@ static  const CGFloat animationTime =0.3f;
             smallView.backgroundColor = [UIColor clearColor];
             smallView.contentMode =  UIViewContentModeScaleAspectFill;
             smallView.clipsToBounds = YES;
-            LoadImage(smallView, bigPic);
+            LoadImage(smallView, smallPic);
             [self.alertView addSubview:smallView];
             
             
