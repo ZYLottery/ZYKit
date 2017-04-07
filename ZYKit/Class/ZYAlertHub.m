@@ -341,7 +341,14 @@ static  const CGFloat animationTime =0.3f;
     self.alertView = view;
     view.backgroundColor = [UIColor whiteColor];
     [view setCornerRadius:8];
-    float alertViewHeight = 40;
+    float alertViewHeight;
+    
+    if (bigPic||smallPic) {
+        alertViewHeight = 15;
+    }else{
+        alertViewHeight = 40;
+    }
+    
     self.alertClickBlock = block;
     
     //图片部分
@@ -360,7 +367,7 @@ static  const CGFloat animationTime =0.3f;
             LoadImage(bigView, bigPic);
             [self.alertView addSubview:bigView];
             
-            alertViewHeight = CGRectGetMaxY(bigView.frame) + 40;
+            alertViewHeight = CGRectGetMaxY(bigView.frame) + 20;
             
             tempView.frame = bigView.frame;
             [self.alertView addSubview:tempView];
@@ -406,12 +413,16 @@ static  const CGFloat animationTime =0.3f;
         
     }
     
-     // message 部分
+    // message 部分
     if (message) {
         if (title) {
-            alertViewHeight += 20;
+            if (bigPic||smallPic) {
+                alertViewHeight += 15;
+            }else{
+                alertViewHeight += 20;
+            }
         }
-      
+        
         UILabel * messageView = [[UILabel alloc] initWithFrame:CGRectMake(leftMargin,alertViewHeight,maxWidth-leftMargin*2, 20)];
         messageView.backgroundColor = [UIColor clearColor];
         messageView.textColor = alertMessageTextColor;
@@ -432,8 +443,11 @@ static  const CGFloat animationTime =0.3f;
         [self.alertView addSubview:messageView];
         alertViewHeight = CGRectGetMaxY(messageView.frame);
     }
-    alertViewHeight += 40;
-    
+    if (bigPic||smallPic) {
+        alertViewHeight += 15;
+    }else{
+        alertViewHeight += 30;
+    }
     // 分割线 部分
     UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, alertViewHeight, self.alertView.width, 0.5)];
     line.backgroundColor = lineColor;
@@ -460,11 +474,11 @@ static  const CGFloat animationTime =0.3f;
     UIColor * whiteBtnNormalColor = [UIColor colorWithHex:0xffffff];
     UIColor * whiteBtnHignLightColor = [UIColor colorWithHex:0xf7f7f7];
     UIColor * whiteBtnHignDisableColor = [UIColor colorWithHex:0xcccccc];
-  
-    if (btnTitlesArray.count == 1) {
     
+    if (btnTitlesArray.count == 1) {
+        
         UIButton * btn = [UIButton zy_buttonWithTitle:btnTitlesArray[0] font:alertBtnTextFont titleColor:toastTextColor withBlock:^(id sender) {
-             [tempSelf alertShowOrHiddenWithIsShow:NO];
+            [tempSelf alertShowOrHiddenWithIsShow:NO];
             tempSelf.alertClickBlock(tempSelf,0);
         }];
         btn.frame = CGRectMake(0,alertViewHeight + btnTopMargin, 140, alertBtnHeight);
@@ -506,7 +520,7 @@ static  const CGFloat animationTime =0.3f;
             
         }
     }else{
-    
+        
         btnTitlesArray = [[NSMutableArray alloc] init];
         if (otherButtonTitles) {
             [btnTitlesArray addObjectsFromArray:otherButtonTitles];
@@ -558,7 +572,7 @@ static  const CGFloat animationTime =0.3f;
             [tempSelf alertShowOrHiddenWithIsShow:NO];
         }];
     }
-
+    
 }
 
 - (void)alertShowOrHiddenWithIsShow:(BOOL)isShow{
