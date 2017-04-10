@@ -49,16 +49,47 @@
 @property(nonatomic,assign)BOOL closable;
 
 /**
+ 关闭按钮id
+ */
+@property(nonatomic,copy)NSString *closeButtonId;
+
+/**
  主按钮文字
  */
 @property(nonatomic,copy)NSString * primaryButton;
+
+/**
+ 主按钮id
+ */
+@property(nonatomic,copy)NSString * primaryButtonId;
+
 /**
  次按钮文字
  */
 @property(nonatomic,copy)NSString * secondaryButton;
 
 /**
+次按钮id
+ */
+@property(nonatomic,copy)NSString * secondaryButtonId;
+
+/**
  回传信息
  */
 @property(nonatomic,copy)NSString * extraData;
+
+
+/**
+ 关闭按钮回传信息
+ */
+@property(nonatomic,copy)NSString * closeButtonExtraData;
+
+
+
+/**
+ 次按钮回传信息
+ */
+@property(nonatomic,copy)NSString * secondaryExtraData;
+
+
 @end

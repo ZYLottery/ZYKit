@@ -47,6 +47,11 @@ static  const CGFloat animationTime =0.3f;
 @property(nonatomic,weak)UIView * toastView;//toastView;
 @property(nonatomic,weak)UIView * alertView;//alertView
 @property(nonatomic,copy)ZYAlertClickBlock  alertClickBlock;//alertView
+
+/**
+ 关闭按钮
+ */
+@property(nonatomic,copy) void (^closeblock)(void);
 @end
 
 @implementation ZYAlertHub
@@ -570,6 +575,10 @@ static  const CGFloat animationTime =0.3f;
         [self addSubview:closeButton];
         [closeButton handlerTouchUpInsideEvent:^(id sender) {
             [tempSelf alertShowOrHiddenWithIsShow:NO];
+            if (tempSelf.closeblock) {
+                tempSelf.closeblock();
+            }
+            
         }];
     }
     
@@ -606,7 +615,11 @@ static  const CGFloat animationTime =0.3f;
     
 }
 
-
++ (ZYAlertHub *)showToastWithLevel:(NSInteger)messageLevel messageData:(NSDictionary *)messageDataDic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block closeBlock:(void (^)(void))closeblock{
+    ZYAlertHub * alert  = [self showToastWithLevel:messageLevel messageData:messageDataDic handler:block];
+    alert.closeblock = closeblock;
+    return alert;
+}
 
 + (ZYAlertHub *)showToastWithLevel:(NSInteger)messageLevel messageData:(NSDictionary *)messageDataDic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block{
     if (messageDataDic==nil) {

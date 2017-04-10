@@ -19,11 +19,14 @@ typedef NS_ENUM(NSInteger,ZYMessageLevel){
     ZYToastOnlyText = 1000,//Toast:文字
     ZYToastTextAndIcon = 1100,//Toast:图标+文字
     ZYAlertOneButton = 2000,//Dialog:单按钮(无图)
-    ZYAlertTwoButton = 2100,//Dialog:双按钮(无图)
+    ZYAlertTwoButton = 2100,//Dialog:双按钮(无图)+单按钮事件
+    ZYAlertTwoButtonWithTwoAction = 2101,//双按钮(无图)+双按钮事件
     ZYAlertOneButtonAndBigPic = 2210,//Dialog:单按钮+大图+关闭按钮
-    ZYAlertTwoButtonAndBigPic = 2220,//Dialog:单按钮+大图+关闭按钮
+    ZYAlertTwoButtonAndBigPic = 2220,//Dialog:双按钮+大图+关闭按钮+单按钮事件
+    ZYAlertTwoButtonAndBigPicWithTwoAction = 2221,//Dialog:双按钮+大图+关闭按钮+双按钮事件
     ZYAlertOneButtonAndIcon = 2310,//Dialog:单按钮+图标
-    ZYAlertTwoButtonAndIcon = 2320//Dialog:双按钮+图标
+    ZYAlertTwoButtonAndIcon = 2320,//双按钮+图标+单按钮事件
+    ZYAlertTwoButtonAndIconWithTwoAction = 2321//Dialog:双按钮+图标+双按钮事件
 };
 @interface ZYAlertHub : UIView
 
@@ -32,15 +35,27 @@ typedef NS_ENUM(NSInteger,ZYMessageLevel){
  */
 @property(nonatomic,assign) CGFloat duration;
 
+
+/**
+ <#Description#>
+
+ @param messageLevel 类型
+ @param messageDataDic 信息
+ @param block 点击按钮回调
+ @return <#return value description#>
+ */
++ (ZYAlertHub *)showToastWithLevel:(NSInteger)messageLevel messageData:(NSDictionary *)messageDataDic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block;
+
 /**
  <#Description#>
 
  @param messageLevel <#messageLevel description#>
- @param messageData  <#messageData description#>
-
+ @param messageDataDic <#messageDataDic description#>
+ @param block <#block description#>
+ @param closeblock 关闭按钮回调
  @return <#return value description#>
  */
-+ (ZYAlertHub *)showToastWithLevel:(NSInteger)messageLevel messageData:(NSDictionary *)messageDataDic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block;
++ (ZYAlertHub *)showToastWithLevel:(NSInteger)messageLevel messageData:(NSDictionary *)messageDataDic handler:(void (^)(ZYAlertHub *alertView, NSInteger buttonIndex))block closeBlock:(void (^)(void))closeblock;
 
 #pragma  mark  ---------------------  toast ------------------------------------
 /**
