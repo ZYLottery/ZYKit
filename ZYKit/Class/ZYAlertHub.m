@@ -664,6 +664,12 @@ static  const CGFloat animationTime =0.3f;
             case ZYAlertTwoButton:
             {
                 //Dialog:双按钮(无图)
+                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] handler:block];
+            }
+                break;
+            case ZYAlertTwoButtonWithTwoAction:
+            {
+                //Dialog:双按钮(无图)
                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] handler:block];
             }
                 break;
@@ -676,6 +682,12 @@ static  const CGFloat animationTime =0.3f;
             case ZYAlertTwoButtonAndBigPic:
             {
                 //Dialog:双按钮+大图+关闭按钮
+                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] bigPic:pic bigPicProportion:messageData.picWidth/messageData.picHeight hasCloseBtn:messageData.closable handler:block];
+            }
+                break;
+            case ZYAlertTwoButtonAndBigPicWithTwoAction:
+            {
+                //Dialog:双按钮+大图+关闭按钮
                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] bigPic:pic bigPicProportion:messageData.picWidth/messageData.picHeight hasCloseBtn:messageData.closable handler:block];
             }
                 break;
@@ -686,6 +698,12 @@ static  const CGFloat animationTime =0.3f;
             }
                 break;
             case ZYAlertTwoButtonAndIcon:
+            {
+                //Dialog:双按钮+图标
+                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] smallPic:pic handler:block];
+            }
+                break;
+            case ZYAlertTwoButtonAndIconWithTwoAction:
             {
                 //Dialog:双按钮+图标
                alertHub = [self showAlertViewWithTitle:messageData.title message:messageData.content cancelButtonTitle:messageData.secondaryButton otherButtonTitles:@[messageData.primaryButton?:@""] smallPic:pic handler:block];
