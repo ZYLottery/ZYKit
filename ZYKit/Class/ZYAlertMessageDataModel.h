@@ -11,6 +11,12 @@
 
 @interface ZYAlertMessageDataModel : NSObject
 
+
+
+/**
+ 消息id
+ */
+@property(nonatomic,copy)NSString * messageId;
 /**
  标题
  */

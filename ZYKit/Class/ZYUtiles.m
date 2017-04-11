@@ -8,6 +8,7 @@
 
 #import "ZYUtiles.h"
 #import <SDWebImage/SDWebImageManager.h>
+ #import <objc/runtime.h>
 @implementation ZYUtiles
 
 
@@ -51,6 +52,7 @@
     }
     return result;
 }
+
 /**
  获取sdwebImage缓存  如果没有下载图片
  */
@@ -73,5 +75,64 @@
             
         }];
     }
+}
+/**
+ 动态获取一个类
+ 
+ @param nameForclass 类名
+ @param propertys 属性
+ @return id类型  可能为nil  nil时是没有此类型
+ */
++ (id)getClassWithClassName:(NSString *)nameForclass propertys:(NSDictionary *)propertys;
+{
+    // 类名
+    NSString *class =[NSString stringWithFormat:@"%@", nameForclass];
+    const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
+    
+    // 从一个字串返回一个类
+    Class newClass = objc_getClass(className);
+    if (!newClass)
+    {
+        return nil;//无此类
+    }
+    // 创建对象
+    id instance = [[newClass alloc] init];
+    
+    // 对该对象赋值属性
+    if (propertys) {
+        [propertys enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            // 检测这个对象是否存在该属性
+            if ([self checkIsExistPropertyWithInstance:instance verifyPropertyName:key]) {
+                // 利用kvc赋值
+                [instance setValue:obj forKey:key];
+            }
+        }];
+    }
+
+    return instance;
+    
+ 
+}
++ (BOOL)checkIsExistPropertyWithInstance:(id)instance verifyPropertyName:(NSString *)verifyPropertyName
+{
+    unsigned int outCount, i;
+    
+    // 获取对象里的属性列表
+    objc_property_t * properties = class_copyPropertyList([instance
+                                                           class], &outCount);
+    
+    for (i = 0; i < outCount; i++) {
+        objc_property_t property =properties[i];
+        //  属性名转成字符串
+        NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+        // 判断该属性是否存在
+        if ([propertyName isEqualToString:verifyPropertyName]) {
+            free(properties);
+            return YES;
+        }
+    }
+    free(properties);
+    
+    return NO;
 }
 @end
