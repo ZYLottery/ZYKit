@@ -9,6 +9,7 @@
 #import "ZYUtiles.h"
 #import <SDWebImage/SDWebImageManager.h>
  #import <objc/runtime.h>
+#import <MJExtension/MJExtension.h>
 @implementation ZYUtiles
 
 
@@ -98,41 +99,15 @@
     // 创建对象
     id instance = [[newClass alloc] init];
     
+    
     // 对该对象赋值属性
     if (propertys) {
-        [propertys enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            // 检测这个对象是否存在该属性
-            if ([self checkIsExistPropertyWithInstance:instance verifyPropertyName:key]) {
-                // 利用kvc赋值
-                [instance setValue:obj forKey:key];
-            }
-        }];
+        //mj 会便利所有属性  并没此属性的setValue不会出错  里面有相关判断操作
+        [instance mj_setKeyValues:propertys];
     }
 
     return instance;
     
  
-}
-+ (BOOL)checkIsExistPropertyWithInstance:(id)instance verifyPropertyName:(NSString *)verifyPropertyName
-{
-    unsigned int outCount, i;
-    
-    // 获取对象里的属性列表
-    objc_property_t * properties = class_copyPropertyList([instance
-                                                           class], &outCount);
-    
-    for (i = 0; i < outCount; i++) {
-        objc_property_t property =properties[i];
-        //  属性名转成字符串
-        NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        // 判断该属性是否存在
-        if ([propertyName isEqualToString:verifyPropertyName]) {
-            free(properties);
-            return YES;
-        }
-    }
-    free(properties);
-    
-    return NO;
 }
 @end
