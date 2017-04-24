@@ -245,4 +245,123 @@ static id sharedInstance = NULL;
 }
 
 
+/**
+ 弹窗展示事件
+
+ @param userOpenId 用户openId
+ @param popWindowId 弹窗ID
+ @param popWindowType 弹窗类型
+ @param popWindowContentType 弹窗内容类型，0-业务成功弹窗 1-业务失败弹窗
+ */
+-(void)alertEventWithUserOpenId:(NSString*)userOpenId
+                    popWindowId:(NSString*)popWindowId
+                  popWindowType:(NSString*)popWindowType
+           popWindowContentType:(NSString*)popWindowContentType{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:popWindowId forKey:@"pop_window_id"];
+    [prop setValue:popWindowType forKey:@"pop_window_type"];
+    [prop setValue:popWindowContentType forKey:@"pop_window_content_type"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10007"
+                                 withProperties:prop];
+}
+
+
+
+/**
+ 弹窗按钮点击事件
+
+ @param userOpenId 用户openId
+ @param popWindowId 弹窗ID
+ @param popButtonId 弹窗按钮ID
+ */
+-(void)alertButtonEventWithUserOpenId:(NSString*)userOpenId
+                    popWindowId:(NSString*)popWindowId
+                  popButtonId:(NSString*)popButtonId{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:popWindowId forKey:@"pop_window_id"];
+    [prop setValue:popButtonId forKey:@"pop_button_id"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10008"
+                                 withProperties:prop];
+}
+
+
+/**
+ 分享触发事件
+
+ @param userOpenId 用户openId
+ @param shareId 分享唯一ID 客户端本地时间戳，微妙级别
+ @param shareRefer 分享来源
+ @param shareOrigin 分享信息方式 0-本地截屏分享 1-使用服务器提供的参数分享
+ @param shareType 分享平台类型 0-微信好友 1-微信朋友圈 2-QQ好友 3-QQ空间 4-新浪微博
+ @param shareTitle 分享标题
+ @param shareContent 分享内容
+ @param shareImage 分享图片链接
+ @param shareLink 分享链接
+ */
+-(void)shareEventWithUserOpenId:(NSString*)userOpenId
+                          shareId:(NSString*)shareId
+                          shareRefer:(NSString*)shareRefer
+                    shareOrigin:(NSString*)shareOrigin
+                      shareType:(NSString*)shareType
+                     shareTitle:(NSString*)shareTitle
+                   shareContent:(NSString*)shareContent
+                     shareImage:(NSString*)shareImage
+                      shareLink:(NSString*)shareLink{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:shareId forKey:@"share_id"];
+    [prop setValue:shareRefer forKey:@"share_refer"];
+    [prop setValue:shareOrigin forKey:@"share_origin"];
+    [prop setValue:shareType forKey:@"share_type"];
+    [prop setValue:shareTitle forKey:@"share_title"];
+    [prop setValue:shareContent forKey:@"share_content"];
+    [prop setValue:shareImage forKey:@"share_image"];
+    [prop setValue:shareLink forKey:@"share_link"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10009"
+                                 withProperties:prop];
+}
+
+
+/**
+ 分享成功事件
+ 
+ @param userOpenId 用户openId
+ @param shareId 分享唯一ID 客户端本地时间戳，微妙级别
+ @param shareRefer 分享来源
+ @param shareOrigin 分享信息方式 0-本地截屏分享 1-使用服务器提供的参数分享
+ @param shareType 分享平台类型 0-微信好友 1-微信朋友圈 2-QQ好友 3-QQ空间 4-新浪微博
+ @param shareTitle 分享标题
+ @param shareContent 分享内容
+ @param shareImage 分享图片链接
+ @param shareLink 分享链接
+ */
+-(void)shareSuccessEventWithUserOpenId:(NSString*)userOpenId
+                        shareId:(NSString*)shareId
+                     shareRefer:(NSString*)shareRefer
+                    shareOrigin:(NSString*)shareOrigin
+                      shareType:(NSString*)shareType
+                     shareTitle:(NSString*)shareTitle
+                   shareContent:(NSString*)shareContent
+                     shareImage:(NSString*)shareImage
+                      shareLink:(NSString*)shareLink{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:[_clientInfo keyValuesForInsertNameKey]];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:shareId forKey:@"share_id"];
+    [prop setValue:shareRefer forKey:@"share_refer"];
+    [prop setValue:shareOrigin forKey:@"share_origin"];
+    [prop setValue:shareType forKey:@"share_type"];
+    [prop setValue:shareTitle forKey:@"share_title"];
+    [prop setValue:shareContent forKey:@"share_content"];
+    [prop setValue:shareImage forKey:@"share_image"];
+    [prop setValue:shareLink forKey:@"share_link"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10010"
+                                 withProperties:prop];
+}
+
 @end

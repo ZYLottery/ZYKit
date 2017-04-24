@@ -122,4 +122,77 @@ typedef enum : NSUInteger {
 -(void)clickEvent:(NSString*)name
        userOpenId:(NSString*)userOpenId;
 
+
+/**
+ 弹窗展示事件
+ 
+ @param userOpenId 用户openId
+ @param popWindowId 弹窗ID
+ @param popWindowType 弹窗类型
+ @param popWindowContentType 弹窗内容类型，0-业务成功弹窗 1-业务失败弹窗
+ */
+-(void)alertEventWithUserOpenId:(NSString*)userOpenId
+                    popWindowId:(NSString*)popWindowId
+                  popWindowType:(NSString*)popWindowType
+           popWindowContentType:(NSString*)popWindowContentType;
+
+
+/**
+ 弹窗按钮点击事件
+ 
+ @param userOpenId 用户openId
+ @param popWindowId 弹窗ID
+ @param popButtonId 弹窗按钮ID
+ */
+-(void)alertButtonEventWithUserOpenId:(NSString*)userOpenId
+                          popWindowId:(NSString*)popWindowId
+                          popButtonId:(NSString*)popButtonId;
+
+/**
+ 分享触发事件
+ 
+ @param userOpenId 用户openId
+ @param shareId 分享唯一ID 客户端本地时间戳，微妙级别
+ @param shareRefer 分享来源
+ @param shareOrigin 分享信息方式 0-本地截屏分享 1-使用服务器提供的参数分享
+ @param shareType 分享平台类型 0-微信好友 1-微信朋友圈 2-QQ好友 3-QQ空间 4-新浪微博
+ @param shareTitle 分享标题
+ @param shareContent 分享内容
+ @param shareImage 分享图片链接
+ @param shareLink 分享链接
+ */
+-(void)shareEventWithUserOpenId:(NSString*)userOpenId
+                        shareId:(NSString*)shareId
+                     shareRefer:(NSString*)shareRefer
+                    shareOrigin:(NSString*)shareOrigin
+                      shareType:(NSString*)shareType
+                     shareTitle:(NSString*)shareTitle
+                   shareContent:(NSString*)shareContent
+                     shareImage:(NSString*)shareImage
+                      shareLink:(NSString*)shareLink;
+
+
+/**
+ 分享成功事件
+ 
+ @param userOpenId 用户openId
+ @param shareId 分享唯一ID 客户端本地时间戳，微妙级别
+ @param shareRefer 分享来源
+ @param shareOrigin 分享信息方式 0-本地截屏分享 1-使用服务器提供的参数分享
+ @param shareType 分享平台类型 0-微信好友 1-微信朋友圈 2-QQ好友 3-QQ空间 4-新浪微博
+ @param shareTitle 分享标题
+ @param shareContent 分享内容
+ @param shareImage 分享图片链接
+ @param shareLink 分享链接
+ */
+-(void)shareSuccessEventWithUserOpenId:(NSString*)userOpenId
+                               shareId:(NSString*)shareId
+                            shareRefer:(NSString*)shareRefer
+                           shareOrigin:(NSString*)shareOrigin
+                             shareType:(NSString*)shareType
+                            shareTitle:(NSString*)shareTitle
+                          shareContent:(NSString*)shareContent
+                            shareImage:(NSString*)shareImage
+                             shareLink:(NSString*)shareLink;
+
 @end
