@@ -14,47 +14,6 @@
 
 
 /**
- 获取app当前视图所在的viewController
-
- @return <#return value description#>
- */
-+(UIViewController *)getCurrentViewController{
-    UIViewController *result = nil;
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    //app默认windowLevel是UIWindowLevelNormal，如果不是，找到UIWindowLevelNormal的
-    if (window.windowLevel != UIWindowLevelNormal){
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow * tmpWin in windows){
-            if (tmpWin.windowLevel == UIWindowLevelNormal){
-                window = tmpWin;
-                break;
-            }
-        }
-    }
-    id  nextResponder = nil;
-    UIViewController *appRootVC=window.rootViewController;
-    //如果是present上来的appRootVC.presentedViewController 不为nil
-    if (appRootVC.presentedViewController) {
-        nextResponder = appRootVC.presentedViewController;
-    }else{
-        UIView *frontView = [[window subviews] objectAtIndex:0];
-        nextResponder = [frontView nextResponder];
-    }
-    if ([nextResponder isKindOfClass:[UITabBarController class]]){
-        UITabBarController * tabbar = (UITabBarController *)nextResponder;
-        UINavigationController * nav = (UINavigationController *)tabbar.viewControllers[tabbar.selectedIndex];
-        //UINavigationController * nav = tabbar.selectedViewController ; 上下两种写法都行
-        result = nav.childViewControllers.lastObject;
-    }else if ([nextResponder isKindOfClass:[UINavigationController class]]){
-        UIViewController * nav = (UIViewController *)nextResponder;
-        result = nav.childViewControllers.lastObject;
-    }else{
-        result = nextResponder;
-    }
-    return result;
-}
-
-/**
  获取sdwebImage缓存  如果没有下载图片
  */
 +(void)loadImageWithUrl:(NSString *)picUrl finishBlock:(ZYGetSDWebCacheWithFinishedBlock)finishBlock{
@@ -77,6 +36,7 @@
         }];
     }
 }
+
 /**
  动态获取一个类
  
@@ -84,30 +44,23 @@
  @param propertys 属性
  @return id类型  可能为nil  nil时是没有此类型
  */
-+ (id)getClassWithClassName:(NSString *)nameForclass propertys:(NSDictionary *)propertys;
-{
++ (id)getClassWithClassName:(NSString *)nameForclass propertys:(NSDictionary *)propertys;{
     // 类名
     NSString *class =[NSString stringWithFormat:@"%@", nameForclass];
     const char *className = [class cStringUsingEncoding:NSASCIIStringEncoding];
     
     // 从一个字串返回一个类
     Class newClass = objc_getClass(className);
-    if (!newClass)
-    {
+    if (!newClass){
         return nil;//无此类
     }
     // 创建对象
     id instance = [[newClass alloc] init];
-    
-    
     // 对该对象赋值属性
     if (propertys) {
         //mj 会便利所有属性  并没此属性的setValue不会出错  里面有相关判断操作
         [instance mj_setKeyValues:propertys];
     }
-
     return instance;
-    
- 
 }
 @end

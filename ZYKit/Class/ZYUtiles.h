@@ -12,12 +12,6 @@
 @interface ZYUtiles : NSObject
 typedef void(^ZYGetSDWebCacheWithFinishedBlock)(UIImage *image);
 /**
- 获取app当前视图所在的viewController
- 
- @return <#return value description#>
- */
-+(UIViewController *)getCurrentViewController;
-/**
    获取sdwebImage缓存  如果没有下载图片
  */
 +(void)loadImageWithUrl:(NSString *)picUrl finishBlock:(ZYGetSDWebCacheWithFinishedBlock)finishBlock;
@@ -31,4 +25,5 @@ typedef void(^ZYGetSDWebCacheWithFinishedBlock)(UIImage *image);
  @return id类型  可能为nil  nil时是没有此类型
  */
 + (id)getClassWithClassName:(NSString *)nameForclass propertys:(NSDictionary *)propertys;
+
 @end
