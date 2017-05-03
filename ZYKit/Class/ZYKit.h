@@ -29,4 +29,6 @@
 #import "UINavigationBar+ZYLotter.h"
 #import "ZYUtiles.h"
 #import "ZYAlertHub.h"
+#import "ZYAnalyticsClientInfo.h"
+
 #endif /* ZYKit_h */
