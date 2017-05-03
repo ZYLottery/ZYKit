@@ -12,6 +12,16 @@
 
 @implementation ZYAnalyticsClientInfo
 
+/**
+ generate client information
+ 
+ @param productId <#productId description#>
+ @param channelId <#channelId description#>
+ @param userId <#userId description#>
+ @param clientId <#clientId description#>
+ @param source <#source description#>
+ @return <#return value description#>
+ */
 +(ZYAnalyticsClientInfo*)clentInfoWithpProductId:(NSString*)productId
                                        channelId:(NSString*)channelId
                                           userId:(NSString*)userId
