@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
-#import "ZYClientInfo.h"
+#import "ZYAnalyticsClientInfo.h"
 
 typedef enum : NSUInteger {
     PageEnterEvent,
@@ -37,7 +37,7 @@ typedef enum : NSUInteger {
 +(void)initSensorsAnalyticsWithServerUrl:(NSString*)serverUrl
                             configureUrl:(NSString*)configureUrl
                                debugMode:(SensorsAnalyticsDebugMode)debugMode
-                              clientInfo:(ZYClientInfo*)clientInfo;
+                              clientInfo:(ZYAnalyticsClientInfo*)clientInfo;
 
 
 /**

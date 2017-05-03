@@ -97,7 +97,5 @@
 +(ZYClientInfo*)clentInfoWithpProductId:(NSString*)productId
                               channelId:(NSString*)channelId
                                  userId:(NSString*)userId;
-//下划线格式的keyvalues
-- (NSDictionary *)keyValuesForInsertNameKey;
 
 @end
