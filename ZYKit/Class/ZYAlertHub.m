@@ -10,13 +10,11 @@
 #import "ZYKit.h"
 #import "ZYAlertMessageDataModel.h"
 #import <MJExtension/MJExtension.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 static const int defaultDuration = 2;
 typedef void (^ ZYAlertClickBlock)(ZYAlertHub *alertView, NSInteger buttonIndex);
-#define LoadImage(imageView,imageName)     if ([imageName rangeOfString:@"http"].location != NSNotFound) { \
-                                                    [imageView zy_loadImageUrlStr:imageName];\
-                                           }else{        \
-                                                    imageView.image = [UIImage imageNamed:imageName];\
-                                            }
+typedef void (^ ZYLoadImageSuccessBlock)(BOOL isSuccess);
+
 #define maxWidth ([UIApplication sharedApplication].keyWindow.frame.size.width - 40)
 #define small  CGAffineTransformMakeScale(0.5f, 0.5f)
 #define large  CGAffineTransformMakeScale(1.5f, 1.5f)
@@ -243,7 +241,7 @@ static  const CGFloat animationTime =0.3f;
     iconView.backgroundColor = [UIColor clearColor];
     iconView.contentMode =  UIViewContentModeScaleAspectFill;
     iconView.clipsToBounds = YES;
-    LoadImage(iconView, image);
+ 
     [self.toastView addSubview:iconView];
     
     UIView * tempView = [[UIView alloc] init];
@@ -260,6 +258,10 @@ static  const CGFloat animationTime =0.3f;
     messageView.y =  CGRectGetMaxY(iconView.frame)+15;
     messageView.centerX = self.toastView.width/2;
     iconView.centerX = self.toastView.width/2;
+    
+    [self loadImageWithImageView:iconView imageName:image withComplete:^(BOOL isSuccess) {
+        tempView.hidden = isSuccess;
+    }];
     self.toastView.height = MAX(self.toastView.height, CGRectGetMaxY(messageView.frame)+20);
     self.toastView.autoresizesSubviews = YES;
     [self.superview addSubview:self.toastView];
@@ -369,7 +371,9 @@ static  const CGFloat animationTime =0.3f;
             bigView.backgroundColor = [UIColor clearColor];
             bigView.contentMode =  UIViewContentModeScaleAspectFill;
             bigView.clipsToBounds = YES;
-            LoadImage(bigView, bigPic);
+            [self loadImageWithImageView:bigView imageName:bigPic withComplete:^(BOOL isSuccess) {
+                tempView.hidden = isSuccess;
+            }];
             [self.alertView addSubview:bigView];
             
             alertViewHeight = CGRectGetMaxY(bigView.frame) + 20;
@@ -387,7 +391,9 @@ static  const CGFloat animationTime =0.3f;
             smallView.backgroundColor = [UIColor clearColor];
             smallView.contentMode =  UIViewContentModeScaleAspectFill;
             smallView.clipsToBounds = YES;
-            LoadImage(smallView, smallPic);
+            [self loadImageWithImageView:smallView imageName:smallPic withComplete:^(BOOL isSuccess) {
+                tempView.hidden = isSuccess;
+            }];
             [self.alertView addSubview:smallView];
             
             
@@ -714,5 +720,16 @@ static  const CGFloat animationTime =0.3f;
         }
     
     return nil;
+}
+- (void)loadImageWithImageView:(UIImageView *)imageView imageName:(NSString *)imageName withComplete:(ZYLoadImageSuccessBlock)successBlock{
+    if ([imageName rangeOfString:@"http"].location != NSNotFound) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:@"imageName"] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            successBlock(image?YES:NO);
+        }];
+        
+    }else{
+        imageView.image = [UIImage imageNamed:imageName];
+        successBlock(imageView.image?YES:NO);
+    }
 }
 @end
