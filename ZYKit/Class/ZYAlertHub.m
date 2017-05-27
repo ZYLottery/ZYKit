@@ -723,7 +723,7 @@ static  const CGFloat animationTime =0.3f;
 }
 - (void)loadImageWithImageView:(UIImageView *)imageView imageName:(NSString *)imageName withComplete:(ZYLoadImageSuccessBlock)successBlock{
     if ([imageName rangeOfString:@"http"].location != NSNotFound) {
-        [imageView sd_setImageWithURL:[NSURL URLWithString:@"imageName"] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             successBlock(image?YES:NO);
         }];
         
