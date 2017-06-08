@@ -389,7 +389,7 @@ static  const CGFloat animationTime =0.3f;
             smallView.frame = CGRectMake(0,alertViewHeight,alertIconWidth,alertIconWidth);
             smallView.centerX = self.alertView.width/2;
             smallView.backgroundColor = [UIColor clearColor];
-            smallView.contentMode =  UIViewContentModeScaleAspectFill;
+            smallView.contentMode =  UIViewContentModeScaleAspectFit;
             smallView.clipsToBounds = YES;
             [self loadImageWithImageView:smallView imageName:smallPic withComplete:^(BOOL isSuccess) {
                 tempView.hidden = isSuccess;
