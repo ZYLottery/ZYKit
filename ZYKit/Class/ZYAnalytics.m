@@ -211,6 +211,8 @@ static id sharedInstance = NULL;
     if ([name length]) {
         [parameter setObject:name forKey:@"access_page"];
     }else{
+        //找不到配置的对应页面，不统计
+        return;
         [parameter setObject:[NSString stringWithFormat:@"%@%@",tureName?:@"",pageMarker?[NSString stringWithFormat:@"-%@",pageMarker]:@""] forKey:@"access_page"];
     }
     name = [name stringByReplacingOccurrencesOfString:@"[" withString:@""];
