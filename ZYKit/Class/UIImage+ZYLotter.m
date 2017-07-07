@@ -21,18 +21,30 @@
  *  @return <#return value description#>
  */
 +(UIImage*)imageWithColor:(UIColor*)color{
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 1), NO, 0.0);
+    return [UIImage imageWithColor:color size:CGSizeMake(1, 1)];
+}
+
+
+/**
+ 按指定的大小颜色生成图片
+ 
+ @param color <#color description#>
+ @param size <#size description#>
+ @return <#return value description#>
+ */
++(UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width, size.height), NO, 0.0);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CALayer *layer = [[CALayer alloc] init];
-    layer.bounds = CGRectMake(0, 0, 1, 1);
+    layer.bounds = CGRectMake(0, 0, size.width, size.width);
     layer.backgroundColor=[color CGColor];
     [layer renderInContext:ctx];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
-+ (id)createRoundedRectImage:(UIImage*)image size:(CGSize)size radius:(NSInteger)r
-{
+
++ (id)createRoundedRectImage:(UIImage*)image size:(CGSize)size radius:(NSInteger)r{
     CGSize cornerRadii = CGSizeMake(r,r);
     CGFloat scale = [UIScreen mainScreen].scale;
     UIGraphicsBeginImageContextWithOptions(size, NO, scale);

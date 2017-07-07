@@ -18,6 +18,16 @@
  *  @return <#return value description#>
  */
 +(UIImage*)imageWithColor:(UIColor*)color;
+
+
+/**
+ 按指定的大小颜色生成图片
+ 
+ @param color <#color description#>
+ @param size <#size description#>
+ @return <#return value description#>
+ */
++(UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size;
 /**
  *  生成圆角图片
  *

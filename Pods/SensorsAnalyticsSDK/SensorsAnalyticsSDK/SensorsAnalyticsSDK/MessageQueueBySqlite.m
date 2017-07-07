@@ -62,14 +62,18 @@
         return;
     }
     NSData* jsonData = [_jsonUtil JSONSerializeObject:obj];
-    NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSString* query = @"INSERT INTO dataCache(type, content) values(?, ?)";
     sqlite3_stmt *insertStatement;
     int rc;
     rc = sqlite3_prepare_v2(_database, [query UTF8String],-1, &insertStatement, nil);
     if (rc == SQLITE_OK) {
         sqlite3_bind_text(insertStatement, 1, [type UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(insertStatement, 2, [jsonString UTF8String], -1, SQLITE_TRANSIENT);
+        @try {
+            sqlite3_bind_text(insertStatement, 2, [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] UTF8String], -1, SQLITE_TRANSIENT);
+        } @catch (NSException *exception) {
+            SAError(@"Found NON UTF8 String, ignore");
+            return;
+        }
         rc = sqlite3_step(insertStatement);
         if(rc != SQLITE_DONE) {
             SAError(@"insert into dataCache fail, rc is %d", rc);
@@ -98,12 +102,10 @@
     int rc = sqlite3_prepare_v2(_database, [query UTF8String], -1, &stmt, NULL);
     if(rc == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
-            char *ch = (char*)sqlite3_column_text(stmt, 0);
-            if (ch) {
-                NSString *content =[NSString stringWithUTF8String:ch];
-                if (content) {
-                    [contentArray addObject:content];
-                }
+            @try {
+                [contentArray addObject:[NSString stringWithUTF8String:(char*)sqlite3_column_text(stmt, 0)]];
+            } @catch (NSException *exception) {
+                SAError(@"Found NON UTF8 String, ignore");
             }
         }
         sqlite3_finalize(stmt);
@@ -154,7 +156,7 @@
 }
 
 - (BOOL) vacuum {
-#ifndef SENSORS_ANALYTICS_DISABLE_VACUUM
+#ifdef SENSORS_ANALYTICS_ENABLE_VACUUM
     @try {
         NSString* query = @"VACUUM";
         char* errMsg;
