@@ -84,6 +84,11 @@
  */
 @property(nonatomic,strong) NSString *app_client_id;
 
+/**
+ idfa
+ */
+@property(nonatomic,strong) NSString *idfa;
+
 
 /**
  generate client information

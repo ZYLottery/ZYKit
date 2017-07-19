@@ -46,6 +46,7 @@
     [clientInfo setSource:source];
     [clientInfo setMac:@"mac"];
     [clientInfo setApp_client_id:clientId];
+    [clientInfo setIdfa:clientId];
     return clientInfo;
 }
 
