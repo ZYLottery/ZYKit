@@ -95,7 +95,8 @@
     if (!self.running) {
         void (^executeBlock)(id, SEL) = ^(id view, SEL command) {
             NSArray *objects;
-            NSObject *root = [[UIApplication sharedApplication] keyWindow].rootViewController;
+            //NSObject *root = [[UIApplication sharedApplication] keyWindow].rootViewController;
+            NSObject *root = [[UIApplication sharedApplication].delegate window].rootViewController;
             if (view && [self.appliedTo containsObject:view]) {
                 if (![self.path fuzzyIsLeafSelected:view fromRoot:root]) {
                     [self stopOnView:view];
@@ -124,12 +125,12 @@
                         
                         if (verifyEvent != 0 && verifyEvent != self.controlEvent) {
                             [control addTarget:self
-                                        action:@selector(preVerify:forEvent:)
+                                        action:@selector(caojiangPreVerify:forEvent:)
                               forControlEvents:verifyEvent];
                         }
 
                         [control addTarget:self
-                                    action:@selector(eventAction:forEvent:)
+                                    action:@selector(caojiangEventAction:forEvent:)
                           forControlEvents:self.controlEvent];
                         [self.appliedTo addObject:control];
                     }
@@ -185,11 +186,11 @@
     
     if (verifyEvent != 0 && verifyEvent != self.controlEvent) {
         [control removeTarget:self
-                    action:@selector(preVerify:forEvent:)
+                    action:@selector(caojiangPreVerify:forEvent:)
           forControlEvents:verifyEvent];
     }
     [control removeTarget:self
-                action:@selector(eventAction:forEvent:)
+                action:@selector(caojiangEventAction:forEvent:)
       forControlEvents:self.controlEvent];
 }
 
@@ -217,7 +218,7 @@
     return [self.path isLeafSelected:control fromRoot:root];
 }
 
-- (void)preVerify:(id)sender forEvent:(UIEvent *)event {
+- (void)caojiangPreVerify:(id)sender forEvent:(UIEvent *)event {
     if ([self verifyControlMatchesPath:sender]) {
         [self.verified addObject:sender];
     } else {
@@ -225,7 +226,7 @@
     }
 }
 
-- (void)eventAction:(id)sender forEvent:(UIEvent *)event {
+- (void)caojiangEventAction:(id)sender forEvent:(UIEvent *)event {
     UIControlEvents verifyEvent = [self getPreVerifyEventForClass:sender
                                                   withVerifyEvent:self.verifyEvent
                                                   andControlEvent:self.controlEvent];

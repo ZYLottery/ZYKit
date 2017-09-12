@@ -11,6 +11,7 @@
 #import "JSONUtil.h"
 #import "MessageQueueBySqlite.h"
 #import "SALogger.h"
+#import "SensorsAnalyticsSDK.h"
 
 #define MAX_MESSAGE_SIZE 10000   // 最多缓存10000条
 
@@ -57,9 +58,16 @@
 }
 
 - (void)addObejct:(id)obj withType:(NSString *)type {
-    if (_messageCount >= MAX_MESSAGE_SIZE) {
-        SAError(@"touch MAX_MESSAGE_SIZE:%d, do not insert", MAX_MESSAGE_SIZE);
-        return;
+    NSUInteger maxCacheSize = [[SensorsAnalyticsSDK sharedInstance] getMaxCacheSize];
+    if (_messageCount >= maxCacheSize) {
+        SAError(@"touch MAX_MESSAGE_SIZE:%d, try to delete some old events", maxCacheSize);
+        BOOL ret = [self removeFirstRecords:100 withType:@"Post"];
+        if (ret) {
+            _messageCount = [self sqliteCount];
+        } else {
+            SAError(@"touch MAX_MESSAGE_SIZE:%d, try to delete some old events FAILED", maxCacheSize);
+            return;
+        }
     }
     NSData* jsonData = [_jsonUtil JSONSerializeObject:obj];
     NSString* query = @"INSERT INTO dataCache(type, content) values(?, ?)";
@@ -103,7 +111,17 @@
     if(rc == SQLITE_OK) {
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             @try {
-                [contentArray addObject:[NSString stringWithUTF8String:(char*)sqlite3_column_text(stmt, 0)]];
+                NSData *jsonData = [[NSString stringWithUTF8String:(char*)sqlite3_column_text(stmt, 0)] dataUsingEncoding:NSUTF8StringEncoding];
+                NSError *err;
+                NSMutableDictionary *eventDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                                 options:NSJSONReadingMutableContainers
+                                                                                   error:&err];
+                if (!err) {
+                    UInt64 time = [[NSDate date] timeIntervalSince1970] * 1000;
+                    [eventDict setValue:@(time) forKey:@"_flush_time"];
+                }
+
+                [contentArray addObject:[[NSString alloc] initWithData:[_jsonUtil JSONSerializeObject:eventDict] encoding:NSUTF8StringEncoding]];
             } @catch (NSException *exception) {
                 SAError(@"Found NON UTF8 String, ignore");
             }

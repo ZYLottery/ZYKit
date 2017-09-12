@@ -5,8 +5,10 @@
 //  Copyright (c) 2015年 SensorsData. All rights reserved.
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 #import <UIKit/UIApplication.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class SensorsAnalyticsPeople;
 
@@ -16,6 +18,45 @@
  */
 @interface SensorsAnalyticsDebugException : NSException
 
+@end
+
+@protocol SAUIViewAutoTrackDelegate
+
+//UITableView
+@optional
+-(NSDictionary *) sensorsAnalytics_tableView:(UITableView *)tableView autoTrackPropertiesAtIndexPath:(NSIndexPath *)indexPath;
+
+//UICollectionView
+@optional
+-(NSDictionary *) sensorsAnalytics_collectionView:(UICollectionView *)collectionView autoTrackPropertiesAtIndexPath:(NSIndexPath *)indexPath;
+
+//@optional
+//-(NSDictionary *) sensorsAnalytics_alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+//
+//@optional
+//-(NSDictionary *) sensorsAnalytics_actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+@end
+
+@interface UIImage (SensorsAnalytics)
+@property (assign,nonatomic) NSString* sensorsAnalyticsImageName;
+@end
+
+@interface UIView (SensorsAnalytics)
+- (nullable UIViewController *)viewController;
+
+//viewID
+@property (assign,nonatomic) NSString* sensorsAnalyticsViewID;
+
+//AutoTrack 时，是否忽略该 View
+@property (nonatomic,assign) BOOL sensorsAnalyticsIgnoreView;
+
+//AutoTrack 发生在 SendAction 之前还是之后，默认是 SendAction 之前
+@property (nonatomic,assign) BOOL sensorsAnalyticsAutoTrackAfterSendAction;
+
+//AutoTrack 时，View 的扩展属性
+@property (assign,nonatomic) NSDictionary* sensorsAnalyticsViewProperties;
+
+@property (nonatomic, weak, nullable) id sensorsAnalyticsDelegate;
 @end
 
 /**
@@ -41,7 +82,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsDebugMode) {
 /**
  * @abstract
  * TrackTimer 接口的时间单位。调用该接口时，传入时间单位，可以设置 event_duration 属性的时间单位。
- * 
+ *
  * @discuss
  * 时间单位有以下选项：
  *   SensorsAnalyticsTimeUnitMilliseconds - 毫秒
@@ -67,12 +108,33 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsTimeUnit) {
  *   SensorsAnalyticsEventTyppeAppClick - $AppClick
  *   SensorsAnalyticsEventTyppeAppViewScreen - $AppViewScreen
  */
-typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
+typedef NS_OPTIONS(NSInteger, SensorsAnalyticsAutoTrackEventType) {
     SensorsAnalyticsEventTypeNone      = 0,
     SensorsAnalyticsEventTypeAppStart      = 1 << 0,
     SensorsAnalyticsEventTypeAppEnd        = 1 << 1,
     SensorsAnalyticsEventTypeAppClick      = 1 << 2,
     SensorsAnalyticsEventTypeAppViewScreen = 1 << 3,
+};
+
+/**
+ * @abstract
+ * 网络类型
+ *
+ * @discussion
+ *   SensorsAnalyticsNetworkTypeNONE - NULL
+ *   SensorsAnalyticsNetworkType2G - 2G
+ *   SensorsAnalyticsNetworkType3G - 3G
+ *   SensorsAnalyticsNetworkType4G - 4G
+ *   SensorsAnalyticsNetworkTypeWIFI - WIFI
+ *   SensorsAnalyticsNetworkTypeALL - ALL
+ */
+typedef NS_OPTIONS(NSInteger, SensorsAnalyticsNetworkType) {
+    SensorsAnalyticsNetworkTypeNONE      = 0,
+    SensorsAnalyticsNetworkType2G       = 1 << 0,
+    SensorsAnalyticsNetworkType3G       = 1 << 1,
+    SensorsAnalyticsNetworkType4G       = 1 << 2,
+    SensorsAnalyticsNetworkTypeWIFI     = 1 << 3,
+    SensorsAnalyticsNetworkTypeALL      = 0xFF,
 };
 
 /**
@@ -146,7 +208,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
 
 /**
  * @proeprty
- * 
+ *
  * @abstract
  * 当App进入后台时，是否执行flush将数据发送到SensrosAnalytics
  *
@@ -157,7 +219,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
 
 /**
  * @property
- *  
+ *
  * @abstract
  * 两次数据发送的最小时间间隔，单位毫秒
  *
@@ -239,7 +301,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  */
 + (SensorsAnalyticsSDK *)sharedInstanceWithServerURL:(NSString *)serverURL
                                      andConfigureURL:(NSString *)configureURL
-                                  andVTrackServerURL:(NSString *)vtrackServerURL
+                                  andVTrackServerURL:(nullable NSString *)vtrackServerURL
                                         andDebugMode:(SensorsAnalyticsDebugMode)debugMode;
 
 /**
@@ -274,7 +336,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  *
  * @return YES:SDK已进行处理，NO:SDK没有进行处理
  */
-- (BOOL)showUpWebView:(id)webView WithRequest:(NSURLRequest *)request __attribute__((deprecated("已过时，请参考showUpWebView: WithRequest:andProperties")));
+- (BOOL)showUpWebView:(id)webView WithRequest:(NSURLRequest *)request;
 
 /**
  * @abstract
@@ -289,7 +351,31 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  *
  * @return YES:SDK已进行处理，NO:SDK没有进行处理
  */
-- (BOOL)showUpWebView:(id)webView WithRequest:(NSURLRequest *)request andProperties:(NSDictionary *)propertyDict;
+- (BOOL)showUpWebView:(id)webView WithRequest:(NSURLRequest *)request andProperties:(nullable NSDictionary *)propertyDict;
+
+/**
+ * @abstract
+ * 设置本地缓存最多事件条数
+ *
+ * @discussion
+ * 默认为 10000 条事件
+ *
+ * @param maxCacheSize 本地缓存最多事件条数
+ */
+- (void)setMaxCacheSize:(UInt64)maxCacheSize;
+
+- (UInt64)getMaxCacheSize;
+
+/**
+ * @abstract
+ * 设置 flush 时网络发送策略
+ *
+ * @discussion
+ * 默认 3G、4G、WI-FI 环境下都会尝试 flush
+ *
+ * @param networkType SensorsAnalyticsNetworkType
+ */
+- (void)setFlushNetworkPolicy:(SensorsAnalyticsNetworkType)networkType;
 
 /**
  * @abstract
@@ -324,14 +410,27 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @property
  *
  * @abstract
- * 打开 SDK 自动追踪
+ * 打开 SDK 自动追踪,默认只追踪App 启动 / 关闭、进入页面
  *
  * @discussion
  * 该功能自动追踪 App 的一些行为，例如 SDK 初始化、App 启动 / 关闭、进入页面 等等，具体信息请参考文档:
  *   https://sensorsdata.cn/manual/ios_sdk.html
  * 该功能默认关闭
  */
-- (void)enableAutoTrack;
+- (void)enableAutoTrack __attribute__((deprecated("已过时，请参考enableAutoTrack:(SensorsAnalyticsAutoTrackEventType)eventType")));
+
+/**
+ * @property
+ *
+ * @abstract
+ * 打开 SDK 自动追踪,默认只追踪App 启动 / 关闭、进入页面、元素点击
+ *
+ * @discussion
+ * 该功能自动追踪 App 的一些行为，例如 SDK 初始化、App 启动 / 关闭、进入页面 等等，具体信息请参考文档:
+ *   https://sensorsdata.cn/manual/ios_sdk.html
+ * 该功能默认关闭
+ */
+- (void)enableAutoTrack:(SensorsAnalyticsAutoTrackEventType)eventType;
 
 /**
  * @abstract
@@ -353,11 +452,49 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
 
 /**
  * @abstract
+ * 忽略某一类型的 View
+ *
+ * @param aClass View 对应的 Class
+ */
+- (void)ignoreViewType:(Class)aClass;
+
+/**
+ * @abstract
+ * 判断某个 View 类型是否被忽略
+ *
+ * @param aClass Class View 对应的 Class
+ *
+ * @return YES:被忽略; NO:没有被忽略
+ */
+- (BOOL)isViewTypeIgnored:(Class)aClass;
+
+/**
+ * @abstract
+ * 判断某个 ViewController 是否被忽略
+ *
+ * @param viewController UIViewController
+ *
+ * @return YES:被忽略; NO:没有被忽略
+ */
+- (BOOL)isViewControllerIgnored:(UIViewController*)viewController;
+
+/**
+ * @abstract
+ * 判断某个 ViewController 是否被忽略
+ *
+ * @param viewController UIViewController
+ *
+ * @return YES:被忽略; NO:没有被忽略
+ */
+- (BOOL)isViewControllerStringIgnored:(NSString*)viewController;
+
+/**
+ * @abstract
  * 过滤掉 AutoTrack 的某个事件类型
  *
  * @param eventType SensorsAnalyticsAutoTrackEventType 要忽略的 AutoTrack 事件类型
  */
-- (void)ignoreAutoTrackEventType:(SensorsAnalyticsAutoTrackEventType)eventType;
+- (void)ignoreAutoTrackEventType:(SensorsAnalyticsAutoTrackEventType)eventType __attribute__((deprecated("已过时，请参考enableAutoTrack:(SensorsAnalyticsAutoTrackEventType)eventType")));
 
 /**
  * @abstract
@@ -369,6 +506,8 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @param show             是否显示
  */
 - (void)showDebugInfoView:(BOOL)show;
+
+- (NSString *)getUIViewControllerTitle:(UIViewController *)controller;
 
 /**
  * @abstract
@@ -397,7 +536,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @param event             event的名称
  * @param propertyDict     event的属性
  */
-- (void)track:(NSString *)event withProperties:(NSDictionary *)propertyDict;
+- (void)track:(NSString *)event withProperties:(nullable NSDictionary *)propertyDict;
 
 /**
  * @abstract
@@ -426,6 +565,23 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
 
 /**
  * @abstract
+ * 初始化事件的计时器。
+ *
+ * @discussion
+ * 若需要统计某个事件的持续时间，先在事件开始时调用 trackTimer:"Event" 记录事件开始时间，该方法并不会真正发
+ * 送事件；随后在事件结束时，调用 track:"Event" withProperties:properties，SDK 会追踪 "Event" 事件，并自动将事件持续时
+ * 间记录在事件属性 "event_duration" 中。
+ *
+ * 默认时间单位为毫秒，若需要以其他时间单位统计时长，请使用 trackTimer:withTimeUnit
+ *
+ * 多次调用 trackTimer:"Event" 时，事件 "Event" 的开始时间以最后一次调用时为准。
+ *
+ * @param event             event的名称
+ */
+- (void)trackTimerBegin:(NSString *)event;
+
+/**
+ * @abstract
  * 初始化事件的计时器，允许用户指定计时单位。
  *
  * @discussion
@@ -435,6 +591,24 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @param timeUnit          计时单位，毫秒/秒/分钟/小时
  */
 - (void)trackTimer:(NSString *)event withTimeUnit:(SensorsAnalyticsTimeUnit)timeUnit;
+
+/**
+ * @abstract
+ * 初始化事件的计时器，允许用户指定计时单位。
+ *
+ * @discussion
+ * 请参考 trackTimer
+ *
+ * @param event             event的名称
+ * @param timeUnit          计时单位，毫秒/秒/分钟/小时
+ */
+- (void)trackTimerBegin:(NSString *)event withTimeUnit:(SensorsAnalyticsTimeUnit)timeUnit;
+
+- (void)trackTimerEnd:(NSString *)event withProperties:(nullable NSDictionary *)propertyDict;
+
+- (void)trackTimerEnd:(NSString *)event;
+
+- (UIViewController *_Nullable)currentViewController;
 
 /**
  * @abstract
@@ -452,7 +626,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @param newDistinctId     用户完成注册后生成的注册ID
  * @param propertyDict     event的属性
  */
-- (void)trackSignUp:(NSString *)newDistinctId withProperties:(NSDictionary *)propertyDict __attribute__((deprecated("已过时，请参考login")));
+- (void)trackSignUp:(NSString *)newDistinctId withProperties:(nullable NSDictionary *)propertyDict __attribute__((deprecated("已过时，请参考login")));
 
 /**
  * @abstract
@@ -474,13 +648,13 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * 其中的key是Property的名称，必须是<code>NSString</code>
  * value则是Property的内容，只支持 <code>NSString</code>,<code>NSNumber</code>,<code>NSSet</code>,<code>NSDate</code>这些类型
  * 特别的，<code>NSSet</code>类型的value中目前只支持其中的元素是<code>NSString</code>
- * 
+ *
  * 这个接口是一个较为复杂的功能，请在使用前先阅读相关说明: https://sensorsdata.cn/manual/track_installation.html，并在必要时联系我们的技术支持人员。
  *
  * @param event             event的名称
  * @param propertyDict     event的属性
  */
-- (void)trackInstallation:(NSString *)event withProperties:(NSDictionary *)propertyDict;
+- (void)trackInstallation:(NSString *)event withProperties:(nullable NSDictionary *)propertyDict;
 
 /**
  * @abstract
@@ -500,7 +674,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  *
  * @param controllers   controller‘字符串’数组
  */
-- (void)filterAutoTrackControllers:(NSArray *)controllers;
+- (void)ignoreAutoTrackViewControllers:(NSArray *)controllers;
 
 /**
  * @abstract
@@ -517,6 +691,8 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @return LastScreenTrackProperties
  */
 - (NSDictionary *)getLastScreenTrackProperties;
+
+- (void)addWebViewUserAgentSensorsDataFlag;
 
 /**
  * @abstract
@@ -581,33 +757,6 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  */
 - (void)flush;
 
-@end
-
-/**
- * @class
- * SensorsAnalyticsPeople类
- *
- * @abstract
- * 用于记录用户Profile的API
- *
- * @discussion
- * <b>请不要自己来初始化这个类.</b> 请通过<code>SensorsAnalyticsSDK</code>提供的<code>people</code>这个property来调用
- */
-@interface SensorsAnalyticsPeople : NSObject
-
-/**
- * @abstract
- * 完成<code>SensorsAnalyticsPeople</code>的初始化
- *
- * @discussion
- * 一般情况下，请不要直接初始化<code>SensorsAnalyticsPeople</code>，而是通过<code>SensorsAnalyticsSDK</code>的property来调用
- *
- * @param sdk 传入的<code>SensorsAnalyticsSDK</code>对象
- *
- * @return 初始化后的结果
- */
-- (id)initWithSDK:(SensorsAnalyticsSDK *)sdk;
-
 /**
  * @abstract
  * 直接设置用户的一个或者几个Profiles
@@ -615,7 +764,7 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
  * @discussion
  * 这些Profile的内容用一个<code>NSDictionary</code>来存储
  * 其中的key是Profile的名称，必须是<code>NSString</code>
- * Valie则是Profile的内容，只支持 <code>NSString</code>,<code>NSNumber</code>,<code>NSSet</code>,
+ * Value则是Profile的内容，只支持 <code>NSString</code>,<code>NSNumber</code>,<code>NSSet</code>,
  *                              <code>NSDate</code>这些类型
  * 特别的，<code>NSSet</code>类型的value中目前只支持其中的元素是<code>NSString</code>
  * 如果某个Profile之前已经存在了，则这次会被覆盖掉；不存在，则会创建
@@ -715,3 +864,138 @@ typedef NS_ENUM(NSInteger, SensorsAnalyticsAutoTrackEventType) {
 - (void)deleteUser;
 
 @end
+
+/**
+ * @class
+ * SensorsAnalyticsPeople类
+ *
+ * @abstract
+ * 用于记录用户Profile的API
+ *
+ * @discussion
+ * <b>请不要自己来初始化这个类.</b> 请通过<code>SensorsAnalyticsSDK</code>提供的<code>people</code>这个property来调用
+ */
+@interface SensorsAnalyticsPeople : NSObject
+
+/**
+ * @abstract
+ * 完成<code>SensorsAnalyticsPeople</code>的初始化
+ *
+ * @discussion
+ * 一般情况下，请不要直接初始化<code>SensorsAnalyticsPeople</code>，而是通过<code>SensorsAnalyticsSDK</code>的property来调用
+ *
+ * @param sdk 传入的<code>SensorsAnalyticsSDK</code>对象
+ *
+ * @return 初始化后的结果
+ */
+- (id)initWithSDK:(SensorsAnalyticsSDK *)sdk;
+
+/**
+ * @abstract
+ * 直接设置用户的一个或者几个Profiles
+ *
+ * @discussion
+ * 这些Profile的内容用一个<code>NSDictionary</code>来存储
+ * 其中的key是Profile的名称，必须是<code>NSString</code>
+ * Value则是Profile的内容，只支持 <code>NSString</code>,<code>NSNumber</code>,<code>NSSet</code>,
+ *                              <code>NSDate</code>这些类型
+ * 特别的，<code>NSSet</code>类型的value中目前只支持其中的元素是<code>NSString</code>
+ * 如果某个Profile之前已经存在了，则这次会被覆盖掉；不存在，则会创建
+ *
+ * @param profileDict 要替换的那些Profile的内容
+ */
+- (void)set:(NSDictionary *)profileDict;
+
+/**
+ * @abstract
+ * 首次设置用户的一个或者几个Profiles
+ *
+ * @discussion
+ * 与set接口不同的是，如果该用户的某个Profile之前已经存在了，会被忽略；不存在，则会创建
+ *
+ * @param profileDict 要替换的那些Profile的内容
+ */
+- (void)setOnce:(NSDictionary *)profileDict;
+
+/**
+ * @abstract
+ * 设置用户的单个Profile的内容
+ *
+ * @discussion
+ * 如果这个Profile之前已经存在了，则这次会被覆盖掉；不存在，则会创建
+ *
+ * @param profile Profile的名称
+ * @param content Profile的内容
+ */
+- (void)set:(NSString *) profile to:(id)content;
+
+/**
+ * @abstract
+ * 首次设置用户的单个Profile的内容
+ *
+ * @discussion
+ * 与set类接口不同的是，如果这个Profile之前已经存在了，则这次会被忽略；不存在，则会创建
+ *
+ * @param profile Profile的名称
+ * @param content Profile的内容
+ */
+- (void)setOnce:(NSString *) profile to:(id)content;
+
+/**
+ * @abstract
+ * 删除某个Profile的全部内容
+ *
+ * @discussion
+ * 如果这个Profile之前不存在，则直接忽略
+ *
+ * @param profile Profile的名称
+ */
+- (void)unset:(NSString *) profile;
+
+/**
+ * @abstract
+ * 给一个数值类型的Profile增加一个数值
+ *
+ * @discussion
+ * 只能对<code>NSNumber</code>类型的Profile调用这个接口，否则会被忽略
+ * 如果这个Profile之前不存在，则初始值当做0来处理
+ *
+ * @param profile  待增加数值的Profile的名称
+ * @param amount   要增加的数值
+ */
+- (void)increment:(NSString *)profile by:(NSNumber *)amount;
+
+/**
+ * @abstract
+ * 给多个数值类型的Profile增加数值
+ *
+ * @discussion
+ * profileDict中，key是<code>NSString</code>，value是<code>NSNumber</code>
+ * 其它与-(void)increment:by:相同
+ *
+ * @param profileDict 多个
+ */
+- (void)increment:(NSDictionary *)profileDict;
+
+/**
+ * @abstract
+ * 向一个<code>NSSet</code>类型的value添加一些值
+ *
+ * @discussion
+ * 如前面所述，这个<code>NSSet</code>的元素必须是<code>NSString</code>，否则，会忽略
+ * 同时，如果要append的Profile之前不存在，会初始化一个空的<code>NSSet</code>
+ *
+ * @param profile profile
+ * @param content description
+ */
+- (void)append:(NSString *)profile by:(NSSet *)content;
+
+/**
+ * @abstract
+ * 删除当前这个用户的所有记录
+ */
+- (void)deleteUser;
+
+@end
+
+NS_ASSUME_NONNULL_END
