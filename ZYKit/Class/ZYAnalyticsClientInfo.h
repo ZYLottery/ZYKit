@@ -89,6 +89,10 @@
  */
 @property(nonatomic,strong) NSString *idfa;
 
+/**
+ app环境qa,dev,release
+ */
+@property(nonatomic,strong) NSString *environment;
 
 /**
  generate client information
