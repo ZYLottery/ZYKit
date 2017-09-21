@@ -95,11 +95,12 @@ typedef enum : NSUInteger {
  @param matchId 赛事id
  @param frontPageName 当前界面名
  @param nextPagename 下一界面名
+ @param userOpenId 用户id
  */
 -(void)enterPageFromEvent:(NSString*)matchId
             frontPageName:(NSString*)frontPageName
-             nextPageName:(NSString*)nextPagename;
-
+             nextPageName:(NSString*)nextPagename
+               userOpenId:(NSString*)userOpenId;
 
 
 /**
@@ -108,10 +109,12 @@ typedef enum : NSUInteger {
  @param pageMarker 页面类名如IndexViewController
  @param tureName 页面真实名如 首页
  @param type 进入还是离开
+ @param userOpenId 用户id
  */
 -(void)defaultEnterWithPageMarker:(NSString*)pageMarker
                          tureName:(NSString*)tureName
-                             type:(PageEventType)type;
+                             type:(PageEventType)type
+                       userOpenId:(NSString*)userOpenId;
 
 /**
  10002-普通点击事件埋点

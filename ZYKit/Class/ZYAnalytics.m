@@ -151,13 +151,16 @@ static id sharedInstance = NULL;
  @param matchId 赛事id
  @param frontPageName 当前界面名
  @param nextPagename 下一界面名
+ @param userOpenId 用户id
  */
 -(void)enterPageFromEvent:(NSString*)matchId
             frontPageName:(NSString*)frontPageName
-             nextPageName:(NSString*)nextPagename{
+             nextPageName:(NSString*)nextPagename
+               userOpenId:(NSString*)userOpenId{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
     if ([matchId length] && [frontPageName length] && [nextPagename length]) {
         NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
+        [prop setValue:userOpenId forKey:@"user_open_id"];
         NSArray *extends = @[@{@"name":@"match_id",@"value":matchId},@{@"name":@"src_page",@"value":frontPageName},@{@"name":@"dst_page",@"value":nextPagename}];
         [prop setObject:extends.mj_JSONString forKey:@"common_params"];
         
@@ -169,14 +172,17 @@ static id sharedInstance = NULL;
 
 /**
  页面访问退出事件
-
+ 
  @param pageMarker 页面类名如IndexViewController
  @param tureName 页面真实名如 首页
  @param type 进入还是离开
+ @param userOpenId 用户id
  */
 -(void)defaultEnterWithPageMarker:(NSString*)pageMarker
                          tureName:(NSString*)tureName
-                             type:(PageEventType)type{
+                             type:(PageEventType)type
+                       userOpenId:(NSString*)userOpenId{
+    
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
     
     NSString *(^eventEqualTrue)(NSDictionary*,NSString*,NSString*) = ^(NSDictionary *prop,NSString *pageMarker,NSString *trueName){
@@ -203,6 +209,7 @@ static id sharedInstance = NULL;
     // 3.如果plist有对应key(类名)  并且对应值没有[*****]可选字符串  格式为 : plist对应值 去除"[]" ps 资讯模块-章鱼爆料-[足球&&篮球]  最后为:资讯模块-章鱼爆料-足球
     // 4.如果plist没有对应key(类名)  就是  trueName - 类名
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
+    [parameter setValue:userOpenId forKey:@"user_open_id"];
     NSDictionary *trueNameKeyValues = [NSDictionary dictionary];
     if ([_delegate respondsToSelector:@selector(controllerTrueNameKeyValues)]) {
         trueNameKeyValues = [_delegate controllerTrueNameKeyValues];
