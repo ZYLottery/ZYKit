@@ -43,6 +43,7 @@ static id sharedInstance = NULL;
     [SensorsAnalyticsSDK sharedInstanceWithServerURL:serverUrl
                                      andConfigureURL:configureUrl
                                         andDebugMode:debugMode];
+    [[SensorsAnalyticsSDK sharedInstance] identify:clientInfo.app_client_id];
     [[ZYAnalytics sharedInstance] setClientInfo:[clientInfo mj_keyValues]];
     
     // 追踪 "App 启动" 事件
