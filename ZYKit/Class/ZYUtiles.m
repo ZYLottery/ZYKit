@@ -17,24 +17,22 @@
  获取sdwebImage缓存  如果没有下载图片
  */
 +(void)loadImageWithUrl:(NSString *)picUrl finishBlock:(ZYGetSDWebCacheWithFinishedBlock)finishBlock{
-    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:[NSURL URLWithString:picUrl]]) {
-        UIImage * image =  [[SDWebImageManager sharedManager].imageCache imageFromDiskCacheForKey:[[SDWebImageManager sharedManager] cacheKeyForURL:[NSURL URLWithString:picUrl]]];
-        finishBlock(image);
-        
-    }else{
-        
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:picUrl] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-           
-            if (finished&&image) {
-                [[SDWebImageManager sharedManager] saveImageToCache:image forURL:imageURL];
-               
-            }
+    [[SDWebImageManager sharedManager] diskImageExistsForURL:[NSURL URLWithString:picUrl] completion:^(BOOL isInCache) {
+        if(isInCache){
+            UIImage * image =  [[SDWebImageManager sharedManager].imageCache imageFromDiskCacheForKey:[[SDWebImageManager sharedManager] cacheKeyForURL:[NSURL URLWithString:picUrl]]];
             finishBlock(image);
-            
-        }];
-    }
+        }else{
+            [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:picUrl] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                
+            } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                if (finished&&image) {
+                    [[SDWebImageManager sharedManager] saveImageToCache:image forURL:imageURL];
+                    
+                }
+                finishBlock(image);
+            }];
+        }
+    }];
 }
 
 /**
