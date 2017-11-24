@@ -105,37 +105,70 @@ static char emptyViewKey;
     
     UIImageView *iconImageView = [[UIImageView alloc] initWithImage:loginOrEmpty?[UIImage imageNamed:@"user_nologin"]:[UIImage imageNamed:@"nodatas_Img"]];
     [emptyView addSubview:iconImageView];
-    [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(72) ;
-        make.height.mas_equalTo(61);
-        make.centerY.mas_equalTo(-80);
-        make.centerX.mas_equalTo(0);
-    }];
     
-    UILabel *textLabel = [[UILabel alloc] init];
-    [textLabel setTextColor:[UIColor colorWithHex:0x999999]];
-    [textLabel setFont:[UIFont systemFontOfSize:14]];
-    [textLabel setTextAlignment:NSTextAlignmentCenter];
-    [textLabel setText:text];
-    [emptyView addSubview:textLabel];
-    [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(0);
-        make.top.equalTo(iconImageView.mas_bottom).with.offset(15);
+    if (loginOrEmpty) {
+        [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(155) ;
+            make.height.mas_equalTo(195.0/2);
+            make.centerY.mas_equalTo(-125.0/2);
+            make.centerX.mas_equalTo(0);
+        }];
+    }else{
+        [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(72) ;
+            make.height.mas_equalTo(61);
+            make.centerY.mas_equalTo(-80);
+            make.centerX.mas_equalTo(0);
+        }];
+    }
+    
+    UIView * topView = iconImageView;
+    if (text) {
+        UILabel *textLabel = [[UILabel alloc] init];
+        [textLabel setTextColor:[UIColor colorWithHex:0x999999]];
+        [textLabel setFont:[UIFont systemFontOfSize:14]];
+        [textLabel setTextAlignment:NSTextAlignmentCenter];
+        [textLabel setText:text];
+        [emptyView addSubview:textLabel];
+        [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(0);
+            make.top.equalTo(iconImageView.mas_bottom).with.offset(15);
+            
+        }];
+        topView = textLabel;
+    }
+    
+    if (loginOrEmpty) {
         
-    }];
+        __block UIButton *login = [UIButton zy_buttonWithTitle:loginOrEmpty?@"登录/注册":buttonTitle font:[UIFont systemFontOfSize:16] titleColor:[UIColor whiteColor] withBlock:^(id sender) {
+            completeBlock();
+        }];
+        
+        [login setCornerRadius:20];
+        login.backgroundColor = [UIColor colorWithHex:0xff4a1b];
+        [emptyView addSubview:login];
+        [login mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(40);
+            make.top.equalTo(topView.mas_bottom).with.offset(15);
+            make.centerX.mas_equalTo(0);
+        }];
+        
+    }else{
+        __block UIButton *login = [UIButton zy_buttonWithTitle:loginOrEmpty?@"登录/注册":buttonTitle font:[UIFont systemFontOfSize:12] titleColor:[UIColor whiteColor] withBlock:^(id sender) {
+            completeBlock();
+        }];
+        
+        [login setCornerRadius:5];
+        login.backgroundColor = [ZYMainTheme mainColor];
+        [emptyView addSubview:login];
+        [login mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(100);
+            make.height.mas_equalTo(30);
+            make.top.equalTo(topView.mas_bottom).with.offset(15);
+            make.centerX.mas_equalTo(0);
+        }];
+    }
     
-    __block UIButton *login = [UIButton zy_buttonWithTitle:loginOrEmpty?@"登录/注册":buttonTitle font:[UIFont systemFontOfSize:12] titleColor:[UIColor whiteColor] withBlock:^(id sender) {
-        completeBlock();
-    }];
-    
-    [login setCornerRadius:5];
-    login.backgroundColor = [ZYMainTheme mainColor];
-    [emptyView addSubview:login];
-    [login mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(30);
-        make.top.equalTo(textLabel.mas_bottom).with.offset(15);
-        make.centerX.mas_equalTo(0);
-    }];
 }
 @end
