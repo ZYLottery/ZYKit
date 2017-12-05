@@ -17,6 +17,7 @@
  获取sdwebImage缓存  如果没有下载图片
  */
 +(void)loadImageWithUrl:(NSString *)picUrl finishBlock:(ZYGetSDWebCacheWithFinishedBlock)finishBlock{
+    
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     NSString* key = [manager cacheKeyForURL:[NSURL URLWithString:picUrl]];
     SDImageCache* cache = [SDImageCache sharedImageCache];
