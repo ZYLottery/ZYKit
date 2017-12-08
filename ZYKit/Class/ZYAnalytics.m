@@ -251,6 +251,7 @@ static id sharedInstance = NULL;
     NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:name forKey:@"button_name"];
+    [prop setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10002"
                                  withProperties:prop];
 }
@@ -269,6 +270,7 @@ static id sharedInstance = NULL;
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:name forKey:@"button_name"];
     [prop setValue:itemId forKey:@"itemId"];
+    [prop setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10002"
                                  withProperties:prop];
 }

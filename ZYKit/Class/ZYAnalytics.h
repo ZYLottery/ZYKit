@@ -19,9 +19,9 @@ typedef enum : NSUInteger {
 @protocol ZYAnalyticsDelegate <NSObject>
 @required;
 -(NSDictionary*)controllerTrueNameKeyValues;
-
 @end
 @interface ZYAnalytics : NSObject
+@property(nonatomic,strong)NSString *environment;
 
 @property(nonatomic,assign) id<ZYAnalyticsDelegate> delegate;
 + (ZYAnalytics *)sharedInstance;
