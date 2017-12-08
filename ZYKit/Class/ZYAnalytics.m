@@ -255,6 +255,23 @@ static id sharedInstance = NULL;
                                  withProperties:prop];
 }
 
+/**
+ 10002-普通点击事件埋点
+
+ @param name 事件名称
+ @param userOpenId <#userOpenId description#>
+ @param itemId 定义详见：600204-天天竞猜-(iap)可兑换鱼丸列表
+ */
+-(void)clickEvent:(NSString*)name
+       userOpenId:(NSString*)userOpenId itemId:(NSString *)itemId{
+    NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
+    NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
+    [prop setValue:userOpenId forKey:@"user_open_id"];
+    [prop setValue:name forKey:@"button_name"];
+    [prop setValue:itemId forKey:@"itemId"];
+    [[SensorsAnalyticsSDK sharedInstance] track:@"sa10002"
+                                 withProperties:prop];
+}
 
 /**
  弹窗展示事件

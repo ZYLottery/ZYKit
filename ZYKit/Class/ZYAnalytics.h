@@ -125,6 +125,15 @@ typedef enum : NSUInteger {
 -(void)clickEvent:(NSString*)name
        userOpenId:(NSString*)userOpenId;
 
+/**
+ 10002-普通点击事件埋点
+ 
+ @param name 事件名称
+ @param userOpenId <#userOpenId description#>
+ @param itemId 定义详见：600204-天天竞猜-(iap)可兑换鱼丸列表
+ */
+-(void)clickEvent:(NSString*)name
+       userOpenId:(NSString*)userOpenId itemId:(NSString *)itemId;
 
 /**
  弹窗展示事件
