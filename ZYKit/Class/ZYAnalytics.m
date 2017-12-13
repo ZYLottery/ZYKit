@@ -110,6 +110,7 @@ static id sharedInstance = NULL;
     NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:matchId forKey:@"match_id"];
+    [prop setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10003"
                                  withProperties:prop];
 }
@@ -126,6 +127,7 @@ static id sharedInstance = NULL;
     NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:pageName forKey:@"access_page"];
+    [prop setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10004"
                                  withProperties:prop];
 }
@@ -143,6 +145,7 @@ static id sharedInstance = NULL;
     NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:pageName forKey:@"access_page"];
+    [prop setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10005"
                                  withProperties:prop];
 }
@@ -165,7 +168,7 @@ static id sharedInstance = NULL;
         [prop setValue:userOpenId forKey:@"user_open_id"];
         NSArray *extends = @[@{@"name":@"match_id",@"value":matchId},@{@"name":@"src_page",@"value":frontPageName},@{@"name":@"dst_page",@"value":nextPagename}];
         [prop setObject:extends.mj_JSONString forKey:@"common_params"];
-        
+        [prop setValue:self.environment forKey:@"environment"];
         [[SensorsAnalyticsSDK sharedInstance] track:@"sa10006" withProperties:prop];
     }else{
         DLog(@"sensors analytics params not all");
@@ -233,6 +236,7 @@ static id sharedInstance = NULL;
         envent = @"sa10005";
     }
     NSLog(@"access_page:%@",parameter);
+    [parameter setValue:self.environment forKey:@"environment"];
     [[SensorsAnalyticsSDK sharedInstance] track:envent
                                  withProperties:parameter];
 }
