@@ -9,7 +9,7 @@
 #import "ZYAnalyticsClientInfo.h"
 #import <UIKit/UIKit.h>
 #import "sys/utsname.h"
-
+#import "ZYAnalytics.h"
 @implementation ZYAnalyticsClientInfo
 
 /**
