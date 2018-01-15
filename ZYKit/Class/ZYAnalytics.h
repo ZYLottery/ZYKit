@@ -142,11 +142,13 @@ typedef enum : NSUInteger {
  @param popWindowId 弹窗ID
  @param popWindowType 弹窗类型
  @param popWindowContentType 弹窗内容类型，0-业务成功弹窗 1-业务失败弹窗
+ @param popWindowName 弹窗名字 两者至少存在一个 本地逻辑触发的弹窗时有效
  */
 -(void)alertEventWithUserOpenId:(NSString*)userOpenId
                     popWindowId:(NSString*)popWindowId
                   popWindowType:(NSString*)popWindowType
-           popWindowContentType:(NSString*)popWindowContentType;
+           popWindowContentType:(NSString*)popWindowContentType
+                  popWindowName:(NSString*)popWindowName;
 
 
 /**

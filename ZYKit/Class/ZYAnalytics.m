@@ -274,21 +274,24 @@ static id sharedInstance = NULL;
 
 /**
  弹窗展示事件
-
+ 
  @param userOpenId 用户openId
  @param popWindowId 弹窗ID
  @param popWindowType 弹窗类型
  @param popWindowContentType 弹窗内容类型，0-业务成功弹窗 1-业务失败弹窗
+ @param popWindowName 弹窗名字 两者至少存在一个 本地逻辑触发的弹窗时有效
  */
 -(void)alertEventWithUserOpenId:(NSString*)userOpenId
                     popWindowId:(NSString*)popWindowId
                   popWindowType:(NSString*)popWindowType
-           popWindowContentType:(NSString*)popWindowContentType{
+           popWindowContentType:(NSString*)popWindowContentType
+                  popWindowName:(NSString*)popWindowName{
     NSAssert(_clientInfo, @"ZYAnalytics:client info not nil");
     NSMutableDictionary *prop = [NSMutableDictionary dictionaryWithDictionary:_clientInfo];
     [prop setValue:userOpenId forKey:@"user_open_id"];
     [prop setValue:popWindowId forKey:@"pop_window_id"];
     [prop setValue:popWindowType forKey:@"pop_window_type"];
+    [prop setValue:popWindowName forKey:@"pop_window_name"];
     [prop setValue:popWindowContentType forKey:@"pop_window_content_type"];
     [[SensorsAnalyticsSDK sharedInstance] track:@"sa10007"
                                  withProperties:prop];
