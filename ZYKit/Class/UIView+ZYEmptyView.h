@@ -30,7 +30,7 @@
  *
  *  @param handleBlock <#handleBlock description#>
  */
--(void)emptyViewHandle:(void (^)())handleBlock;
+-(void)emptyViewHandle:(void (^)(void))handleBlock;
 
 /**
  显示没登录或者
@@ -40,6 +40,6 @@
  @param loginOrEmpty loginOrEmpty 如果为登录则为YES，如果是空视图则为NO
  @param completeBlock <#completeBlock description#>
  */
--(void)showTempViewWithText:(NSString*)text  withButtonTitle:(NSString*)buttonTitle  loginOrEmpty:(BOOL)loginOrEmpty buttonTitleWithBlock:(void (^)())completeBlock;
+-(void)showTempViewWithText:(NSString*)text  withButtonTitle:(NSString*)buttonTitle  loginOrEmpty:(BOOL)loginOrEmpty buttonTitleWithBlock:(void (^)(void))completeBlock;
 
 @end

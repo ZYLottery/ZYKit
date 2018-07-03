@@ -30,9 +30,8 @@ static char emptyViewKey;
     [emptyView setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:emptyView];
     UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_empty_icon"]];
-    [iconImageView setCenter:CGPointMake(emptyView.width/2, emptyView.height/2-iconImageView.height/2)];
     [emptyView addSubview:iconImageView];
-    
+    [iconImageView setCenter:CGPointMake(emptyView.width/2, emptyView.height/2-15-14)];
     
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, iconImageView.bottom+15, emptyView.width, 14)];
     [textLabel setTextColor:[UIColor colorWithHex:0x333333]];
@@ -51,6 +50,8 @@ static char emptyViewKey;
             block();
         }
     }];
+    
+    [self layoutIfNeeded];
 }
 /**
  *  隐藏空view
@@ -76,7 +77,7 @@ static char emptyViewKey;
  *
  *  @param handleBlock <#handleBlock description#>
  */
--(void)emptyViewHandle:(void (^)())handleBlock{
+-(void)emptyViewHandle:(void (^)(void))handleBlock{
     objc_setAssociatedObject(self, &emptyViewKey, handleBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 /**
@@ -90,13 +91,13 @@ static char emptyViewKey;
 
 /**
  显示没登录或者
-
+ 
  @param text <#text description#>
  @param buttonTitle <#buttonTitle description#>
  @param loginOrEmpty loginOrEmpty 如果为登录则为YES，如果是空视图则为NO
  @param completeBlock <#completeBlock description#>
  */
--(void)showTempViewWithText:(NSString*)text  withButtonTitle:(NSString*)buttonTitle  loginOrEmpty:(BOOL)loginOrEmpty buttonTitleWithBlock:(void (^)())completeBlock{
+-(void)showTempViewWithText:(NSString*)text  withButtonTitle:(NSString*)buttonTitle  loginOrEmpty:(BOOL)loginOrEmpty buttonTitleWithBlock:(void (^)(void))completeBlock{
     [self hiddenEmptyView];
     UIView *emptyView = [[UIView alloc] initWithFrame:self.bounds];
     [emptyView setTag:5463156];
@@ -169,6 +170,6 @@ static char emptyViewKey;
             make.centerX.mas_equalTo(0);
         }];
     }
-    
 }
+
 @end
