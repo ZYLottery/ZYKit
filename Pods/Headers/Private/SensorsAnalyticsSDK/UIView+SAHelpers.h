@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/UIView+SAHelpers.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/UIView+SAHelpers.h

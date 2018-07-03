@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAAbstractDesignerMessage.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAAbstractDesignerMessage.h

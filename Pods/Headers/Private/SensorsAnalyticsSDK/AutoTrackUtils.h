@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/AutoTrackUtils.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/AutoTrackUtils.h

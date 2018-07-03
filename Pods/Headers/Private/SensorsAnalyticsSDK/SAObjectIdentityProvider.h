@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectIdentityProvider.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectIdentityProvider.h

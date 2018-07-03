@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/MessageQueueBySqlite.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/MessageQueueBySqlite.h

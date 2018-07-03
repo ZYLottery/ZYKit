@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSString+HashCode.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSString+HashCode.h

@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SASwizzler.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SASwizzler.h

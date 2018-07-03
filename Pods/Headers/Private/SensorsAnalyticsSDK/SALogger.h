@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SALogger.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SALogger.h

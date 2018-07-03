@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectSelector.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectSelector.h

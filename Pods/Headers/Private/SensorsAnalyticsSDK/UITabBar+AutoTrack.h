@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/UITabBar+AutoTrack.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/UITabBar+AutoTrack.h

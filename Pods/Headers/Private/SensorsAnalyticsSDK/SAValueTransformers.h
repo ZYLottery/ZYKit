@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAValueTransformers.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAValueTransformers.h

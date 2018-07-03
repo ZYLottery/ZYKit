@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectSerializer.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SAObjectSerializer.h

@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/UIActionSheet+AutoTrack.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/UIActionSheet+AutoTrack.h

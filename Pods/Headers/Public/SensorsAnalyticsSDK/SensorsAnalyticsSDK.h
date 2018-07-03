@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK.h

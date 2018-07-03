@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SATypeDescription.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SATypeDescription.h

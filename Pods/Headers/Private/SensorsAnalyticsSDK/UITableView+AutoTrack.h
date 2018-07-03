@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/UITableView+AutoTrack.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/UITableView+AutoTrack.h

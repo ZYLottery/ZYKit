@@ -1,1 +1,1 @@
-../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSInvocation+SAHelpers.h
+../../../SensorsAnalyticsSDK/SensorsAnalyticsSDK/NSInvocation+SAHelpers.h
