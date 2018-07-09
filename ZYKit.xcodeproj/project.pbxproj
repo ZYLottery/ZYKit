@@ -35,6 +35,7 @@
 		B6B86EFE1DDD944B003D8C3C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B86EFD1DDD944B003D8C3C /* AdSupport.framework */; };
 		B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */; };
 		B6BE09FF1DE4167C0046DE6B /* UIView+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */; };
+		B6E53B2220F32AB5009EB1D8 /* ZYUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E53B2120F32AB5009EB1D8 /* ZYUserAgent.m */; };
 		B6E5F3861EB9740F005DECD5 /* ZYAnalyticsClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E5F3851EB9740F005DECD5 /* ZYAnalyticsClientInfo.m */; };
 		B6EEDE5A1DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EEDE591DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m */; };
 		E27D929D4E48FB022B63E49B /* libPods-ZYKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE72A37998AAC9E9EA6FF5 /* libPods-ZYKit.a */; };
@@ -97,6 +98,8 @@
 		B6BE09FB1DE415D40046DE6B /* UIViewController+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZYLotter.m"; sourceTree = "<group>"; };
 		B6BE09FD1DE4167C0046DE6B /* UIView+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYLotter.h"; sourceTree = "<group>"; };
 		B6BE09FE1DE4167C0046DE6B /* UIView+ZYLotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYLotter.m"; sourceTree = "<group>"; };
+		B6E53B2020F32AB5009EB1D8 /* ZYUserAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYUserAgent.h; sourceTree = "<group>"; };
+		B6E53B2120F32AB5009EB1D8 /* ZYUserAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYUserAgent.m; sourceTree = "<group>"; };
 		B6E5F3841EB9740F005DECD5 /* ZYAnalyticsClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYAnalyticsClientInfo.h; sourceTree = "<group>"; };
 		B6E5F3851EB9740F005DECD5 /* ZYAnalyticsClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYAnalyticsClientInfo.m; sourceTree = "<group>"; };
 		B6EEDE581DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+ZYLotter.h"; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				B6B86EFB1DDD936A003D8C3C /* ZYClientInfo.m */,
 				B67F11E11E5695A20021181A /* ZYUtiles.h */,
 				B67F11E21E5695A20021181A /* ZYUtiles.m */,
+				B6E53B2020F32AB5009EB1D8 /* ZYUserAgent.h */,
+				B6E53B2120F32AB5009EB1D8 /* ZYUserAgent.m */,
 			);
 			name = Coomon;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				B62781771DD9C13300B3F901 /* ViewController.m in Sources */,
 				B66F22C21DDB193B00021305 /* UIImage+ZYLotter.m in Sources */,
 				B6B86EFC1DDD936A003D8C3C /* ZYClientInfo.m in Sources */,
+				B6E53B2220F32AB5009EB1D8 /* ZYUserAgent.m in Sources */,
 				B66F22C31DDB193B00021305 /* UIImageView+ZYLotter.m in Sources */,
 				B6EEDE5A1DE57D2200CB5FA0 /* UINavigationBar+ZYLotter.m in Sources */,
 				B6BE09FC1DE415D40046DE6B /* UIViewController+ZYLotter.m in Sources */,
