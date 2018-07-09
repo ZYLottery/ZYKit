@@ -30,5 +30,6 @@
 #import "ZYUtiles.h"
 #import "ZYAlertHub.h"
 #import "ZYAnalyticsClientInfo.h"
+#import "ZYUserAgent.h"
 
 #endif /* ZYKit_h */
