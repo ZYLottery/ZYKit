@@ -14,7 +14,5 @@ target "ZYKit" do
     pod 'SensorsAnalyticsSDK', :subspecs => ['IDFA']
     pod 'MJExtension'
     pod 'SimulateIDFA'
-    pod 'AFNetworking'
-    pod 'Aspects'
 
 end
